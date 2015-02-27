@@ -6,10 +6,12 @@ typedef NS_ENUM(NSInteger, MOSOPCode) {
     
     MOSOPCodeClearDecimalMode = 0xD8,
     
-    MOSOPCodeJump = 0x4C
+    MOSOPCodeJump = 0x4C,
+    MOSOPCodeBranchOnCarryClear = 0x90,
 };
 
 typedef uint16_t MOSAddress;
+typedef int8_t MOSRelativeAddress;
 typedef uint8_t MOSWord;
 
 MOSAddress MOSAddressMake(MOSWord high, MOSWord low);
@@ -24,6 +26,7 @@ MOSAddress MOSAddressMake(MOSWord high, MOSWord low);
 
 @property(nonatomic) MOSOPCode opcode;
 @property(nonatomic) MOSAddress address;
+@property(nonatomic) MOSRelativeAddress relativeAddress;
 
 @end
 

@@ -32,7 +32,10 @@ MOSAddress MOSAddressMake(MOSWord high, MOSWord low) {
     
     switch (instruction.opcode) {
         case MOSOPCodeJump:
-            instruction.address = [self decodeJumpInstruction];
+            instruction.address = [self decodeAddress];
+            break;
+        case MOSOPCodeBranchOnCarryClear:
+            instruction.relativeAddress = [self decodeRelativeAddress];
             break;
         default:
             break;
@@ -41,7 +44,11 @@ MOSAddress MOSAddressMake(MOSWord high, MOSWord low) {
     return instruction;
 }
 
-- (MOSAddress)decodeJumpInstruction {
+- (MOSRelativeAddress)decodeRelativeAddress {
+    return (MOSRelativeAddress)[self.dataStream nextWord];
+}
+
+- (MOSAddress)decodeAddress {
     MOSWord addressLow = [self.dataStream nextWord];
     MOSWord addressHigh = [self.dataStream nextWord];
     

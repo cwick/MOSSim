@@ -61,10 +61,21 @@
 }
 
 - (void)testJump {
+    // [OPCODE, LOW ADDRESS, HIGH ADDRESS]
     self.dataStream.data = @[@0x4c, @0x34, @0x12];
+    
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeJump);
     XCTAssertEqual(instruction.address, (MOSAddress)0x1234);
+}
+
+- (void)testBranchOnCarryClear {
+    // [OPCODE, RELATIVE OFFSET]
+    self.dataStream.data = @[@0x90, @0x5];
+    
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeBranchOnCarryClear);
+    XCTAssertEqual(instruction.relativeAddress, (MOSRelativeAddress)0x5);
 }
 
 @end
