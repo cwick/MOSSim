@@ -52,7 +52,6 @@ MOSAbsoluteAddress MOSAbsoluteAddressMake(MOSWord high, MOSWord low) {
             break;
         case MOSOPCodeJMP:
             instruction.operation = MOSOperationJump;
-            instruction.absoluteAddress = [self decodeAbsoluteAddress];
             instruction.addressingMode = MOSAddressingModeAbsolute;
             break;
         case MOSOPCodeBCC:
@@ -73,26 +72,33 @@ MOSAbsoluteAddress MOSAbsoluteAddressMake(MOSWord high, MOSWord low) {
             break;
         case MOSOPCodeINCAbsolute:
             instruction.operation = MOSOperationIncrementByOne;
-            instruction.absoluteAddress = [self decodeAbsoluteAddress];
             instruction.addressingMode = MOSAddressingModeAbsolute;
             break;
         case MOSOPCodeINCZeroPage:
             instruction.operation = MOSOperationIncrementByOne;
-            instruction.pageOffset = [self decodePageOffset];
             instruction.addressingMode = MOSAddressingModeZeroPage;
             break;
         case MOSOPCodeINCZeroPageIndexed:
             instruction.isAddressingModeIndexed = YES;
             instruction.operation = MOSOperationIncrementByOne;
-            instruction.pageOffset = [self decodePageOffset];
             instruction.addressingMode = MOSAddressingModeZeroPage;
             break;
         default:
             break;
     }
     
-    if (instruction.addressingMode == MOSAddressingModeRelative) {
-        instruction.relativeAddress = [self decodeRelativeAddress];
+    switch (instruction.addressingMode) {
+        case MOSAddressingModeRelative:
+            instruction.relativeAddress = [self decodeRelativeAddress];
+            break;
+        case MOSAddressingModeAbsolute:
+            instruction.absoluteAddress = [self decodeAbsoluteAddress];
+            break;
+        case MOSAddressingModeZeroPage:
+            instruction.pageOffset = [self decodePageOffset];
+            break;
+        default:
+            break;
     }
     
     return instruction;
