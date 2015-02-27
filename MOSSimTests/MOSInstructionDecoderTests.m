@@ -187,4 +187,28 @@
     XCTAssertEqual(instruction.pageOffset, 0x99);
 }
 
+- (void)testANDZeroPageIndexed {
+    // [OPCODE, OPERAND]
+    self.dataStream.data = @[@0x35, @0xFF];
+    
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeANDZeroPageIndexed);
+    XCTAssertEqual(instruction.operation, MOSOperationAND);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
+    XCTAssertEqual(instruction.isAddressingModeIndexed, YES);
+    XCTAssertEqual(instruction.pageOffset, 0xFF);
+}
+
+- (void)testANDAbsolute {
+    // [OPCODE, LOW ADDRESS, HIGH ADDRESS]
+    self.dataStream.data = @[@0x2D, @0x45, @0x23];
+    
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeANDAbsolute);
+    XCTAssertEqual(instruction.operation, MOSOperationAND);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsolute);
+    XCTAssertEqual(instruction.isAddressingModeIndexed, NO);
+    XCTAssertEqual(instruction.absoluteAddress, 0x2345);
+}
+
 @end

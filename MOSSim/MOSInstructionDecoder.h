@@ -28,6 +28,8 @@ typedef NS_ENUM(NSInteger, MOSOPCode) {
     
     MOSOPCodeANDImmediate = 0x29,
     MOSOPCodeANDZeroPage = 0x25,
+    MOSOPCodeANDZeroPageIndexed = 0x35,
+    MOSOPCodeANDAbsolute = 0x2D,
 };
 
 typedef NS_ENUM(NSInteger, MOSOperation) {

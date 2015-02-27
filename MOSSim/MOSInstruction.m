@@ -41,6 +41,8 @@
             
         OPCODE(ANDImmediate, AND, Immediate, NO);
         OPCODE(ANDZeroPage, AND, ZeroPage, NO);
+        OPCODE(ANDZeroPageIndexed, AND, ZeroPage, YES);
+        OPCODE(ANDAbsolute, AND, Absolute, NO);
             
         default:
             break;
