@@ -8,6 +8,9 @@ typedef NS_ENUM(NSInteger, MOSOPCode) {
     
     MOSOPCodeJump = 0x4C,
     MOSOPCodeBranchOnCarryClear = 0x90,
+    MOSOPCodeBranchOnCarrySet = 0xB0,
+    MOSOPCodeBranchOnResultZero = 0xF0,
+    MOSOPCodeBranchOnResultNotZero = 0xD0
 };
 
 typedef uint16_t MOSAddress;

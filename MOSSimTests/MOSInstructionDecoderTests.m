@@ -71,11 +71,37 @@
 
 - (void)testBranchOnCarryClear {
     // [OPCODE, RELATIVE OFFSET]
-    self.dataStream.data = @[@0x90, @0x5];
+    self.dataStream.data = @[@0x90, @0x0];
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeBranchOnCarryClear);
-    XCTAssertEqual(instruction.relativeAddress, (MOSRelativeAddress)0x5);
+    XCTAssertEqual(instruction.relativeAddress, (MOSRelativeAddress)0x0);
 }
 
+- (void)testBranchOnCarrySet {
+    // [OPCODE, RELATIVE OFFSET]
+    self.dataStream.data = @[@0xB0, @0xFF];
+    
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeBranchOnCarrySet);
+    XCTAssertEqual(instruction.relativeAddress, (MOSRelativeAddress)0xFF);
+}
+
+- (void)testBranchOnResultZero {
+    // [OPCODE, RELATIVE OFFSET]
+    self.dataStream.data = @[@0xF0, @0xAB];
+    
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeBranchOnResultZero);
+    XCTAssertEqual(instruction.relativeAddress, (MOSRelativeAddress)0xAB);
+}
+
+- (void)testBranchOnResultNotZero {
+    // [OPCODE, RELATIVE OFFSET]
+    self.dataStream.data = @[@0xD0, @0x12];
+    
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeBranchOnResultNotZero);
+    XCTAssertEqual(instruction.relativeAddress, (MOSRelativeAddress)0x12);
+}
 @end

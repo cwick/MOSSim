@@ -35,6 +35,9 @@ MOSAddress MOSAddressMake(MOSWord high, MOSWord low) {
             instruction.address = [self decodeAddress];
             break;
         case MOSOPCodeBranchOnCarryClear:
+        case MOSOPCodeBranchOnCarrySet:
+        case MOSOPCodeBranchOnResultZero:
+        case MOSOPCodeBranchOnResultNotZero:
             instruction.relativeAddress = [self decodeRelativeAddress];
             break;
         default:
