@@ -57,6 +57,7 @@
         MOSInstruction *instruction = [self.decoder decodeNextInstruction];
         XCTAssertEqual(@(instruction.opcode), opcodes[opcode],
                        @"failed to decode opcode %@", opcode);
+        XCTAssertEqual(instruction.addressingMode, MOSAddressingModeImplied);
     }
 }
 
@@ -67,6 +68,7 @@
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeJump);
     XCTAssertEqual(instruction.address, (MOSAddress)0x1234);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsolute);
 }
 
 - (void)testBranchOnCarryClear {
@@ -76,6 +78,7 @@
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeBranchOnCarryClear);
     XCTAssertEqual(instruction.relativeAddress, (MOSRelativeAddress)0x0);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeRelative);
 }
 
 - (void)testBranchOnCarrySet {
@@ -85,6 +88,7 @@
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeBranchOnCarrySet);
     XCTAssertEqual(instruction.relativeAddress, (MOSRelativeAddress)0xFF);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeRelative);
 }
 
 - (void)testBranchOnResultZero {
@@ -94,6 +98,7 @@
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeBranchOnResultZero);
     XCTAssertEqual(instruction.relativeAddress, (MOSRelativeAddress)0xAB);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeRelative);
 }
 
 - (void)testBranchOnResultNotZero {
@@ -103,5 +108,17 @@
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeBranchOnResultNotZero);
     XCTAssertEqual(instruction.relativeAddress, (MOSRelativeAddress)0x12);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeRelative);
 }
+
+- (void)testIncrementMemoryByOne {
+    // [OPCODE, OPERAND]
+    self.dataStream.data = @[@0xE6, @0xDE];
+    
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeIncrementByOne);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
+    XCTAssertEqual(instruction.pageOffset, 0xDE);
+}
+
 @end

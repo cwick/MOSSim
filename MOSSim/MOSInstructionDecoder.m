@@ -7,6 +7,16 @@ MOSAddress MOSAddressMake(MOSWord high, MOSWord low) {
 }
 
 @implementation MOSInstruction
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _addressingMode = MOSAddressingModeImplied;
+    }
+    
+    return self;
+}
+
 @end
 
 @interface MOSInstructionDecoder ()
@@ -33,18 +43,28 @@ MOSAddress MOSAddressMake(MOSWord high, MOSWord low) {
     switch (instruction.opcode) {
         case MOSOPCodeJump:
             instruction.address = [self decodeAddress];
+            instruction.addressingMode = MOSAddressingModeAbsolute;
             break;
         case MOSOPCodeBranchOnCarryClear:
         case MOSOPCodeBranchOnCarrySet:
         case MOSOPCodeBranchOnResultZero:
         case MOSOPCodeBranchOnResultNotZero:
             instruction.relativeAddress = [self decodeRelativeAddress];
+            instruction.addressingMode = MOSAddressingModeRelative;
+            break;
+        case MOSOPCodeIncrementByOne:
+            instruction.pageOffset = [self decodePageOffset];
+            instruction.addressingMode = MOSAddressingModeZeroPage;
             break;
         default:
             break;
     }
     
     return instruction;
+}
+
+- (MOSPageOffset)decodePageOffset {
+    return (MOSPageOffset)[self.dataStream nextWord];
 }
 
 - (MOSRelativeAddress)decodeRelativeAddress {
