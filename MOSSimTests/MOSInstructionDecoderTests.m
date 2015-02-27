@@ -165,4 +165,26 @@
     XCTAssertEqual(instruction.absoluteAddress, 0xFFFF);
 }
 
+- (void)testANDImmediate {
+    // [OPCODE, OPERAND]
+    self.dataStream.data = @[@0x29, @0x45];
+    
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeANDImmediate);
+    XCTAssertEqual(instruction.operation, MOSOperationAND);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeImmediate);
+    XCTAssertEqual(instruction.immediateValue, 0x45);
+}
+
+- (void)testANDZeroPage {
+    // [OPCODE, OPERAND]
+    self.dataStream.data = @[@0x25, @0x99];
+    
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeANDZeroPage);
+    XCTAssertEqual(instruction.operation, MOSOperationAND);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
+    XCTAssertEqual(instruction.pageOffset, 0x99);
+}
+
 @end

@@ -2,6 +2,7 @@
 
 typedef NS_ENUM(NSInteger, MOSAddressingMode) {
     MOSAddressingModeImplied,
+    MOSAddressingModeImmediate,
     MOSAddressingModeZeroPage,
     MOSAddressingModeAbsolute,
     MOSAddressingModeRelative,
@@ -24,6 +25,9 @@ typedef NS_ENUM(NSInteger, MOSOPCode) {
     MOSOPCodeINCZeroPageIndexed = 0xF6,
     MOSOPCodeINCAbsolute = 0xEE,
     MOSOPCodeINCAbsoluteIndexed = 0xFE,
+    
+    MOSOPCodeANDImmediate = 0x29,
+    MOSOPCodeANDZeroPage = 0x25,
 };
 
 typedef NS_ENUM(NSInteger, MOSOperation) {
@@ -39,12 +43,15 @@ typedef NS_ENUM(NSInteger, MOSOperation) {
     MOSOperationBranchOnResultNotZero,
     
     MOSOperationIncrementByOne,
+    
+    MOSOperationAND,
 };
 
 typedef uint16_t MOSAbsoluteAddress;
 typedef int8_t MOSRelativeAddress;
 typedef uint8_t MOSWord;
 typedef uint8_t MOSPageOffset;
+typedef MOSWord MOSImmediateValue;
 
 @protocol MOSDataStream <NSObject>
 

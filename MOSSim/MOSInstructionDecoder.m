@@ -3,7 +3,7 @@
 
 static const int BITS_PER_BYTE = 8;
 
-MOSAbsoluteAddress MOSAbsoluteAddressMake(MOSWord high, MOSWord low) {
+static MOSAbsoluteAddress MOSAbsoluteAddressMake(MOSWord high, MOSWord low) {
     return (high << BITS_PER_BYTE) | low;
 }
 
@@ -29,6 +29,10 @@ MOSAbsoluteAddress MOSAbsoluteAddressMake(MOSWord high, MOSWord low) {
     MOSInstruction *instruction = [[MOSInstruction alloc] initWithOPCode:opcode decoder:self];
     
     return instruction;
+}
+
+- (MOSImmediateValue)decodeImmediateValue {
+    return (MOSImmediateValue)[self.dataStream nextWord];
 }
 
 - (MOSPageOffset)decodePageOffset {

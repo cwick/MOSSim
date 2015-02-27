@@ -11,6 +11,7 @@
 @property(nonatomic, readonly) MOSAddressingMode addressingMode;
 @property(nonatomic, readonly) BOOL isAddressingModeIndexed;
 @property(nonatomic, readonly) MOSPageOffset pageOffset;
+@property(nonatomic, readonly) MOSImmediateValue immediateValue;
 
 @end
 

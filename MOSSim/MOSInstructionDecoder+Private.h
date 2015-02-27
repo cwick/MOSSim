@@ -5,5 +5,6 @@
 - (MOSPageOffset)decodePageOffset;
 - (MOSRelativeAddress)decodeRelativeAddress;
 - (MOSAbsoluteAddress)decodeAbsoluteAddress;
+- (MOSImmediateValue)decodeImmediateValue;
 
 @end

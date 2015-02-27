@@ -9,60 +9,42 @@
         _opcode = opcode;
         _addressingMode = MOSAddressingModeImplied;
         
-        [self setupProperties];
+        [self decodeOPCode];
         [self decodeAddresses:decoder];
     }
     
     return self;
 }
 
-- (void)setupProperties {
+#define OPCODE(name, operation, addressingMode, isAddressingModeIndexed) \
+    case MOSOPCode##name: \
+        _operation = MOSOperation##operation; \
+        _addressingMode = MOSAddressingMode##addressingMode; \
+        _isAddressingModeIndexed = isAddressingModeIndexed; \
+        break
+
+- (void)decodeOPCode {
     switch (self.opcode) {
-        case MOSOPCodeCLC:
-            _operation = MOSOperationClearCarryFlag;
-            break;
-        case MOSOPCodeSEC:
-            _operation = MOSOperationSetCarryFlag;
-            break;
-        case MOSOPCodeCLD:
-            _operation = MOSOperationClearDecimalMode;
-            break;
-        case MOSOPCodeJMP:
-            _operation = MOSOperationJump;
-            _addressingMode = MOSAddressingModeAbsolute;
-            break;
-        case MOSOPCodeBCC:
-            _operation = MOSOperationBranchOnCarryClear;
-            _addressingMode = MOSAddressingModeRelative;
-            break;
-        case MOSOPCodeBCS:
-            _operation = MOSOperationBranchOnCarrySet;
-            _addressingMode = MOSAddressingModeRelative;
-            break;
-        case MOSOPCodeBEQ:
-            _operation = MOSOperationBranchOnResultZero;
-            _addressingMode = MOSAddressingModeRelative;
-            break;
-        case MOSOPCodeBNE:
-            _operation = MOSOperationBranchOnResultNotZero;
-            _addressingMode = MOSAddressingModeRelative;
-            break;
-        case MOSOPCodeINCAbsoluteIndexed:
-            _isAddressingModeIndexed = YES;
-        case MOSOPCodeINCAbsolute:
-            _operation = MOSOperationIncrementByOne;
-            _addressingMode = MOSAddressingModeAbsolute;
-            break;
-        case MOSOPCodeINCZeroPageIndexed:
-            _isAddressingModeIndexed = YES;
-        case MOSOPCodeINCZeroPage:
-            _operation = MOSOperationIncrementByOne;
-            _addressingMode = MOSAddressingModeZeroPage;
-            break;
+        OPCODE(CLC, ClearCarryFlag, Implied, NO);
+        OPCODE(SEC, SetCarryFlag, Implied, NO);
+        OPCODE(CLD, ClearDecimalMode, Implied, NO);
+        OPCODE(JMP, Jump, Absolute, NO);
+        OPCODE(BCC, BranchOnCarryClear, Relative, NO);
+        OPCODE(BCS, BranchOnCarrySet, Relative, NO);
+        OPCODE(BEQ, BranchOnResultZero, Relative, NO);
+        OPCODE(BNE, BranchOnResultNotZero, Relative, NO);
+            
+        OPCODE(INCAbsolute, IncrementByOne, Absolute, NO);
+        OPCODE(INCAbsoluteIndexed, IncrementByOne, Absolute, YES);
+        OPCODE(INCZeroPage, IncrementByOne, ZeroPage, NO);
+        OPCODE(INCZeroPageIndexed, IncrementByOne, ZeroPage, YES);
+            
+        OPCODE(ANDImmediate, AND, Immediate, NO);
+        OPCODE(ANDZeroPage, AND, ZeroPage, NO);
+            
         default:
             break;
     }
-    
 }
 
 - (void)decodeAddresses:(MOSInstructionDecoder *)decoder {
@@ -75,6 +57,9 @@
             break;
         case MOSAddressingModeZeroPage:
             _pageOffset = [decoder decodePageOffset];
+            break;
+        case MOSAddressingModeImmediate:
+            _immediateValue = [decoder decodeImmediateValue];
             break;
         default:
             break;
