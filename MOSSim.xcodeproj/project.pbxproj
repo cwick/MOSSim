@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		41278D451A9FE57C0073F9FE /* MOSInstructionDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D441A9FE57C0073F9FE /* MOSInstructionDecoder.m */; };
 		41278D461A9FE5F40073F9FE /* MOSInstructionDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D441A9FE57C0073F9FE /* MOSInstructionDecoder.m */; };
+		41278D4C1AA07C6E0073F9FE /* MOSInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D4B1AA07C6E0073F9FE /* MOSInstruction.m */; };
+		41278D4D1AA07CFB0073F9FE /* MOSInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D4B1AA07C6E0073F9FE /* MOSInstruction.m */; };
 		419695671A9FA46800787278 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 419695661A9FA46800787278 /* main.m */; };
 		419695781A9FA55E00787278 /* MOSInstructionDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 419695771A9FA55E00787278 /* MOSInstructionDecoderTests.m */; };
 /* End PBXBuildFile section */
@@ -28,6 +30,9 @@
 /* Begin PBXFileReference section */
 		41278D431A9FE57C0073F9FE /* MOSInstructionDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSInstructionDecoder.h; sourceTree = "<group>"; };
 		41278D441A9FE57C0073F9FE /* MOSInstructionDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSInstructionDecoder.m; sourceTree = "<group>"; };
+		41278D471AA07B570073F9FE /* MOSInstructionDecoder+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MOSInstructionDecoder+Private.h"; sourceTree = "<group>"; };
+		41278D491AA07BDA0073F9FE /* MOSInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSInstruction.h; sourceTree = "<group>"; };
+		41278D4B1AA07C6E0073F9FE /* MOSInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSInstruction.m; sourceTree = "<group>"; };
 		419695631A9FA46800787278 /* MOSSim */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MOSSim; sourceTree = BUILT_PRODUCTS_DIR; };
 		419695661A9FA46800787278 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		419695731A9FA55E00787278 /* MOSSimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MOSSimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +82,9 @@
 				419695661A9FA46800787278 /* main.m */,
 				41278D431A9FE57C0073F9FE /* MOSInstructionDecoder.h */,
 				41278D441A9FE57C0073F9FE /* MOSInstructionDecoder.m */,
+				41278D471AA07B570073F9FE /* MOSInstructionDecoder+Private.h */,
+				41278D491AA07BDA0073F9FE /* MOSInstruction.h */,
+				41278D4B1AA07C6E0073F9FE /* MOSInstruction.m */,
 			);
 			path = MOSSim;
 			sourceTree = "<group>";
@@ -185,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41278D4C1AA07C6E0073F9FE /* MOSInstruction.m in Sources */,
 				419695671A9FA46800787278 /* main.m in Sources */,
 				41278D451A9FE57C0073F9FE /* MOSInstructionDecoder.m in Sources */,
 			);
@@ -194,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41278D4D1AA07CFB0073F9FE /* MOSInstruction.m in Sources */,
 				419695781A9FA55E00787278 /* MOSInstructionDecoderTests.m in Sources */,
 				41278D461A9FE5F40073F9FE /* MOSInstructionDecoder.m in Sources */,
 			);

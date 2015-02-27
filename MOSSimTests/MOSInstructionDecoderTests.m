@@ -1,6 +1,7 @@
 #import <XCTest/XCTest.h>
 
 #import "MOSInstructionDecoder.h"
+#import "MOSInstruction.h"
 
 @interface MOSFakeDataStream : NSObject<MOSDataStream>
 

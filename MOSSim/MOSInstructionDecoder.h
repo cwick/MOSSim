@@ -46,25 +46,13 @@ typedef int8_t MOSRelativeAddress;
 typedef uint8_t MOSWord;
 typedef uint8_t MOSPageOffset;
 
-MOSAbsoluteAddress MOSAbsoluteAddressMake(MOSWord high, MOSWord low);
-
 @protocol MOSDataStream <NSObject>
 
 - (MOSWord)nextWord;
 
 @end
 
-@interface MOSInstruction : NSObject
-
-@property(nonatomic) MOSOPCode opcode;
-@property(nonatomic) MOSOperation operation;
-@property(nonatomic) MOSAbsoluteAddress absoluteAddress;
-@property(nonatomic) MOSRelativeAddress relativeAddress;
-@property(nonatomic) MOSAddressingMode addressingMode;
-@property(nonatomic) BOOL isAddressingModeIndexed;
-@property(nonatomic) MOSPageOffset pageOffset;
-
-@end
+@class MOSInstruction;
 
 @interface MOSInstructionDecoder : NSObject
 
