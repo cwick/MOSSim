@@ -47,7 +47,7 @@
     self.decoder = [[MOSInstructionDecoder alloc] initWithDataStream:self.dataStream];
 }
 
-- (void)testClearCarryFlag {
+- (void)testUnaryOperators {
     NSDictionary *opcodes = @{@0x18: @(MOSOPCodeClearCarryFlag),
                               @0x38: @(MOSOPCodeSetCarryFlag),
                               @0xD8: @(MOSOPCodeClearDecimalMode) };
@@ -55,7 +55,8 @@
     for (NSNumber *opcode in opcodes.allKeys) {
         self.dataStream.data = @[@(opcode.unsignedCharValue)];
         MOSInstruction *instruction = [self.decoder decodeNextInstruction];
-        XCTAssertEqual(@(instruction.opcode), opcodes[opcode], @"failed to decode opcode %@", opcode);
+        XCTAssertEqual(@(instruction.opcode), opcodes[opcode],
+                       @"failed to decode opcode %@", opcode);
     }
 }
 
