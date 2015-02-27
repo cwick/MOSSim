@@ -11,6 +11,17 @@
 		41278D461A9FE5F40073F9FE /* MOSInstructionDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D441A9FE57C0073F9FE /* MOSInstructionDecoder.m */; };
 		41278D4C1AA07C6E0073F9FE /* MOSInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D4B1AA07C6E0073F9FE /* MOSInstruction.m */; };
 		41278D4D1AA07CFB0073F9FE /* MOSInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D4B1AA07C6E0073F9FE /* MOSInstruction.m */; };
+		41278D551AA12C850073F9FE /* MOSInstructionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D541AA12C850073F9FE /* MOSInstructionTests.m */; };
+		41278D581AA12D110073F9FE /* MOSClearCarryFlagOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D571AA12D110073F9FE /* MOSClearCarryFlagOperation.m */; };
+		41278D591AA12D110073F9FE /* MOSClearCarryFlagOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D571AA12D110073F9FE /* MOSClearCarryFlagOperation.m */; };
+		41278D611AA12E460073F9FE /* MOSSetCarryFlagOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D601AA12E460073F9FE /* MOSSetCarryFlagOperation.m */; };
+		41278D621AA12E460073F9FE /* MOSSetCarryFlagOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D601AA12E460073F9FE /* MOSSetCarryFlagOperation.m */; };
+		41278D651AA12F140073F9FE /* MOSStatusRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D641AA12F140073F9FE /* MOSStatusRegister.m */; };
+		41278D661AA12F140073F9FE /* MOSStatusRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D641AA12F140073F9FE /* MOSStatusRegister.m */; };
+		41278D6D1AA133290073F9FE /* MOSCPU.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D6C1AA133290073F9FE /* MOSCPU.m */; };
+		41278D6E1AA133290073F9FE /* MOSCPU.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D6C1AA133290073F9FE /* MOSCPU.m */; };
+		41278D711AA134D20073F9FE /* MOSJumpOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D701AA134D20073F9FE /* MOSJumpOperation.m */; };
+		41278D721AA134D20073F9FE /* MOSJumpOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D701AA134D20073F9FE /* MOSJumpOperation.m */; };
 		419695671A9FA46800787278 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 419695661A9FA46800787278 /* main.m */; };
 		419695781A9FA55E00787278 /* MOSInstructionDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 419695771A9FA55E00787278 /* MOSInstructionDecoderTests.m */; };
 /* End PBXBuildFile section */
@@ -33,6 +44,19 @@
 		41278D471AA07B570073F9FE /* MOSInstructionDecoder+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MOSInstructionDecoder+Private.h"; sourceTree = "<group>"; };
 		41278D491AA07BDA0073F9FE /* MOSInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSInstruction.h; sourceTree = "<group>"; };
 		41278D4B1AA07C6E0073F9FE /* MOSInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSInstruction.m; sourceTree = "<group>"; };
+		41278D541AA12C850073F9FE /* MOSInstructionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSInstructionTests.m; sourceTree = "<group>"; };
+		41278D561AA12D110073F9FE /* MOSClearCarryFlagOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSClearCarryFlagOperation.h; sourceTree = "<group>"; };
+		41278D571AA12D110073F9FE /* MOSClearCarryFlagOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSClearCarryFlagOperation.m; sourceTree = "<group>"; };
+		41278D5F1AA12E460073F9FE /* MOSSetCarryFlagOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSSetCarryFlagOperation.h; sourceTree = "<group>"; };
+		41278D601AA12E460073F9FE /* MOSSetCarryFlagOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSSetCarryFlagOperation.m; sourceTree = "<group>"; };
+		41278D631AA12F140073F9FE /* MOSStatusRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSStatusRegister.h; sourceTree = "<group>"; };
+		41278D641AA12F140073F9FE /* MOSStatusRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSStatusRegister.m; sourceTree = "<group>"; };
+		41278D671AA130C50073F9FE /* MOSOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSOperation.h; sourceTree = "<group>"; };
+		41278D6B1AA133290073F9FE /* MOSCPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSCPU.h; sourceTree = "<group>"; };
+		41278D6C1AA133290073F9FE /* MOSCPU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSCPU.m; sourceTree = "<group>"; };
+		41278D6F1AA134D20073F9FE /* MOSJumpOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSJumpOperation.h; sourceTree = "<group>"; };
+		41278D701AA134D20073F9FE /* MOSJumpOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSJumpOperation.m; sourceTree = "<group>"; };
+		41278D731AA135480073F9FE /* MOSTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOSTypes.h; sourceTree = "<group>"; };
 		419695631A9FA46800787278 /* MOSSim */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MOSSim; sourceTree = BUILT_PRODUCTS_DIR; };
 		419695661A9FA46800787278 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		419695731A9FA55E00787278 /* MOSSimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MOSSimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +82,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41278D5A1AA12D160073F9FE /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				41278D561AA12D110073F9FE /* MOSClearCarryFlagOperation.h */,
+				41278D571AA12D110073F9FE /* MOSClearCarryFlagOperation.m */,
+				41278D5F1AA12E460073F9FE /* MOSSetCarryFlagOperation.h */,
+				41278D601AA12E460073F9FE /* MOSSetCarryFlagOperation.m */,
+				41278D6F1AA134D20073F9FE /* MOSJumpOperation.h */,
+				41278D701AA134D20073F9FE /* MOSJumpOperation.m */,
+			);
+			name = Operations;
+			sourceTree = "<group>";
+		};
 		4196955A1A9FA46800787278 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +122,13 @@
 				41278D471AA07B570073F9FE /* MOSInstructionDecoder+Private.h */,
 				41278D491AA07BDA0073F9FE /* MOSInstruction.h */,
 				41278D4B1AA07C6E0073F9FE /* MOSInstruction.m */,
+				41278D631AA12F140073F9FE /* MOSStatusRegister.h */,
+				41278D641AA12F140073F9FE /* MOSStatusRegister.m */,
+				41278D671AA130C50073F9FE /* MOSOperation.h */,
+				41278D6B1AA133290073F9FE /* MOSCPU.h */,
+				41278D6C1AA133290073F9FE /* MOSCPU.m */,
+				41278D731AA135480073F9FE /* MOSTypes.h */,
+				41278D5A1AA12D160073F9FE /* Operations */,
 			);
 			path = MOSSim;
 			sourceTree = "<group>";
@@ -93,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				419695771A9FA55E00787278 /* MOSInstructionDecoderTests.m */,
+				41278D541AA12C850073F9FE /* MOSInstructionTests.m */,
 				419695751A9FA55E00787278 /* Supporting Files */,
 			);
 			path = MOSSimTests;
@@ -194,7 +239,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				41278D4C1AA07C6E0073F9FE /* MOSInstruction.m in Sources */,
+				41278D711AA134D20073F9FE /* MOSJumpOperation.m in Sources */,
+				41278D581AA12D110073F9FE /* MOSClearCarryFlagOperation.m in Sources */,
 				419695671A9FA46800787278 /* main.m in Sources */,
+				41278D6D1AA133290073F9FE /* MOSCPU.m in Sources */,
+				41278D651AA12F140073F9FE /* MOSStatusRegister.m in Sources */,
+				41278D611AA12E460073F9FE /* MOSSetCarryFlagOperation.m in Sources */,
 				41278D451A9FE57C0073F9FE /* MOSInstructionDecoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,8 +253,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41278D621AA12E460073F9FE /* MOSSetCarryFlagOperation.m in Sources */,
+				41278D551AA12C850073F9FE /* MOSInstructionTests.m in Sources */,
+				41278D6E1AA133290073F9FE /* MOSCPU.m in Sources */,
+				41278D591AA12D110073F9FE /* MOSClearCarryFlagOperation.m in Sources */,
 				41278D4D1AA07CFB0073F9FE /* MOSInstruction.m in Sources */,
 				419695781A9FA55E00787278 /* MOSInstructionDecoderTests.m in Sources */,
+				41278D721AA134D20073F9FE /* MOSJumpOperation.m in Sources */,
+				41278D661AA12F140073F9FE /* MOSStatusRegister.m in Sources */,
 				41278D461A9FE5F40073F9FE /* MOSInstructionDecoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

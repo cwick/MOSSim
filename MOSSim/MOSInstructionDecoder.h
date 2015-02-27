@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "MOSTypes.h"
 
 typedef NS_ENUM(NSInteger, MOSAddressingMode) {
     MOSAddressingModeImplied,
@@ -48,12 +49,6 @@ typedef NS_ENUM(NSInteger, MOSOperation) {
     
     MOSOperationAND,
 };
-
-typedef uint16_t MOSAbsoluteAddress;
-typedef int8_t MOSRelativeAddress;
-typedef uint8_t MOSWord;
-typedef uint8_t MOSPageOffset;
-typedef MOSWord MOSImmediateValue;
 
 @protocol MOSDataStream <NSObject>
 
