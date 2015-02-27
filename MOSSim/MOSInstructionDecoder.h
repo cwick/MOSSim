@@ -5,29 +5,47 @@ typedef NS_ENUM(NSInteger, MOSAddressingMode) {
     MOSAddressingModeZeroPage,
     MOSAddressingModeAbsolute,
     MOSAddressingModeRelative,
+    MOSAddressingModeIndexed,
 };
 
 typedef NS_ENUM(NSInteger, MOSOPCode) {
-    MOSOPCodeClearCarryFlag = 0x18,
-    MOSOPCodeSetCarryFlag = 0x38,
+    MOSOPCodeCLC = 0x18,
+    MOSOPCodeSEC = 0x38,
     
-    MOSOPCodeClearDecimalMode = 0xD8,
+    MOSOPCodeCLD = 0xD8,
     
-    MOSOPCodeJump = 0x4C,
-    MOSOPCodeBranchOnCarryClear = 0x90,
-    MOSOPCodeBranchOnCarrySet = 0xB0,
-    MOSOPCodeBranchOnResultZero = 0xF0,
-    MOSOPCodeBranchOnResultNotZero = 0xD0,
+    MOSOPCodeJMP = 0x4C,
+    MOSOPCodeBCC = 0x90,
+    MOSOPCodeBCS = 0xB0,
+    MOSOPCodeBEQ = 0xF0,
+    MOSOPCodeBNE = 0xD0,
     
-    MOSOPCodeIncrementByOne = 0xE6,
+    MOSOPCodeINCZeroPage = 0xE6,
+    MOSOPCodeINCZeroPageIndexed = 0xF6,
+    MOSOPCodeINCAbsolute = 0xEE,
 };
 
-typedef uint16_t MOSAddress;
+typedef NS_ENUM(NSInteger, MOSOperation) {
+    MOSOperationClearCarryFlag,
+    MOSOperationSetCarryFlag,
+    
+    MOSOperationClearDecimalMode,
+    
+    MOSOperationJump,
+    MOSOperationBranchOnCarryClear,
+    MOSOperationBranchOnCarrySet,
+    MOSOperationBranchOnResultZero,
+    MOSOperationBranchOnResultNotZero,
+    
+    MOSOperationIncrementByOne,
+};
+
+typedef uint16_t MOSAbsoluteAddress;
 typedef int8_t MOSRelativeAddress;
 typedef uint8_t MOSWord;
 typedef uint8_t MOSPageOffset;
 
-MOSAddress MOSAddressMake(MOSWord high, MOSWord low);
+MOSAbsoluteAddress MOSAbsoluteAddressMake(MOSWord high, MOSWord low);
 
 @protocol MOSDataStream <NSObject>
 
@@ -38,9 +56,11 @@ MOSAddress MOSAddressMake(MOSWord high, MOSWord low);
 @interface MOSInstruction : NSObject
 
 @property(nonatomic) MOSOPCode opcode;
-@property(nonatomic) MOSAddress address;
+@property(nonatomic) MOSOperation operation;
+@property(nonatomic) MOSAbsoluteAddress absoluteAddress;
 @property(nonatomic) MOSRelativeAddress relativeAddress;
 @property(nonatomic) MOSAddressingMode addressingMode;
+@property(nonatomic) BOOL isAddressingModeIndexed;
 @property(nonatomic) MOSPageOffset pageOffset;
 
 @end

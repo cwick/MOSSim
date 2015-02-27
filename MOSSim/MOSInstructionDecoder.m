@@ -2,7 +2,7 @@
 
 static const int BITS_PER_BYTE = 8;
 
-MOSAddress MOSAddressMake(MOSWord high, MOSWord low) {
+MOSAbsoluteAddress MOSAbsoluteAddressMake(MOSWord high, MOSWord low) {
     return (high << BITS_PER_BYTE) | low;
 }
 
@@ -41,23 +41,58 @@ MOSAddress MOSAddressMake(MOSWord high, MOSWord low) {
     instruction.opcode = (MOSOPCode)[self.dataStream nextWord];
     
     switch (instruction.opcode) {
-        case MOSOPCodeJump:
-            instruction.address = [self decodeAddress];
+        case MOSOPCodeCLC:
+            instruction.operation = MOSOperationClearCarryFlag;
+            break;
+        case MOSOPCodeSEC:
+            instruction.operation = MOSOperationSetCarryFlag;
+            break;
+        case MOSOPCodeCLD:
+            instruction.operation = MOSOperationClearDecimalMode;
+            break;
+        case MOSOPCodeJMP:
+            instruction.operation = MOSOperationJump;
+            instruction.absoluteAddress = [self decodeAbsoluteAddress];
             instruction.addressingMode = MOSAddressingModeAbsolute;
             break;
-        case MOSOPCodeBranchOnCarryClear:
-        case MOSOPCodeBranchOnCarrySet:
-        case MOSOPCodeBranchOnResultZero:
-        case MOSOPCodeBranchOnResultNotZero:
-            instruction.relativeAddress = [self decodeRelativeAddress];
+        case MOSOPCodeBCC:
+            instruction.operation = MOSOperationBranchOnCarryClear;
             instruction.addressingMode = MOSAddressingModeRelative;
             break;
-        case MOSOPCodeIncrementByOne:
+        case MOSOPCodeBCS:
+            instruction.operation = MOSOperationBranchOnCarrySet;
+            instruction.addressingMode = MOSAddressingModeRelative;
+            break;
+        case MOSOPCodeBEQ:
+            instruction.operation = MOSOperationBranchOnResultZero;
+            instruction.addressingMode = MOSAddressingModeRelative;
+            break;
+        case MOSOPCodeBNE:
+            instruction.operation = MOSOperationBranchOnResultNotZero;
+            instruction.addressingMode = MOSAddressingModeRelative;
+            break;
+        case MOSOPCodeINCAbsolute:
+            instruction.operation = MOSOperationIncrementByOne;
+            instruction.absoluteAddress = [self decodeAbsoluteAddress];
+            instruction.addressingMode = MOSAddressingModeAbsolute;
+            break;
+        case MOSOPCodeINCZeroPage:
+            instruction.operation = MOSOperationIncrementByOne;
+            instruction.pageOffset = [self decodePageOffset];
+            instruction.addressingMode = MOSAddressingModeZeroPage;
+            break;
+        case MOSOPCodeINCZeroPageIndexed:
+            instruction.isAddressingModeIndexed = YES;
+            instruction.operation = MOSOperationIncrementByOne;
             instruction.pageOffset = [self decodePageOffset];
             instruction.addressingMode = MOSAddressingModeZeroPage;
             break;
         default:
             break;
+    }
+    
+    if (instruction.addressingMode == MOSAddressingModeRelative) {
+        instruction.relativeAddress = [self decodeRelativeAddress];
     }
     
     return instruction;
@@ -71,11 +106,11 @@ MOSAddress MOSAddressMake(MOSWord high, MOSWord low) {
     return (MOSRelativeAddress)[self.dataStream nextWord];
 }
 
-- (MOSAddress)decodeAddress {
+- (MOSAbsoluteAddress)decodeAbsoluteAddress {
     MOSWord addressLow = [self.dataStream nextWord];
     MOSWord addressHigh = [self.dataStream nextWord];
     
-    return MOSAddressMake(addressHigh, addressLow);
+    return MOSAbsoluteAddressMake(addressHigh, addressLow);
 }
 
 @end
