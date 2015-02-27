@@ -70,16 +70,15 @@ MOSAbsoluteAddress MOSAbsoluteAddressMake(MOSWord high, MOSWord low) {
             instruction.operation = MOSOperationBranchOnResultNotZero;
             instruction.addressingMode = MOSAddressingModeRelative;
             break;
+        case MOSOPCodeINCAbsoluteIndexed:
+            instruction.isAddressingModeIndexed = YES;
         case MOSOPCodeINCAbsolute:
             instruction.operation = MOSOperationIncrementByOne;
             instruction.addressingMode = MOSAddressingModeAbsolute;
             break;
-        case MOSOPCodeINCZeroPage:
-            instruction.operation = MOSOperationIncrementByOne;
-            instruction.addressingMode = MOSAddressingModeZeroPage;
-            break;
         case MOSOPCodeINCZeroPageIndexed:
             instruction.isAddressingModeIndexed = YES;
+        case MOSOPCodeINCZeroPage:
             instruction.operation = MOSOperationIncrementByOne;
             instruction.addressingMode = MOSAddressingModeZeroPage;
             break;

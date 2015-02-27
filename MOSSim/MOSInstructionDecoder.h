@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, MOSOPCode) {
     MOSOPCodeINCZeroPage = 0xE6,
     MOSOPCodeINCZeroPageIndexed = 0xF6,
     MOSOPCodeINCAbsolute = 0xEE,
+    MOSOPCodeINCAbsoluteIndexed = 0xFE,
 };
 
 typedef NS_ENUM(NSInteger, MOSOperation) {

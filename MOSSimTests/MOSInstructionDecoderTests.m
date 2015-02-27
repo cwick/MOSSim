@@ -152,4 +152,16 @@
     XCTAssertEqual(instruction.absoluteAddress, 0x5678);
 }
 
+- (void)testIncrementMemoryByOneAbsoluteIndexed {
+    // [OPCODE, LOW ADDRESS, HIGH ADDRESS]
+    self.dataStream.data = @[@0xFE, @0xFF, @0xFF];
+    
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeINCAbsoluteIndexed);
+    XCTAssertEqual(instruction.operation, MOSOperationIncrementByOne);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsolute);
+    XCTAssertEqual(instruction.isAddressingModeIndexed, YES);
+    XCTAssertEqual(instruction.absoluteAddress, 0xFFFF);
+}
+
 @end
