@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41278D451A9FE57C0073F9FE /* MOSInstructionDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D441A9FE57C0073F9FE /* MOSInstructionDecoder.m */; };
+		41278D461A9FE5F40073F9FE /* MOSInstructionDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D441A9FE57C0073F9FE /* MOSInstructionDecoder.m */; };
 		419695671A9FA46800787278 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 419695661A9FA46800787278 /* main.m */; };
-		419695781A9FA55E00787278 /* MOSSimTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 419695771A9FA55E00787278 /* MOSSimTests.m */; };
+		419695781A9FA55E00787278 /* MOSInstructionDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 419695771A9FA55E00787278 /* MOSInstructionDecoderTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,11 +26,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		41278D431A9FE57C0073F9FE /* MOSInstructionDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSInstructionDecoder.h; sourceTree = "<group>"; };
+		41278D441A9FE57C0073F9FE /* MOSInstructionDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSInstructionDecoder.m; sourceTree = "<group>"; };
 		419695631A9FA46800787278 /* MOSSim */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MOSSim; sourceTree = BUILT_PRODUCTS_DIR; };
 		419695661A9FA46800787278 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		419695731A9FA55E00787278 /* MOSSimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MOSSimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		419695761A9FA55E00787278 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		419695771A9FA55E00787278 /* MOSSimTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOSSimTests.m; sourceTree = "<group>"; };
+		419695771A9FA55E00787278 /* MOSInstructionDecoderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOSInstructionDecoderTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				419695661A9FA46800787278 /* main.m */,
+				41278D431A9FE57C0073F9FE /* MOSInstructionDecoder.h */,
+				41278D441A9FE57C0073F9FE /* MOSInstructionDecoder.m */,
 			);
 			path = MOSSim;
 			sourceTree = "<group>";
@@ -78,7 +84,7 @@
 		419695741A9FA55E00787278 /* MOSSimTests */ = {
 			isa = PBXGroup;
 			children = (
-				419695771A9FA55E00787278 /* MOSSimTests.m */,
+				419695771A9FA55E00787278 /* MOSInstructionDecoderTests.m */,
 				419695751A9FA55E00787278 /* Supporting Files */,
 			);
 			path = MOSSimTests;
@@ -180,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				419695671A9FA46800787278 /* main.m in Sources */,
+				41278D451A9FE57C0073F9FE /* MOSInstructionDecoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +194,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				419695781A9FA55E00787278 /* MOSSimTests.m in Sources */,
+				419695781A9FA55E00787278 /* MOSInstructionDecoderTests.m in Sources */,
+				41278D461A9FE5F40073F9FE /* MOSInstructionDecoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +341,7 @@
 				4196956C1A9FA46800787278 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		419695791A9FA55E00787278 /* Build configuration list for PBXNativeTarget "MOSSimTests" */ = {
 			isa = XCConfigurationList;
@@ -341,6 +350,7 @@
 				4196957B1A9FA55E00787278 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
