@@ -2,24 +2,37 @@
 
 #import "MOSCPU.h"
 #import "MOSFakeDataStream.h"
+#import "MOSInstruction.h"
 
-@interface MOSProgramTests : XCTestCase
+@interface MOSCPUTests : XCTestCase
 
 @property(nonatomic) MOSCPU *cpu;
 @property(nonatomic) MOSFakeDataStream *dataStream;
 
 @end
 
-@implementation MOSProgramTests
+@implementation MOSCPUTests
 
 - (void)setUp {
     self.cpu = [MOSCPU new];
     self.dataStream = [MOSFakeDataStream new];
+    [self.cpu loadProgram:self.dataStream];
+}
+
+- (void)testProgramCounterIsIncrementedByOne {
+    self.dataStream.data = @[@(MOSOPCodeCLC)];
+    [self.cpu step];
+    XCTAssertEqual(self.cpu.programCounter, 1);
+}
+
+- (void)testProgramCounterIsIncrementedByTwo {
+    self.dataStream.data = @[@(MOSOPCodeLDXImmediate), @0xFF];
+    [self.cpu step];
+    XCTAssertEqual(self.cpu.programCounter, 2);
 }
 
 - (void)testSimpleInfiniteLoop {
     self.dataStream.data = @[@0x4C, @0x00, @0x00];
-    [self.cpu loadProgram:self.dataStream];
     
     [self.cpu step];
     [self.cpu step];

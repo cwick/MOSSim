@@ -22,7 +22,7 @@
 		41278D6E1AA133290073F9FE /* MOSCPU.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D6C1AA133290073F9FE /* MOSCPU.m */; };
 		41278D711AA134D20073F9FE /* MOSJumpOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D701AA134D20073F9FE /* MOSJumpOperation.m */; };
 		41278D721AA134D20073F9FE /* MOSJumpOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D701AA134D20073F9FE /* MOSJumpOperation.m */; };
-		41278D751AA137CB0073F9FE /* MOSProgramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D741AA137CB0073F9FE /* MOSProgramTests.m */; };
+		41278D751AA137CB0073F9FE /* MOSCPUTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D741AA137CB0073F9FE /* MOSCPUTests.m */; };
 		41278D791AA139DD0073F9FE /* MOSFakeDataStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D771AA139DD0073F9FE /* MOSFakeDataStream.m */; };
 		41278D7C1AA13E460073F9FE /* MOSLoadRegisterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D7B1AA13E460073F9FE /* MOSLoadRegisterOperation.m */; };
 		41278D7D1AA13E460073F9FE /* MOSLoadRegisterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D7B1AA13E460073F9FE /* MOSLoadRegisterOperation.m */; };
@@ -67,7 +67,7 @@
 		41278D6F1AA134D20073F9FE /* MOSJumpOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSJumpOperation.h; sourceTree = "<group>"; };
 		41278D701AA134D20073F9FE /* MOSJumpOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSJumpOperation.m; sourceTree = "<group>"; };
 		41278D731AA135480073F9FE /* MOSTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOSTypes.h; sourceTree = "<group>"; };
-		41278D741AA137CB0073F9FE /* MOSProgramTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSProgramTests.m; sourceTree = "<group>"; };
+		41278D741AA137CB0073F9FE /* MOSCPUTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSCPUTests.m; sourceTree = "<group>"; };
 		41278D761AA138C30073F9FE /* MOSFakeDataStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOSFakeDataStream.h; sourceTree = "<group>"; };
 		41278D771AA139DD0073F9FE /* MOSFakeDataStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSFakeDataStream.m; sourceTree = "<group>"; };
 		41278D7A1AA13E460073F9FE /* MOSLoadRegisterOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSLoadRegisterOperation.h; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 			children = (
 				419695771A9FA55E00787278 /* MOSInstructionDecoderTests.m */,
 				41278D541AA12C850073F9FE /* MOSOperationTests.m */,
-				41278D741AA137CB0073F9FE /* MOSProgramTests.m */,
+				41278D741AA137CB0073F9FE /* MOSCPUTests.m */,
 				419695751A9FA55E00787278 /* Supporting Files */,
 			);
 			path = MOSSimTests;
@@ -287,7 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41278D751AA137CB0073F9FE /* MOSProgramTests.m in Sources */,
+				41278D751AA137CB0073F9FE /* MOSCPUTests.m in Sources */,
 				41278D621AA12E460073F9FE /* MOSSetCarryFlagOperation.m in Sources */,
 				41278D841AA147540073F9FE /* MOSRegisterValues.m in Sources */,
 				41278D551AA12C850073F9FE /* MOSOperationTests.m in Sources */,

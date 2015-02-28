@@ -4,7 +4,7 @@
 #import "MOSInstruction.h"
 #import "MOSOperation.h"
 
-@interface MOSCPU ()
+@interface MOSCPU () <MOSDataStream>
 
 @property(nonatomic) id<MOSDataStream> program;
 @property(nonatomic) MOSInstructionDecoder *decoder;
@@ -18,27 +18,29 @@
     if (self) {
         _statusRegister = [MOSStatusRegister new];
         _registerValues = [MOSRegisterValues new];
+        _decoder = [[MOSInstructionDecoder alloc] initWithDataStream:self];
     }
     
     return self;
 }
 
 - (void)loadProgram:(id<MOSDataStream>)program {
-    self.decoder = [[MOSInstructionDecoder alloc] initWithDataStream:program];
+    self.program = program;
 }
 
 - (void)step {
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     MOSOperation *operation = [MOSOperation operationFromInstruction:instruction];
+    
     [operation execute:self];
 }
 
-- (void)run {
+- (MOSWord)nextWord {
+    self.programCounter++;
+    return [self.program nextWord];
 }
 
-- (void)setProgramCounter:(MOSAbsoluteAddress)programCounter {
-    _programCounter = programCounter;
-    [self.decoder setNextReadAddress:programCounter];
+- (void)run {
 }
 
 @end

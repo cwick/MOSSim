@@ -31,10 +31,6 @@ static MOSAbsoluteAddress MOSAbsoluteAddressMake(MOSWord high, MOSWord low) {
     return instruction;
 }
 
-- (void)setNextReadAddress:(MOSAbsoluteAddress)address {
-    
-}
-
 - (MOSImmediateValue)decodeImmediateValue {
     return (MOSImmediateValue)[self.dataStream nextWord];
 }
