@@ -6,7 +6,7 @@
 
 @interface MOSCPU () <MOSDataStream>
 
-@property(nonatomic) id<MOSDataStream> program;
+@property(nonatomic) NSData *program;
 @property(nonatomic) MOSInstructionDecoder *decoder;
 
 @end
@@ -24,8 +24,8 @@
     return self;
 }
 
-- (void)loadProgram:(id<MOSDataStream>)program {
-    self.program = program;
+- (void)loadProgram:(NSData *)data {
+    self.program = data;
 }
 
 - (void)step {
@@ -36,8 +36,8 @@
 }
 
 - (MOSWord)nextWord {
-    self.programCounter++;
-    return [self.program nextWord];
+    const MOSWord *programData = self.program.bytes;
+    return programData[self.programCounter++];
 }
 
 - (void)run {

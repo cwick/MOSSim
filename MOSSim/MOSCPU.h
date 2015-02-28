@@ -3,15 +3,13 @@
 #import "MOSRegisterValues.h"
 #import "MOSStatusRegister.h"
 
-@protocol MOSDataStream;
-
 @interface MOSCPU : NSObject
 
 @property(nonatomic, readonly) MOSStatusRegister *statusRegister;
 @property(nonatomic) MOSAbsoluteAddress programCounter;
 @property(nonatomic, readonly) MOSRegisterValues *registerValues;
 
-- (void)loadProgram:(id<MOSDataStream>)data;
+- (void)loadProgram:(NSData *)data;
 - (void)step;
 - (void)run;
 
