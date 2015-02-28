@@ -40,6 +40,9 @@
 }
 
 - (void)run {
+    while (true) {
+        [self step];
+    }
 }
 
 @end

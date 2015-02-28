@@ -21,7 +21,9 @@
     //                        opcode   opcode name           operation
     NSDictionary *expected = @{@0x18: @[@(MOSOPCodeCLC), @"ClearCarryFlag"],
                                @0x38: @[@(MOSOPCodeSEC), @"SetCarryFlag"],
-                               @0xD8: @[@(MOSOPCodeCLD), @"ClearDecimalMode"] };
+                               @0xD8: @[@(MOSOPCodeCLD), @"ClearDecimalMode"],
+                               @0xE8: @[@(MOSOPCodeINX), @"IncrementRegister"],
+                               @0x60: @[@(MOSOPCodeRTS), @"ReturnFromSubroutine"] };
     
     for (NSNumber *opcode in expected.allKeys) {
         self.dataStream.data = @[@(opcode.unsignedCharValue)];

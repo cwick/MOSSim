@@ -25,6 +25,8 @@ typedef NS_ENUM(NSInteger, MOSAddressingMode) {
 typedef NS_ENUM(NSInteger, MOSOPCode) {
     MOSOPCodeCLC = 0x18,
     MOSOPCodeSEC = 0x38,
+    MOSOPCodeINX = 0xE8,
+    MOSOPCodeRTS = 0x60,
     
     MOSOPCodeCLD = 0xD8,
     

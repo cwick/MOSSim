@@ -45,6 +45,7 @@
         OPCODE(CLC, ClearCarryFlag, Implied, NO);
         OPCODE(SEC, SetCarryFlag, Implied, NO);
         OPCODE(CLD, ClearDecimalMode, Implied, NO);
+        OPCODE(RTS, ReturnFromSubroutine, Implied, NO);
         OPCODE(JMP, Jump, Absolute, NO);
         OPCODE(BCC, BranchOnCarryClear, Relative, NO);
         OPCODE(BCS, BranchOnCarrySet, Relative, NO);
@@ -62,6 +63,7 @@
         OPCODE(ANDAbsolute, AND, Absolute, NO);
             
         OPCODE(LDXImmediate, LoadRegister, Immediate, NO);
+        OPCODE(INX, IncrementRegister, Implied, NO);
             
         OPCODE(CPXImmediate, Compare, Immediate, NO);
             
