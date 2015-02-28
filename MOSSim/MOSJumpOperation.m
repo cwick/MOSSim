@@ -1,5 +1,6 @@
 #import "MOSJumpOperation.h"
 #import "MOSCPU.h"
+#import "MOSInstruction.h"
 
 @implementation MOSJumpOperation
 
@@ -8,6 +9,15 @@
     if (self) {
         _absoluteAddress = address;
     }
+    return self;
+}
+
+- (instancetype)initWithInstruction:(MOSInstruction *)instruction {
+    self = [super initWithInstruction:instruction];
+    if (self) {
+        _absoluteAddress = instruction.absoluteAddress;
+    }
+    
     return self;
 }
 

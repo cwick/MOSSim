@@ -29,7 +29,7 @@
         MOSInstruction *instruction = [self.decoder decodeNextInstruction];
         XCTAssertEqual(@(instruction.opcode), expected[opcode][0],
                        @"failed to decode opcode %@", opcode);
-        XCTAssertEqual(instruction.operation, expected[opcode][1]);
+        XCTAssertEqual(instruction.operationName, expected[opcode][1]);
         XCTAssertEqual(instruction.addressingMode, MOSAddressingModeImplied);
     }
 }
@@ -40,7 +40,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeJMP);
-    XCTAssertEqual(instruction.operation, @"Jump");
+    XCTAssertEqual(instruction.operationName, @"Jump");
     XCTAssertEqual(instruction.absoluteAddress, (MOSAbsoluteAddress)0x1234);
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsolute);
 }
@@ -51,7 +51,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeBCC);
-    XCTAssertEqual(instruction.operation, @"BranchOnCarryClear");
+    XCTAssertEqual(instruction.operationName, @"BranchOnCarryClear");
     XCTAssertEqual(instruction.relativeAddress, (MOSRelativeAddress)0x0);
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeRelative);
 }
@@ -62,7 +62,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeBCS);
-    XCTAssertEqual(instruction.operation, @"BranchOnCarrySet");
+    XCTAssertEqual(instruction.operationName, @"BranchOnCarrySet");
     XCTAssertEqual(instruction.relativeAddress, (MOSRelativeAddress)0xFF);
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeRelative);
 }
@@ -73,7 +73,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeBEQ);
-    XCTAssertEqual(instruction.operation, @"BranchOnResultZero");
+    XCTAssertEqual(instruction.operationName, @"BranchOnResultZero");
     XCTAssertEqual(instruction.relativeAddress, (MOSRelativeAddress)0xAB);
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeRelative);
 }
@@ -84,7 +84,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeBNE);
-    XCTAssertEqual(instruction.operation, @"BranchOnResultNotZero");
+    XCTAssertEqual(instruction.operationName, @"BranchOnResultNotZero");
     XCTAssertEqual(instruction.relativeAddress, (MOSRelativeAddress)0x12);
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeRelative);
 }
@@ -95,7 +95,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeINCZeroPage);
-    XCTAssertEqual(instruction.operation, @"IncrementByOne");
+    XCTAssertEqual(instruction.operationName, @"IncrementByOne");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
     XCTAssertEqual(instruction.pageOffset, 0xDE);
 }
@@ -106,7 +106,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeINCZeroPageIndexed);
-    XCTAssertEqual(instruction.operation, @"IncrementByOne");
+    XCTAssertEqual(instruction.operationName, @"IncrementByOne");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
     XCTAssertEqual(instruction.isAddressingModeIndexed, YES);
     XCTAssertEqual(instruction.pageOffset, 0x00);
@@ -118,7 +118,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeINCAbsolute);
-    XCTAssertEqual(instruction.operation, @"IncrementByOne");
+    XCTAssertEqual(instruction.operationName, @"IncrementByOne");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsolute);
     XCTAssertEqual(instruction.absoluteAddress, 0x5678);
 }
@@ -129,7 +129,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeINCAbsoluteIndexed);
-    XCTAssertEqual(instruction.operation, @"IncrementByOne");
+    XCTAssertEqual(instruction.operationName, @"IncrementByOne");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsolute);
     XCTAssertEqual(instruction.isAddressingModeIndexed, YES);
     XCTAssertEqual(instruction.absoluteAddress, 0xFFFF);
@@ -141,7 +141,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeANDImmediate);
-    XCTAssertEqual(instruction.operation, @"AND");
+    XCTAssertEqual(instruction.operationName, @"AND");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeImmediate);
     XCTAssertEqual(instruction.immediateValue, 0x45);
 }
@@ -152,7 +152,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeANDZeroPage);
-    XCTAssertEqual(instruction.operation, @"AND");
+    XCTAssertEqual(instruction.operationName, @"AND");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
     XCTAssertEqual(instruction.pageOffset, 0x99);
 }
@@ -163,7 +163,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeANDZeroPageIndexed);
-    XCTAssertEqual(instruction.operation, @"AND");
+    XCTAssertEqual(instruction.operationName, @"AND");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
     XCTAssertEqual(instruction.isAddressingModeIndexed, YES);
     XCTAssertEqual(instruction.pageOffset, 0xFF);
@@ -175,7 +175,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeANDAbsolute);
-    XCTAssertEqual(instruction.operation, @"AND");
+    XCTAssertEqual(instruction.operationName, @"AND");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsolute);
     XCTAssertEqual(instruction.isAddressingModeIndexed, NO);
     XCTAssertEqual(instruction.absoluteAddress, 0x2345);
@@ -187,7 +187,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeLDXImmediate);
-    XCTAssertEqual(instruction.operation, @"LoadRegister");
+    XCTAssertEqual(instruction.operationName, @"LoadRegister");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeImmediate);
     XCTAssertEqual(instruction.immediateValue, 0x12);
 }
@@ -198,7 +198,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeCPXImmediate);
-    XCTAssertEqual(instruction.operation, @"Compare");
+    XCTAssertEqual(instruction.operationName, @"Compare");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeImmediate);
     XCTAssertEqual(instruction.immediateValue, 0x99);
 }

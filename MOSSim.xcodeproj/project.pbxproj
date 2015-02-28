@@ -53,7 +53,7 @@
 		41278D441A9FE57C0073F9FE /* MOSInstructionDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSInstructionDecoder.m; sourceTree = "<group>"; };
 		41278D471AA07B570073F9FE /* MOSInstructionDecoder+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MOSInstructionDecoder+Private.h"; sourceTree = "<group>"; };
 		41278D491AA07BDA0073F9FE /* MOSInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSInstruction.h; sourceTree = "<group>"; };
-		41278D4B1AA07C6E0073F9FE /* MOSInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSInstruction.m; sourceTree = "<group>"; };
+		41278D4B1AA07C6E0073F9FE /* MOSInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MOSInstruction.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		41278D541AA12C850073F9FE /* MOSOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSOperationTests.m; sourceTree = "<group>"; };
 		41278D561AA12D110073F9FE /* MOSClearCarryFlagOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSClearCarryFlagOperation.h; sourceTree = "<group>"; };
 		41278D571AA12D110073F9FE /* MOSClearCarryFlagOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSClearCarryFlagOperation.m; sourceTree = "<group>"; };

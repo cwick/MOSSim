@@ -12,7 +12,6 @@
         
         [self decodeOPCode];
         [self decodeAddresses:decoder];
-        [self initializeOperation];
     }
     
     return self;
@@ -20,7 +19,7 @@
 
 #define OPCODE(name, operation, addressingMode, isAddressingModeIndexed) \
     case MOSOPCode##name: \
-        _operation = @#operation; \
+        _operationName = @#operation; \
         _addressingMode = MOSAddressingMode##addressingMode; \
         _isAddressingModeIndexed = isAddressingModeIndexed; \
         break
@@ -74,11 +73,6 @@
         default:
             break;
     }
-}
-
-- (void)initializeOperation {
-    Class class = NSClassFromString([NSString stringWithFormat:@"MOS%@Operation", self.operation]);
-//    MOSOperation *operation = [[class alloc] initWithInstruction:self];
 }
 
 @end

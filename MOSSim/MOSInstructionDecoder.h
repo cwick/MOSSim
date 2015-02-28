@@ -44,5 +44,6 @@ typedef NS_ENUM(NSInteger, MOSOPCode) {
 - (instancetype)initWithDataStream:(id<MOSDataStream>)stream;
 
 - (MOSInstruction *)decodeNextInstruction;
+- (void)setNextReadAddress:(MOSAbsoluteAddress)address;
 
 @end

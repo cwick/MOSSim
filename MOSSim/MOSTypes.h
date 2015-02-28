@@ -10,6 +10,7 @@ typedef MOSWord MOSImmediateValue;
 @protocol MOSDataStream <NSObject>
 
 - (MOSWord)nextWord;
+- (void)seek:(MOSAbsoluteAddress)address;
 
 @end
 

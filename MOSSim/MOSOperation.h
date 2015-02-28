@@ -5,8 +5,9 @@
 
 @interface MOSOperation : NSObject
 
-- (instancetype)initWithInstruction:(MOSInstruction *)instruction;
++ (MOSOperation *)operationFromInstruction:(MOSInstruction *)instruction;
 
+- (instancetype)initWithInstruction:(MOSInstruction *)instruction;
 - (void)execute:(MOSCPU *)cpu;
 
 @end
