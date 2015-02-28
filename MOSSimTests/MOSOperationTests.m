@@ -1,6 +1,5 @@
 #import <XCTest/XCTest.h>
 
-#import "MOSInstruction.h"
 #import "MOSClearCarryFlagOperation.h"
 #import "MOSSetCarryFlagOperation.h"
 #import "MOSJumpOperation.h"

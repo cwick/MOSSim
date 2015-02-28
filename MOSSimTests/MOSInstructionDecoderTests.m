@@ -1,7 +1,6 @@
 #import <XCTest/XCTest.h>
 
 #import "MOSInstructionDecoder.h"
-#import "MOSInstruction.h"
 #import "MOSFakeDataStream.h"
 
 @interface MOSInstructionDecoderTests : XCTestCase

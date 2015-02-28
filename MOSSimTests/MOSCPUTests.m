@@ -1,7 +1,6 @@
 #import <XCTest/XCTest.h>
 
 #import "MOSCPU.h"
-#import "MOSInstruction.h"
 
 @interface MOSCPUTests : XCTestCase
 

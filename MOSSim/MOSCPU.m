@@ -1,7 +1,6 @@
 #import "MOSCPU.h"
 #import "MOSStatusRegister.h"
 #import "MOSInstructionDecoder.h"
-#import "MOSInstruction.h"
 #import "MOSOperation.h"
 
 @interface MOSCPU () <MOSDataStream>

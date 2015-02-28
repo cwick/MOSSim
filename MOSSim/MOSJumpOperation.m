@@ -1,6 +1,6 @@
 #import "MOSJumpOperation.h"
 #import "MOSCPU.h"
-#import "MOSInstruction.h"
+#import "MOSInstructionDecoder.h"
 
 @implementation MOSJumpOperation
 

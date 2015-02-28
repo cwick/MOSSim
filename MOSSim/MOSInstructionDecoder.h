@@ -1,16 +1,18 @@
 #import <Foundation/Foundation.h>
 #import "MOSTypes.h"
 
-typedef NS_ENUM(NSInteger, MOSAddressingMode) {
-    MOSAddressingModeImplied,
-    MOSAddressingModeImmediate,
-    MOSAddressingModeZeroPage,
-    MOSAddressingModeAbsolute,
-    MOSAddressingModeRelative,
-    MOSAddressingModeIndexed,
-};
+@interface MOSInstruction : NSObject
 
-@class MOSInstruction;
+@property(nonatomic) MOSOPCode opcode;
+@property(nonatomic) NSString *operationName;
+@property(nonatomic) MOSAbsoluteAddress absoluteAddress;
+@property(nonatomic) MOSRelativeAddress relativeAddress;
+@property(nonatomic) MOSAddressingMode addressingMode;
+@property(nonatomic) BOOL isAddressingModeIndexed;
+@property(nonatomic) MOSPageOffset pageOffset;
+@property(nonatomic) MOSImmediateValue immediateValue;
+
+@end
 
 @interface MOSInstructionDecoder : NSObject
 
