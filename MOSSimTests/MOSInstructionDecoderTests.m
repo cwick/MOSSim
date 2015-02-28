@@ -2,37 +2,7 @@
 
 #import "MOSInstructionDecoder.h"
 #import "MOSInstruction.h"
-
-@interface MOSFakeDataStream : NSObject<MOSDataStream>
-
-@property(nonatomic) NSArray* data;
-@property(nonatomic) NSInteger location;
-
-@end
-
-@implementation MOSFakeDataStream
-
-- (MOSWord)nextWord {
-    NSNumber *next = self.data[self.location++];
-    return [next unsignedCharValue];
-}
-
-- (void)setData:(NSArray *)data {
-    _data = data;
-    self.location = 0;
-}
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        _data = @[];
-        _location = 0;
-    }
-    
-    return self;
-}
-
-@end
+#import "MOSFakeDataStream.h"
 
 @interface MOSInstructionDecoderTests : XCTestCase
 
@@ -209,6 +179,17 @@
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsolute);
     XCTAssertEqual(instruction.isAddressingModeIndexed, NO);
     XCTAssertEqual(instruction.absoluteAddress, 0x2345);
+}
+
+- (void)testLDXImmediate {
+    // [OPCODE, OPERAND]
+    self.dataStream.data = @[@0xA2, @0x12];
+    
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeLDXImmediate);
+    XCTAssertEqual(instruction.operation, MOSOperationLoadRegister);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeImmediate);
+    XCTAssertEqual(instruction.immediateValue, 0x12);
 }
 
 @end

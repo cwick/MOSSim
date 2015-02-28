@@ -25,6 +25,7 @@
 
 - (void)decodeOPCode {
     switch (self.opcode) {
+        // name, operation, addressingMode, isAddressingModeIndexed
         OPCODE(CLC, ClearCarryFlag, Implied, NO);
         OPCODE(SEC, SetCarryFlag, Implied, NO);
         OPCODE(CLD, ClearDecimalMode, Implied, NO);
@@ -43,6 +44,8 @@
         OPCODE(ANDZeroPage, AND, ZeroPage, NO);
         OPCODE(ANDZeroPageIndexed, AND, ZeroPage, YES);
         OPCODE(ANDAbsolute, AND, Absolute, NO);
+            
+        OPCODE(LDXImmediate, LoadRegister, Immediate, NO);
             
         default:
             break;

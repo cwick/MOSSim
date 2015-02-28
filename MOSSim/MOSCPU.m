@@ -11,4 +11,13 @@
     
     return self;
 }
+
+- (void)loadProgram:(id<MOSDataStream>)data {
+
+}
+
+- (void)step {
+    
+}
+
 @end

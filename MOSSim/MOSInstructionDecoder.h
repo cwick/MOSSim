@@ -31,6 +31,8 @@ typedef NS_ENUM(NSInteger, MOSOPCode) {
     MOSOPCodeANDZeroPage = 0x25,
     MOSOPCodeANDZeroPageIndexed = 0x35,
     MOSOPCodeANDAbsolute = 0x2D,
+    
+    MOSOPCodeLDXImmediate = 0xA2,
 };
 
 typedef NS_ENUM(NSInteger, MOSOperation) {
@@ -48,13 +50,8 @@ typedef NS_ENUM(NSInteger, MOSOperation) {
     MOSOperationIncrementByOne,
     
     MOSOperationAND,
+    MOSOperationLoadRegister,
 };
-
-@protocol MOSDataStream <NSObject>
-
-- (MOSWord)nextWord;
-
-@end
 
 @class MOSInstruction;
 
