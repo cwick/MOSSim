@@ -13,5 +13,6 @@
 
 - (void)loadProgram:(id<MOSDataStream>)data;
 - (void)step;
+- (void)run;
 
 @end

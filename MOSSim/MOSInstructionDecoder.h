@@ -37,25 +37,6 @@ typedef NS_ENUM(NSInteger, MOSOPCode) {
     MOSOPCodeCPXImmediate = 0xE0,
 };
 
-typedef NS_ENUM(NSInteger, MOSOperation) {
-    MOSOperationClearCarryFlag,
-    MOSOperationSetCarryFlag,
-    
-    MOSOperationClearDecimalMode,
-    
-    MOSOperationJump,
-    MOSOperationBranchOnCarryClear,
-    MOSOperationBranchOnCarrySet,
-    MOSOperationBranchOnResultZero,
-    MOSOperationBranchOnResultNotZero,
-    
-    MOSOperationIncrementByOne,
-    
-    MOSOperationAND,
-    MOSOperationLoadRegister,
-    MOSOperationCompare
-};
-
 @class MOSInstruction;
 
 @interface MOSInstructionDecoder : NSObject

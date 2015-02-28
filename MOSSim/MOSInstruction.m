@@ -1,5 +1,6 @@
 #import "MOSInstruction.h"
 #import "MOSInstructionDecoder+Private.h"
+#import "MOSOperation.h"
 
 @implementation MOSInstruction
 
@@ -18,7 +19,7 @@
 
 #define OPCODE(name, operation, addressingMode, isAddressingModeIndexed) \
     case MOSOPCode##name: \
-        _operation = MOSOperation##operation; \
+        _operation = @#operation; \
         _addressingMode = MOSAddressingMode##addressingMode; \
         _isAddressingModeIndexed = isAddressingModeIndexed; \
         break
@@ -50,6 +51,7 @@
         OPCODE(CPXImmediate, Compare, Immediate, NO);
             
         default:
+            [NSException raise:@"Unknown opcode" format:@"%ld", self.opcode];
             break;
     }
 }

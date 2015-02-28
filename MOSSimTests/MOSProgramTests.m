@@ -30,6 +30,16 @@
 }
 
 - (void)testCountToSixteen {
+    self.dataStream.data = @[
+                             @0xA2, @0x00,          // Load 0x00 into X
+                             @0xE8,                 // Increment X
+                             @0xE0, @0x0F,          // Compare X to 0x0F
+                             @0xD0, @0xFE,          // Jump -2 if Not Equal
+                             @0x60,                 // return
+                             ];
+    
+    [self.cpu loadProgram:self.dataStream];
+    [self.cpu run];
 }
 
 @end

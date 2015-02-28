@@ -78,7 +78,7 @@
 		419695661A9FA46800787278 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		419695731A9FA55E00787278 /* MOSSimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MOSSimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		419695761A9FA55E00787278 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		419695771A9FA55E00787278 /* MOSInstructionDecoderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOSInstructionDecoderTests.m; sourceTree = "<group>"; };
+		419695771A9FA55E00787278 /* MOSInstructionDecoderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MOSInstructionDecoderTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
