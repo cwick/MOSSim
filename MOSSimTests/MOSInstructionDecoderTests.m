@@ -192,4 +192,15 @@
     XCTAssertEqual(instruction.immediateValue, 0x12);
 }
 
+- (void)testCPXImmediate {
+    // [OPCODE, OPERAND]
+    self.dataStream.data = @[@0xE0, @0x99];
+    
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeCPXImmediate);
+    XCTAssertEqual(instruction.operation, MOSOperationCompare);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeImmediate);
+    XCTAssertEqual(instruction.immediateValue, 0x99);
+}
+
 @end

@@ -1,6 +1,6 @@
 #import "MOSTypes.h"
 
-@interface MOSRegisterBank : NSObject
+@interface MOSRegisterValues : NSObject
 
 @property(nonatomic) MOSRegisterValue x;
 

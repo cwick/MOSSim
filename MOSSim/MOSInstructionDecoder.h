@@ -33,6 +33,8 @@ typedef NS_ENUM(NSInteger, MOSOPCode) {
     MOSOPCodeANDAbsolute = 0x2D,
     
     MOSOPCodeLDXImmediate = 0xA2,
+    
+    MOSOPCodeCPXImmediate = 0xE0,
 };
 
 typedef NS_ENUM(NSInteger, MOSOperation) {
@@ -51,6 +53,7 @@ typedef NS_ENUM(NSInteger, MOSOperation) {
     
     MOSOperationAND,
     MOSOperationLoadRegister,
+    MOSOperationCompare
 };
 
 @class MOSInstruction;

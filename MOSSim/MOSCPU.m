@@ -7,6 +7,7 @@
     self = [super init];
     if (self) {
         _statusRegister = [MOSStatusRegister new];
+        _registerValues = [MOSRegisterValues new];
     }
     
     return self;

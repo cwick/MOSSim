@@ -1,8 +1,7 @@
-#import "MOSLoadRegisterOperation.h"
+#import "MOSCompareOperation.h"
 #import "MOSCPU.h"
-#import "MOSTypes.h"
 
-@implementation MOSLoadRegisterOperation
+@implementation MOSCompareOperation
 
 - (instancetype)initWithImmediateValue:(MOSImmediateValue)value {
     self = [super init];
@@ -13,7 +12,7 @@
 }
 
 - (void)execute:(MOSCPU *)cpu {
-    cpu.registerValues.x = self.value;
+    cpu.statusRegister.zeroFlag = self.value == cpu.registerValues.x;
 }
 
 @end

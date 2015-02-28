@@ -47,6 +47,8 @@
             
         OPCODE(LDXImmediate, LoadRegister, Immediate, NO);
             
+        OPCODE(CPXImmediate, Compare, Immediate, NO);
+            
         default:
             break;
     }

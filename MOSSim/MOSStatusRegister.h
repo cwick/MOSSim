@@ -3,5 +3,6 @@
 @interface MOSStatusRegister : NSObject
 
 @property(nonatomic) BOOL carryFlag;
+@property(nonatomic) BOOL zeroFlag;
 
 @end
