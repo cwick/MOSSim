@@ -1,8 +1,5 @@
-#import <Foundation/Foundation.h>
 #import "MOSOperation.h"
 
-@class MOSStatusRegister;
-
-@interface MOSClearCarryFlagOperation : NSObject<MOSOperation>
+@interface MOSClearCarryFlagOperation : MOSOperation
 
 @end

@@ -22,28 +22,28 @@
 }
 
 - (void)testClearCarryFlag {
-    id<MOSOperation> op = [MOSClearCarryFlagOperation new];
+    MOSOperation *op = [MOSClearCarryFlagOperation new];
     [op execute:self.cpu];
     
     XCTAssertFalse(self.cpu.statusRegister.carryFlag);
 }
 
 - (void)testSetCarryFlag {
-    id<MOSOperation> op = [MOSSetCarryFlagOperation new];
+    MOSOperation *op = [MOSSetCarryFlagOperation new];
     [op execute:self.cpu];
     
     XCTAssertTrue(self.cpu.statusRegister.carryFlag);
 }
 
 - (void)testJump {
-    id<MOSOperation> op = [[MOSJumpOperation alloc] initWithAbsoluteAddress:0x1234];
+    MOSOperation *op = [[MOSJumpOperation alloc] initWithAbsoluteAddress:0x1234];
     [op execute:self.cpu];
     
     XCTAssertEqual(self.cpu.programCounter, 0x1234);
 }
 
 - (void)testLoadRegister {
-    id<MOSOperation> op = [[MOSLoadRegisterOperation alloc] initWithImmediateValue:0x55];
+    MOSOperation *op = [[MOSLoadRegisterOperation alloc] initWithImmediateValue:0x55];
     [op execute:self.cpu];
     
     XCTAssertEqual(self.cpu.registerValues.x, 0x55);
@@ -51,7 +51,7 @@
 }
 
 - (void)testCompareX {
-    id<MOSOperation> op = [[MOSCompareOperation alloc] initWithImmediateValue:0xFF];
+    MOSOperation *op = [[MOSCompareOperation alloc] initWithImmediateValue:0xFF];
     
     self.cpu.registerValues.x = 0xFF;
     [op execute:self.cpu];

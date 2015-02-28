@@ -1,8 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "MOSOperation.h"
 
-@class MOSStatusRegister;
-
-@interface MOSSetCarryFlagOperation : NSObject<MOSOperation>
+@interface MOSSetCarryFlagOperation : MOSOperation
 
 @end

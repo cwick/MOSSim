@@ -12,6 +12,7 @@
         
         [self decodeOPCode];
         [self decodeAddresses:decoder];
+        [self initializeOperation];
     }
     
     return self;
@@ -73,6 +74,11 @@
         default:
             break;
     }
+}
+
+- (void)initializeOperation {
+    Class class = NSClassFromString([NSString stringWithFormat:@"MOS%@Operation", self.operation]);
+//    MOSOperation *operation = [[class alloc] initWithInstruction:self];
 }
 
 @end
