@@ -1,5 +1,6 @@
 #import "MOSBranchOnResultNotZeroOperation.h"
 #import "MOSCPU.h"
+#import "MOSInstructionDecoder.h"
 
 @interface MOSBranchOnResultNotZeroOperation ()
 
@@ -8,6 +9,14 @@
 @end
 
 @implementation MOSBranchOnResultNotZeroOperation
+
+- (instancetype)initWithInstruction:(MOSInstruction* )instruction {
+    self = [super init];
+    if (self) {
+        [NSException raise:@"IMPLEMENT ME" format:@""];
+    }
+    return self;
+}
 
 - (instancetype)initWithRelativeAddress:(MOSRelativeAddress)address {
     self = [super init];

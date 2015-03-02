@@ -54,13 +54,13 @@
     LOAD_PROGRAM(
         MOSOPCodeLDXImmediate, 0x00, // Load 0x00 into X
         MOSOPCodeINX,                // Increment X
-        MOSOPCodeCPXImmediate, 0x0F, // Compare X to 0x0F
-        MOSOPCodeBNE, 0xFE,          // Jump -2 if Not Equal
+        MOSOPCodeCPXImmediate, 16, // Compare X to 16
+        MOSOPCodeBNE, -2,          // Jump -2 if Not Equal
         MOSOPCodeRTS,                // return
         );
     
     [self.cpu run];
-    XCTAssertEqual(self.cpu.registerValues.x, 0x0F);
+    XCTAssertEqual(self.cpu.registerValues.x, 16);
 }
 
 - (void)loadProgram:(const MOSWord *)programData size:(NSUInteger)length {

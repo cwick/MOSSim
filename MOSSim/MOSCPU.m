@@ -32,6 +32,7 @@
     MOSOperation *operation = [MOSOperation operationFromInstruction:instruction];
     
     [operation execute:self];
+    NSLog(@"%@", self);
 }
 
 - (MOSWord)nextWord {
@@ -43,6 +44,12 @@
     while (!self.isHalted) {
         [self step];
     }
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:
+            @"\nPC\t0x%X\t%d\n"
+            @"X\t0x%X\t%d", self.programCounter, self.programCounter, self.registerValues.x, self.registerValues.x];
 }
 
 @end

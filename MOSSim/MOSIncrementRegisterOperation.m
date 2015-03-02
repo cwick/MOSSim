@@ -1,7 +1,12 @@
 #import "MOSIncrementRegisterOperation.h"
 #import "MOSCPU.h"
+#import "MOSInstructionDecoder.h"
 
 @implementation MOSIncrementRegisterOperation
+
+- (instancetype)initWithInstruction:(MOSInstruction* )instruction {
+    return [super init];
+}
 
 - (void)execute:(MOSCPU *)cpu {
     cpu.registerValues.x += 1;

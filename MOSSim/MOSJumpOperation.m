@@ -13,7 +13,7 @@
 }
 
 - (instancetype)initWithInstruction:(MOSInstruction *)instruction {
-    self = [super initWithInstruction:instruction];
+    self = [super init];
     if (self) {
         _absoluteAddress = instruction.absoluteAddress;
     }
