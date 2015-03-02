@@ -13,11 +13,9 @@
 }
 
 - (instancetype)initWithImmediateValue:(MOSImmediateValue)value {
-    self = [super init];
-    if (self) {
-        _value = value;
-    }
-    return self;
+    MOSInstruction *i = [MOSInstruction new];
+    i.immediateValue = value;
+    return [self initWithInstruction:i];
 }
 
 - (void)execute:(MOSCPU *)cpu {

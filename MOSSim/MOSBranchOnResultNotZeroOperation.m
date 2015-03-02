@@ -13,18 +13,15 @@
 - (instancetype)initWithInstruction:(MOSInstruction* )instruction {
     self = [super init];
     if (self) {
-        [NSException raise:@"IMPLEMENT ME" format:@""];
+        _offset = instruction.relativeAddress;
     }
     return self;
 }
 
 - (instancetype)initWithRelativeAddress:(MOSRelativeAddress)address {
-    self = [super init];
-    if (self) {
-        _offset = address;
-    }
-    
-    return self;
+    MOSInstruction *i = [MOSInstruction new];
+    i.relativeAddress = address;
+    return [self initWithInstruction:i];
 }
 
 - (void)execute:(MOSCPU *)cpu {

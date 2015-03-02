@@ -8,17 +8,15 @@
 - (instancetype)initWithInstruction:(MOSInstruction* )instruction {
     self = [super init];
     if (self) {
-        [NSException raise:@"IMPLEMENT ME" format:@""];
+        _value = instruction.immediateValue;
     }
     return self;
 }
 
 - (instancetype)initWithImmediateValue:(MOSImmediateValue)value {
-    self = [super init];
-    if (self) {
-        _value = value;
-    }
-    return self;
+    MOSInstruction *i = [MOSInstruction new];
+    i.immediateValue = value;
+    return [self initWithInstruction:i];
 }
 
 - (void)execute:(MOSCPU *)cpu {

@@ -55,7 +55,7 @@
         MOSOPCodeLDXImmediate, 0x00, // Load 0x00 into X
         MOSOPCodeINX,                // Increment X
         MOSOPCodeCPXImmediate, 16, // Compare X to 16
-        MOSOPCodeBNE, -2,          // Jump -2 if Not Equal
+        MOSOPCodeBNE, -5,          // Jump -2 if Not Equal
         MOSOPCodeRTS,                // return
         );
     
