@@ -12,6 +12,11 @@
 
 @implementation MOSCPU
 
++ (BOOL)is7thBitSet:(MOSWord)value {
+    const MOSWord bitMask = 0b10000000;
+    return (value & bitMask) != 0;
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {

@@ -5,7 +5,6 @@
 #import "MOSSetCarryFlagOperation.h"
 #import "MOSJumpOperation.h"
 #import "MOSLoadRegisterOperation.h"
-#import "MOSCompareOperation.h"
 #import "MOSReturnFromSubroutineOperation.h"
 
 @interface MOSInstructionTests : XCTestCase
@@ -47,20 +46,6 @@
     
     XCTAssertEqual(self.cpu.registerValues.x, 0x55);
     
-}
-
-- (void)testCompareX {
-    MOSOperation *op = [[MOSCompareOperation alloc] initWithImmediateValue:0xFF];
-    
-    self.cpu.registerValues.x = 0xFF;
-    [op execute:self.cpu];
-    
-    XCTAssertTrue(self.cpu.statusRegister.zeroFlag);
-    
-    self.cpu.registerValues.x = 0x12;
-    [op execute:self.cpu];
-    
-    XCTAssertFalse(self.cpu.statusRegister.zeroFlag);
 }
 
 - (void)testReturnFromSubroutine {

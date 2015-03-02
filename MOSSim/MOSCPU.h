@@ -5,6 +5,8 @@
 
 @interface MOSCPU : NSObject
 
++ (BOOL)is7thBitSet:(MOSWord)value;
+
 @property(nonatomic, readonly) MOSStatusRegister *statusRegister;
 @property(nonatomic) MOSAbsoluteAddress programCounter;
 @property(nonatomic, readonly) MOSRegisterValues *registerValues;
