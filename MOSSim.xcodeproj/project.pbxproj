@@ -36,6 +36,8 @@
 		41278D961AA3F75D0073F9FE /* MOSBranchOnResultNotZeroOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D951AA3F75D0073F9FE /* MOSBranchOnResultNotZeroOperation.m */; };
 		41278D971AA3F75D0073F9FE /* MOSBranchOnResultNotZeroOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D951AA3F75D0073F9FE /* MOSBranchOnResultNotZeroOperation.m */; };
 		41278D991AA3F7BF0073F9FE /* MOSBranchNotZeroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D981AA3F7BF0073F9FE /* MOSBranchNotZeroTests.m */; };
+		41278D9C1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D9B1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m */; };
+		41278D9D1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D9B1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m */; };
 		419695671A9FA46800787278 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 419695661A9FA46800787278 /* main.m */; };
 		419695781A9FA55E00787278 /* MOSInstructionDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 419695771A9FA55E00787278 /* MOSInstructionDecoderTests.m */; };
 /* End PBXBuildFile section */
@@ -84,6 +86,8 @@
 		41278D941AA3F75D0073F9FE /* MOSBranchOnResultNotZeroOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSBranchOnResultNotZeroOperation.h; sourceTree = "<group>"; };
 		41278D951AA3F75D0073F9FE /* MOSBranchOnResultNotZeroOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSBranchOnResultNotZeroOperation.m; sourceTree = "<group>"; };
 		41278D981AA3F7BF0073F9FE /* MOSBranchNotZeroTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSBranchNotZeroTests.m; sourceTree = "<group>"; };
+		41278D9A1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSReturnFromSubroutineOperation.h; sourceTree = "<group>"; };
+		41278D9B1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSReturnFromSubroutineOperation.m; sourceTree = "<group>"; };
 		419695631A9FA46800787278 /* MOSSim */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MOSSim; sourceTree = BUILT_PRODUCTS_DIR; };
 		419695661A9FA46800787278 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		419695731A9FA55E00787278 /* MOSSimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MOSSimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +130,8 @@
 				41278D8F1AA3F0670073F9FE /* MOSIncrementRegisterOperation.m */,
 				41278D941AA3F75D0073F9FE /* MOSBranchOnResultNotZeroOperation.h */,
 				41278D951AA3F75D0073F9FE /* MOSBranchOnResultNotZeroOperation.m */,
+				41278D9A1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.h */,
+				41278D9B1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -281,6 +287,7 @@
 				41278D8A1AA1B4B70073F9FE /* MOSOperation.m in Sources */,
 				41278D7C1AA13E460073F9FE /* MOSLoadRegisterOperation.m in Sources */,
 				41278D711AA134D20073F9FE /* MOSJumpOperation.m in Sources */,
+				41278D9C1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m in Sources */,
 				41278D581AA12D110073F9FE /* MOSClearCarryFlagOperation.m in Sources */,
 				419695671A9FA46800787278 /* main.m in Sources */,
 				41278D6D1AA133290073F9FE /* MOSCPU.m in Sources */,
@@ -298,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41278D9D1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m in Sources */,
 				41278D911AA3F0670073F9FE /* MOSIncrementRegisterOperation.m in Sources */,
 				41278D751AA137CB0073F9FE /* MOSCPUTests.m in Sources */,
 				41278D931AA3F4780073F9FE /* MOSIncrementRegisterTests.m in Sources */,

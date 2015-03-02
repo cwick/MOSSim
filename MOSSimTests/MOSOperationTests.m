@@ -6,6 +6,7 @@
 #import "MOSJumpOperation.h"
 #import "MOSLoadRegisterOperation.h"
 #import "MOSCompareOperation.h"
+#import "MOSReturnFromSubroutineOperation.h"
 
 @interface MOSInstructionTests : XCTestCase
 
@@ -54,12 +55,20 @@
     self.cpu.registerValues.x = 0xFF;
     [op execute:self.cpu];
     
-    XCTAssertEqual(self.cpu.statusRegister.zeroFlag, YES);
+    XCTAssertTrue(self.cpu.statusRegister.zeroFlag);
     
     self.cpu.registerValues.x = 0x12;
     [op execute:self.cpu];
     
-    XCTAssertEqual(self.cpu.statusRegister.zeroFlag, NO);
+    XCTAssertFalse(self.cpu.statusRegister.zeroFlag);
+}
+
+- (void)testReturnFromSubroutine {
+    MOSOperation *op = [MOSReturnFromSubroutineOperation new];
+    
+    self.cpu.isHalted = NO;
+    [op execute:self.cpu];
+    XCTAssertTrue(self.cpu.isHalted);
 }
 
 @end

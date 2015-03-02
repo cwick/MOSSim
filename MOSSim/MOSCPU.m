@@ -40,7 +40,7 @@
 }
 
 - (void)run {
-    while (true) {
+    while (!self.isHalted) {
         [self step];
     }
 }

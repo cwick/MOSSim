@@ -8,6 +8,7 @@
 @property(nonatomic, readonly) MOSStatusRegister *statusRegister;
 @property(nonatomic) MOSAbsoluteAddress programCounter;
 @property(nonatomic, readonly) MOSRegisterValues *registerValues;
+@property(nonatomic) BOOL isHalted;
 
 - (void)loadProgram:(NSData *)data;
 - (void)step;

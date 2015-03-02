@@ -32,6 +32,13 @@
     XCTAssertEqual(self.cpu.programCounter, 2);
 }
 
+- (void)testCPUHaltsOnReturnFromSubroutine {
+    LOAD_PROGRAM(MOSOPCodeRTS);
+    
+    [self.cpu run];
+    XCTAssertEqual(self.cpu.programCounter, 1);
+}
+
 - (void)testSimpleInfiniteLoop {
     LOAD_PROGRAM(MOSOPCodeJMP, 0x00, 0x00);
     
