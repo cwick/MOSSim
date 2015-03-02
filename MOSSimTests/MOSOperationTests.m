@@ -6,7 +6,6 @@
 #import "MOSJumpOperation.h"
 #import "MOSLoadRegisterOperation.h"
 #import "MOSCompareOperation.h"
-#import "MOSIncrementRegisterOperation.h"
 
 @interface MOSInstructionTests : XCTestCase
 

@@ -45,11 +45,11 @@
 
 - (void)testCountToSixteen {
     LOAD_PROGRAM(
-        0xA2, 0x00,          // Load 0x00 into X
-        0xE8,                // Increment X
-        0xE0, 0x0F,          // Compare X to 0x0F
-        0xD0, 0xFE,          // Jump -2 if Not Equal
-        0x60,                // return
+        MOSOPCodeLDXImmediate, 0x00, // Load 0x00 into X
+        MOSOPCodeINX,                // Increment X
+        MOSOPCodeCPXImmediate, 0x0F, // Compare X to 0x0F
+        MOSOPCodeBNE, 0xFE,          // Jump -2 if Not Equal
+        MOSOPCodeRTS,                // return
         );
     
     [self.cpu run];
