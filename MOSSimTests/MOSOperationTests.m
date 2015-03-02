@@ -1,12 +1,12 @@
 #import <XCTest/XCTest.h>
 
+#import "MOSCPU.h"
 #import "MOSClearCarryFlagOperation.h"
 #import "MOSSetCarryFlagOperation.h"
 #import "MOSJumpOperation.h"
 #import "MOSLoadRegisterOperation.h"
 #import "MOSCompareOperation.h"
-#import "MOSCPU.h"
-#import "MOSStatusRegister.h"
+#import "MOSIncrementRegisterOperation.h"
 
 @interface MOSInstructionTests : XCTestCase
 
