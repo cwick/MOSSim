@@ -3,23 +3,21 @@
 #import "MOSInstructionDecoder.h"
 #import "MOSOperation.h"
 
+static const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
+
 @interface MOSCPU () <MOSDataStream>
 
-@property(nonatomic) NSData *program;
+@property(nonatomic) NSMutableData *addressSpace;
 @property(nonatomic) MOSInstructionDecoder *decoder;
 
 @end
 
 @implementation MOSCPU
 
-+ (BOOL)is7thBitSet:(MOSWord)value {
-    const MOSWord bitMask = 0b10000000;
-    return (value & bitMask) != 0;
-}
-
 - (instancetype)init {
     self = [super init];
     if (self) {
+        _addressSpace = [NSMutableData dataWithLength:MOS_ADDRESS_SPACE_SIZE];
         _statusRegister = [MOSStatusRegister new];
         _registerValues = [MOSRegisterValues new];
         _decoder = [[MOSInstructionDecoder alloc] initWithDataStream:self];
@@ -29,7 +27,8 @@
 }
 
 - (void)loadProgram:(NSData *)data {
-    self.program = data;
+    self.addressSpace = [NSMutableData dataWithLength:MOS_ADDRESS_SPACE_SIZE];
+    [self.addressSpace replaceBytesInRange:NSMakeRange(0, data.length) withBytes:data.bytes];
 }
 
 - (void)step {
@@ -41,7 +40,7 @@
 }
 
 - (MOSWord)nextWord {
-    const MOSWord *programData = self.program.bytes;
+    const MOSWord *programData = self.addressSpace.bytes;
     return programData[self.programCounter++];
 }
 
@@ -55,6 +54,10 @@
     return [NSString stringWithFormat:
             @"\nPC\t0x%X\t%d\n"
             @"X\t0x%X\t%d", self.programCounter, self.programCounter, self.registerValues.x, self.registerValues.x];
+}
+
+- (MOSWord)readWord:(MOSAbsoluteAddress)address {
+    return ((MOSWord *)self.addressSpace.bytes)[address];
 }
 
 @end

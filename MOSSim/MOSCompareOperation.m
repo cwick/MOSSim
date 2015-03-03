@@ -1,6 +1,7 @@
 #import "MOSCompareOperation.h"
 #import "MOSCPU.h"
 #import "MOSInstructionDecoder.h"
+#import "MOSUtils.h"
 
 @implementation MOSCompareOperation
 
@@ -21,7 +22,7 @@
 - (void)execute:(MOSCPU *)cpu {
     cpu.statusRegister.zeroFlag = (self.value == cpu.registerValues.x);
     cpu.statusRegister.carryFlag = (cpu.registerValues.x >= self.value);
-    cpu.statusRegister.negativeFlag = [MOSCPU is7thBitSet:(cpu.registerValues.x - self.value)];
+    cpu.statusRegister.negativeFlag = MOSTest7thBit(cpu.registerValues.x - self.value);
 }
 
 @end

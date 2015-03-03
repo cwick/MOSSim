@@ -1,4 +1,5 @@
 #import "MOSInstructionDecoder.h"
+#import "MOSUtils.h"
 
 @interface MOSInstructionDecoder ()
 
@@ -67,6 +68,8 @@
             
         OPCODE(CPXImmediate, Compare, Immediate, NO);
             
+        OPCODE(JSR, JumpToSubroutine, Absolute, NO);
+            
         default:
             [NSException raise:@"Unknown opcode" format:@"%ld", opcode];
             break;
@@ -108,12 +111,6 @@
     MOSWord addressHigh = [self.dataStream nextWord];
     
     return MOSAbsoluteAddressMake(addressHigh, addressLow);
-}
-
-static const int BITS_PER_BYTE = 8;
-
-static MOSAbsoluteAddress MOSAbsoluteAddressMake(MOSWord high, MOSWord low) {
-    return (high << BITS_PER_BYTE) | low;
 }
 
 @end

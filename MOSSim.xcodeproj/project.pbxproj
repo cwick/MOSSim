@@ -39,6 +39,10 @@
 		41278D9C1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D9B1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m */; };
 		41278D9D1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D9B1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m */; };
 		41278D9F1AA405420073F9FE /* MOSCompareOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278D9E1AA405420073F9FE /* MOSCompareOperationTests.m */; };
+		41278DA21AA5AF3F0073F9FE /* MOSJumpToSubroutineOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278DA11AA5AF3F0073F9FE /* MOSJumpToSubroutineOperation.m */; };
+		41278DA31AA5AF3F0073F9FE /* MOSJumpToSubroutineOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278DA11AA5AF3F0073F9FE /* MOSJumpToSubroutineOperation.m */; };
+		41278DA61AA5BBA00073F9FE /* MOSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278DA51AA5BBA00073F9FE /* MOSUtils.m */; };
+		41278DA71AA5BBA00073F9FE /* MOSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278DA51AA5BBA00073F9FE /* MOSUtils.m */; };
 		419695671A9FA46800787278 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 419695661A9FA46800787278 /* main.m */; };
 		419695781A9FA55E00787278 /* MOSInstructionDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 419695771A9FA55E00787278 /* MOSInstructionDecoderTests.m */; };
 /* End PBXBuildFile section */
@@ -90,6 +94,10 @@
 		41278D9A1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSReturnFromSubroutineOperation.h; sourceTree = "<group>"; };
 		41278D9B1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSReturnFromSubroutineOperation.m; sourceTree = "<group>"; };
 		41278D9E1AA405420073F9FE /* MOSCompareOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSCompareOperationTests.m; sourceTree = "<group>"; };
+		41278DA01AA5AF3F0073F9FE /* MOSJumpToSubroutineOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSJumpToSubroutineOperation.h; sourceTree = "<group>"; };
+		41278DA11AA5AF3F0073F9FE /* MOSJumpToSubroutineOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSJumpToSubroutineOperation.m; sourceTree = "<group>"; };
+		41278DA41AA5BB320073F9FE /* MOSUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOSUtils.h; sourceTree = "<group>"; };
+		41278DA51AA5BBA00073F9FE /* MOSUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSUtils.m; sourceTree = "<group>"; };
 		419695631A9FA46800787278 /* MOSSim */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MOSSim; sourceTree = BUILT_PRODUCTS_DIR; };
 		419695661A9FA46800787278 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		419695731A9FA55E00787278 /* MOSSimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MOSSimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +142,8 @@
 				41278D951AA3F75D0073F9FE /* MOSBranchOnResultNotZeroOperation.m */,
 				41278D9A1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.h */,
 				41278D9B1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m */,
+				41278DA01AA5AF3F0073F9FE /* MOSJumpToSubroutineOperation.h */,
+				41278DA11AA5AF3F0073F9FE /* MOSJumpToSubroutineOperation.m */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -171,6 +181,8 @@
 				41278D731AA135480073F9FE /* MOSTypes.h */,
 				41278D811AA147540073F9FE /* MOSRegisterValues.h */,
 				41278D821AA147540073F9FE /* MOSRegisterValues.m */,
+				41278DA41AA5BB320073F9FE /* MOSUtils.h */,
+				41278DA51AA5BBA00073F9FE /* MOSUtils.m */,
 				41278D5A1AA12D160073F9FE /* Operations */,
 			);
 			path = MOSSim;
@@ -290,7 +302,9 @@
 				41278D8A1AA1B4B70073F9FE /* MOSOperation.m in Sources */,
 				41278D7C1AA13E460073F9FE /* MOSLoadRegisterOperation.m in Sources */,
 				41278D711AA134D20073F9FE /* MOSJumpOperation.m in Sources */,
+				41278DA21AA5AF3F0073F9FE /* MOSJumpToSubroutineOperation.m in Sources */,
 				41278D9C1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m in Sources */,
+				41278DA61AA5BBA00073F9FE /* MOSUtils.m in Sources */,
 				41278D581AA12D110073F9FE /* MOSClearCarryFlagOperation.m in Sources */,
 				419695671A9FA46800787278 /* main.m in Sources */,
 				41278D6D1AA133290073F9FE /* MOSCPU.m in Sources */,
@@ -315,8 +329,10 @@
 				41278D621AA12E460073F9FE /* MOSSetCarryFlagOperation.m in Sources */,
 				41278D841AA147540073F9FE /* MOSRegisterValues.m in Sources */,
 				41278D551AA12C850073F9FE /* MOSOperationTests.m in Sources */,
+				41278DA71AA5BBA00073F9FE /* MOSUtils.m in Sources */,
 				41278D9F1AA405420073F9FE /* MOSCompareOperationTests.m in Sources */,
 				41278D6E1AA133290073F9FE /* MOSCPU.m in Sources */,
+				41278DA31AA5AF3F0073F9FE /* MOSJumpToSubroutineOperation.m in Sources */,
 				41278D791AA139DD0073F9FE /* MOSFakeDataStream.m in Sources */,
 				41278D971AA3F75D0073F9FE /* MOSBranchOnResultNotZeroOperation.m in Sources */,
 				41278D591AA12D110073F9FE /* MOSClearCarryFlagOperation.m in Sources */,

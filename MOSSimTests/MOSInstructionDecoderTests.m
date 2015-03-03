@@ -204,4 +204,15 @@
     XCTAssertEqual(instruction.immediateValue, 0x99);
 }
 
+- (void)testJSR {
+    // [OPCODE, ADDRESS LOW, ADDRESS HIGH]
+    self.dataStream.data = @[@0x20, @0x34, @0x12];
+    
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeJSR);
+    XCTAssertEqual(instruction.operationName, @"JumpToSubroutine");
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsolute);
+    XCTAssertEqual(instruction.absoluteAddress, 0x1234);
+}
+
 @end

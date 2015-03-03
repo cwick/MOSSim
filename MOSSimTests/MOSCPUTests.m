@@ -18,6 +18,10 @@
     self.cpu = [MOSCPU new];
 }
 
+- (void)testMemoryIsZeroedOut {
+    XCTAssertEqual([self.cpu readWord:123], 0);
+}
+
 - (void)testProgramCounterIsIncrementedByOne {
     LOAD_PROGRAM(MOSOPCodeCLC);
     
