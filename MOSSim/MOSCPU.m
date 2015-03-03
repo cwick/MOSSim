@@ -60,4 +60,8 @@ static const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
     return ((MOSWord *)self.addressSpace.bytes)[address];
 }
 
+- (void)pushStack:(MOSWord)value {
+    ((MOSWord *)self.addressSpace.mutableBytes)[self.stackPointer--] = value;
+}
+
 @end

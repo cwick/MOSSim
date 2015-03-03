@@ -1,5 +1,6 @@
 #import "MOSJumpToSubroutineOperation.h"
 #import "MOSCPU.h"
+#import "MOSUtils.h"
 
 @interface MOSJumpToSubroutineOperation ()
 
@@ -19,10 +20,12 @@
 }
 
 - (void)execute:(MOSCPU *)cpu {
-    // push PCH
-    // push PCL
+    MOSAbsoluteAddress returnAddress = cpu.programCounter - 1;
+    
+    [cpu pushStack:MOSAddressHigh(returnAddress)];
+    [cpu pushStack:MOSAddressLow(returnAddress)];
+    
     cpu.programCounter = self.address;
-    cpu.stackPointer -= 2;
 }
 
 @end

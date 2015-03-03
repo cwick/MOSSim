@@ -61,7 +61,7 @@
 - (void)testJumpToSubroutineOperation {
     MOSOperation *op = [[MOSJumpToSubroutineOperation alloc] initWithAbsoluteAddress:0x1234];
     
-    self.cpu.programCounter = 0;
+    self.cpu.programCounter = 3;
     self.cpu.stackPointer = 2;
     
     [op execute:self.cpu];
