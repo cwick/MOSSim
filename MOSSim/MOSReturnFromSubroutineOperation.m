@@ -1,6 +1,7 @@
 #import "MOSReturnFromSubroutineOperation.h"
 #import "MOSCPU.h"
 #import "MOSInstructionDecoder.h"
+#import "MOSUtils.h"
 
 @implementation MOSReturnFromSubroutineOperation
 
@@ -9,7 +10,11 @@
 }
 
 - (void)execute:(MOSCPU *)cpu {
-    cpu.isHalted = YES;
+    MOSWord returnAddressLow = [cpu popStack];
+    MOSWord returnAddressHigh = [cpu popStack];
+    MOSAbsoluteAddress returnAddress = MOSAbsoluteAddressMake(returnAddressHigh, returnAddressLow);
+    
+    cpu.programCounter = returnAddress + 1;
 }
 
 @end

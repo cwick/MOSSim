@@ -18,5 +18,6 @@
 - (MOSWord)readWord:(MOSAbsoluteAddress)address;
 
 - (void)pushStack:(MOSWord)value;
+- (MOSWord)popStack;
 
 @end

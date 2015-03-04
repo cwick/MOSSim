@@ -52,10 +52,17 @@
 
 - (void)testReturnFromSubroutine {
     MOSOperation *op = [MOSReturnFromSubroutineOperation new];
+    MOSAbsoluteAddress returnAddress = 99;
     
-    self.cpu.isHalted = NO;
+    self.cpu.programCounter = 0x1234;
+    self.cpu.stackPointer = 2;
+    [self.cpu pushStack:MOSAddressHigh(returnAddress)];
+    [self.cpu pushStack:MOSAddressLow(returnAddress)];
+    
     [op execute:self.cpu];
-    XCTAssertTrue(self.cpu.isHalted);
+    
+    XCTAssertEqual(self.cpu.stackPointer, 2);
+    XCTAssertEqual(self.cpu.programCounter, 100);
 }
 
 - (void)testJumpToSubroutineOperation {

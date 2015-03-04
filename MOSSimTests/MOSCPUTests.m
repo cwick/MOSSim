@@ -43,6 +43,14 @@
     XCTAssertEqual(self.cpu.programCounter, 1);
 }
 
+- (void)testPopStack {
+    [self.cpu pushStack:12];
+    [self.cpu pushStack:34];
+    
+    XCTAssertEqual([self.cpu popStack], 34);
+    XCTAssertEqual([self.cpu popStack], 12);
+}
+
 - (void)testSimpleInfiniteLoop {
     LOAD_PROGRAM(MOSOPCodeJMP, 0x00, 0x00);
     
