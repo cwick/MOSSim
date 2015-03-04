@@ -47,6 +47,7 @@
         OPCODE(SEC, SetCarryFlag, Implied, NO);
         OPCODE(CLD, ClearDecimalMode, Implied, NO);
         OPCODE(RTS, ReturnFromSubroutine, Implied, NO);
+        OPCODE(BRK, ForceBreak, Implied, NO);
         OPCODE(JMP, Jump, Absolute, NO);
         OPCODE(BCC, BranchOnCarryClear, Relative, NO);
         OPCODE(BCS, BranchOnCarrySet, Relative, NO);

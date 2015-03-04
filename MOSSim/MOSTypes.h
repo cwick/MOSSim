@@ -28,6 +28,7 @@ typedef NS_ENUM(NSInteger, MOSOPCode) {
     MOSOPCodeSEC = 0x38,
     MOSOPCodeINX = 0xE8,
     MOSOPCodeRTS = 0x60,
+    MOSOPCodeBRK = 0x00,
     
     MOSOPCodeCLD = 0xD8,
     

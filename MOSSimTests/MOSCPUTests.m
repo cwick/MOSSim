@@ -36,8 +36,8 @@
     XCTAssertEqual(self.cpu.programCounter, 2);
 }
 
-- (void)testCPUHaltsOnReturnFromSubroutine {
-    LOAD_PROGRAM(MOSOPCodeRTS);
+- (void)testCPUHaltsForceBreak {
+    LOAD_PROGRAM(MOSOPCodeBRK);
     
     [self.cpu run];
     XCTAssertEqual(self.cpu.programCounter, 1);

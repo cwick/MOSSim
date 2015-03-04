@@ -23,7 +23,8 @@
                                @0x38: @[@(MOSOPCodeSEC), @"SetCarryFlag"],
                                @0xD8: @[@(MOSOPCodeCLD), @"ClearDecimalMode"],
                                @0xE8: @[@(MOSOPCodeINX), @"IncrementRegister"],
-                               @0x60: @[@(MOSOPCodeRTS), @"ReturnFromSubroutine"] };
+                               @0x60: @[@(MOSOPCodeRTS), @"ReturnFromSubroutine"],
+                               @0x00: @[@(MOSOPCodeBRK), @"ForceBreak"] };
     
     for (NSNumber *opcode in expected.allKeys) {
         self.dataStream.data = @[@(opcode.unsignedCharValue)];

@@ -45,6 +45,8 @@
 		41278DA71AA5BBA00073F9FE /* MOSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278DA51AA5BBA00073F9FE /* MOSUtils.m */; };
 		419695671A9FA46800787278 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 419695661A9FA46800787278 /* main.m */; };
 		419695781A9FA55E00787278 /* MOSInstructionDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 419695771A9FA55E00787278 /* MOSInstructionDecoderTests.m */; };
+		41FE82D61AA69EC500CA4BE4 /* MOSForceBreakOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FE82D51AA69EC500CA4BE4 /* MOSForceBreakOperation.m */; };
+		41FE82D71AA69EC500CA4BE4 /* MOSForceBreakOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FE82D51AA69EC500CA4BE4 /* MOSForceBreakOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -103,6 +105,8 @@
 		419695731A9FA55E00787278 /* MOSSimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MOSSimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		419695761A9FA55E00787278 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		419695771A9FA55E00787278 /* MOSInstructionDecoderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MOSInstructionDecoderTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		41FE82D41AA69EC500CA4BE4 /* MOSForceBreakOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSForceBreakOperation.h; sourceTree = "<group>"; };
+		41FE82D51AA69EC500CA4BE4 /* MOSForceBreakOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSForceBreakOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,8 @@
 				41278D9B1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m */,
 				41278DA01AA5AF3F0073F9FE /* MOSJumpToSubroutineOperation.h */,
 				41278DA11AA5AF3F0073F9FE /* MOSJumpToSubroutineOperation.m */,
+				41FE82D41AA69EC500CA4BE4 /* MOSForceBreakOperation.h */,
+				41FE82D51AA69EC500CA4BE4 /* MOSForceBreakOperation.m */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -302,6 +308,7 @@
 				41278D8A1AA1B4B70073F9FE /* MOSOperation.m in Sources */,
 				41278D7C1AA13E460073F9FE /* MOSLoadRegisterOperation.m in Sources */,
 				41278D711AA134D20073F9FE /* MOSJumpOperation.m in Sources */,
+				41FE82D61AA69EC500CA4BE4 /* MOSForceBreakOperation.m in Sources */,
 				41278DA21AA5AF3F0073F9FE /* MOSJumpToSubroutineOperation.m in Sources */,
 				41278D9C1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m in Sources */,
 				41278DA61AA5BBA00073F9FE /* MOSUtils.m in Sources */,
@@ -334,6 +341,7 @@
 				41278D6E1AA133290073F9FE /* MOSCPU.m in Sources */,
 				41278DA31AA5AF3F0073F9FE /* MOSJumpToSubroutineOperation.m in Sources */,
 				41278D791AA139DD0073F9FE /* MOSFakeDataStream.m in Sources */,
+				41FE82D71AA69EC500CA4BE4 /* MOSForceBreakOperation.m in Sources */,
 				41278D971AA3F75D0073F9FE /* MOSBranchOnResultNotZeroOperation.m in Sources */,
 				41278D591AA12D110073F9FE /* MOSClearCarryFlagOperation.m in Sources */,
 				41278D8B1AA1B4B70073F9FE /* MOSOperation.m in Sources */,
