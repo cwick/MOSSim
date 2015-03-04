@@ -68,7 +68,7 @@
         MOSOPCodeINX,                // Increment X
         MOSOPCodeCPXImmediate, 16, // Compare X to 16
         MOSOPCodeBNE, -5,          // Jump -2 if Not Equal
-        MOSOPCodeRTS,                // return
+        MOSOPCodeBRK,                // return
         );
     
     [self.cpu run];
