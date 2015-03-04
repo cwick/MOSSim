@@ -52,9 +52,9 @@
 
 - (void)testReturnFromSubroutine {
     MOSOperation *op = [MOSReturnFromSubroutineOperation new];
-    MOSAbsoluteAddress returnAddress = 99;
+    MOSAbsoluteAddress returnAddress = 0x1234;
     
-    self.cpu.programCounter = 0x1234;
+    self.cpu.programCounter = 0x0;
     self.cpu.stackPointer = 2;
     [self.cpu pushStack:MOSAddressHigh(returnAddress)];
     [self.cpu pushStack:MOSAddressLow(returnAddress)];
@@ -62,7 +62,7 @@
     [op execute:self.cpu];
     
     XCTAssertEqual(self.cpu.stackPointer, 2);
-    XCTAssertEqual(self.cpu.programCounter, 100);
+    XCTAssertEqual(self.cpu.programCounter, 0x1235);
 }
 
 - (void)testJumpToSubroutineOperation {
@@ -74,9 +74,12 @@
     [op execute:self.cpu];
     XCTAssertEqual(self.cpu.programCounter, 0x1234);
     XCTAssertEqual(self.cpu.stackPointer, 0);
-    MOSAbsoluteAddress expectedAddressOnStack = MOSAbsoluteAddressMake([self.cpu readWord:self.cpu.stackPointer+2],
-                                                                       [self.cpu readWord:self.cpu.stackPointer+1]);
-    XCTAssertEqual(expectedAddressOnStack, 0x0002);
+    
+    MOSWord returnAddressLow = [self.cpu popStack];
+    MOSWord returnAddressHigh = [self.cpu popStack];
+    
+    MOSAbsoluteAddress returnAddress =  MOSAbsoluteAddressMake(returnAddressHigh, returnAddressLow);
+    XCTAssertEqual(returnAddress, 0x0002);
 }
 
 @end

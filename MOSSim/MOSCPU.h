@@ -7,7 +7,7 @@
 
 @property(nonatomic, readonly) MOSStatusRegister *statusRegister;
 @property(nonatomic) MOSAbsoluteAddress programCounter;
-@property(nonatomic) MOSAbsoluteAddress stackPointer;
+@property(nonatomic) MOSWord stackPointer;
 @property(nonatomic, readonly) MOSRegisterValues *registerValues;
 @property(nonatomic) BOOL isHalted;
 

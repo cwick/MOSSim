@@ -1,6 +1,7 @@
 #import <XCTest/XCTest.h>
 
 #import "MOSCPU.h"
+#import "MOSUtils.h"
 
 @interface MOSCPUTests : XCTestCase
 
@@ -41,6 +42,14 @@
     
     [self.cpu run];
     XCTAssertEqual(self.cpu.programCounter, 1);
+}
+
+- (void)testStackIsLocatedAtPageOne {
+    self.cpu.stackPointer = 0xFF;
+    [self.cpu pushStack:0xBE];
+    
+    MOSAbsoluteAddress expectedAddress = MOSAbsoluteAddressMake(0x01, 0xFF);
+    XCTAssertEqual([self.cpu readWord:expectedAddress], 0xBE);
 }
 
 - (void)testPopStack {

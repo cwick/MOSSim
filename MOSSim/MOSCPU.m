@@ -2,6 +2,7 @@
 #import "MOSStatusRegister.h"
 #import "MOSInstructionDecoder.h"
 #import "MOSOperation.h"
+#import "MOSUtils.h"
 
 static const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
 
@@ -61,11 +62,17 @@ static const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
 }
 
 - (void)pushStack:(MOSWord)value {
-    ((MOSWord *)self.addressSpace.mutableBytes)[self.stackPointer--] = value;
+    MOSAbsoluteAddress address = [self createStackAddress:self.stackPointer--];
+    ((MOSWord *)self.addressSpace.mutableBytes)[address] = value;
 }
 
 - (MOSWord)popStack {
-    return ((MOSWord *)self.addressSpace.bytes)[++self.stackPointer];
+    MOSAbsoluteAddress address = [self createStackAddress:++self.stackPointer];
+    return ((MOSWord *)self.addressSpace.bytes)[address];
+}
+
+- (MOSAbsoluteAddress)createStackAddress:(MOSWord)stackPointer {
+    return MOSAbsoluteAddressMake(0x01, stackPointer);
 }
 
 @end
