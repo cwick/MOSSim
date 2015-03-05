@@ -53,6 +53,7 @@
         OPCODE(BCS, BranchOnCarrySet, Relative, NO);
         OPCODE(BEQ, BranchOnResultZero, Relative, NO);
         OPCODE(BNE, BranchOnResultNotZero, Relative, NO);
+        OPCODE(TXS, TransferXToStackPointer, Implied, NO);
             
         OPCODE(INCAbsolute, IncrementByOne, Absolute, NO);
         OPCODE(INCAbsoluteIndexed, IncrementByOne, Absolute, YES);

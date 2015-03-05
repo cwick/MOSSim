@@ -45,6 +45,8 @@
 		41278DA71AA5BBA00073F9FE /* MOSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 41278DA51AA5BBA00073F9FE /* MOSUtils.m */; };
 		419695671A9FA46800787278 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 419695661A9FA46800787278 /* main.m */; };
 		419695781A9FA55E00787278 /* MOSInstructionDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 419695771A9FA55E00787278 /* MOSInstructionDecoderTests.m */; };
+		41C8D37D1AA8375000DAC0F3 /* MOSTransferXToStackPointerOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C8D37C1AA8375000DAC0F3 /* MOSTransferXToStackPointerOperation.m */; };
+		41C8D37E1AA8375800DAC0F3 /* MOSTransferXToStackPointerOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C8D37C1AA8375000DAC0F3 /* MOSTransferXToStackPointerOperation.m */; };
 		41FE82D61AA69EC500CA4BE4 /* MOSForceBreakOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FE82D51AA69EC500CA4BE4 /* MOSForceBreakOperation.m */; };
 		41FE82D71AA69EC500CA4BE4 /* MOSForceBreakOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FE82D51AA69EC500CA4BE4 /* MOSForceBreakOperation.m */; };
 /* End PBXBuildFile section */
@@ -105,6 +107,8 @@
 		419695731A9FA55E00787278 /* MOSSimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MOSSimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		419695761A9FA55E00787278 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		419695771A9FA55E00787278 /* MOSInstructionDecoderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MOSInstructionDecoderTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		41C8D37B1AA8375000DAC0F3 /* MOSTransferXToStackPointerOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSTransferXToStackPointerOperation.h; sourceTree = "<group>"; };
+		41C8D37C1AA8375000DAC0F3 /* MOSTransferXToStackPointerOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSTransferXToStackPointerOperation.m; sourceTree = "<group>"; };
 		41FE82D41AA69EC500CA4BE4 /* MOSForceBreakOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSForceBreakOperation.h; sourceTree = "<group>"; };
 		41FE82D51AA69EC500CA4BE4 /* MOSForceBreakOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSForceBreakOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +154,8 @@
 				41278DA11AA5AF3F0073F9FE /* MOSJumpToSubroutineOperation.m */,
 				41FE82D41AA69EC500CA4BE4 /* MOSForceBreakOperation.h */,
 				41FE82D51AA69EC500CA4BE4 /* MOSForceBreakOperation.m */,
+				41C8D37B1AA8375000DAC0F3 /* MOSTransferXToStackPointerOperation.h */,
+				41C8D37C1AA8375000DAC0F3 /* MOSTransferXToStackPointerOperation.m */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -312,6 +318,7 @@
 				41278DA21AA5AF3F0073F9FE /* MOSJumpToSubroutineOperation.m in Sources */,
 				41278D9C1AA3FA6F0073F9FE /* MOSReturnFromSubroutineOperation.m in Sources */,
 				41278DA61AA5BBA00073F9FE /* MOSUtils.m in Sources */,
+				41C8D37D1AA8375000DAC0F3 /* MOSTransferXToStackPointerOperation.m in Sources */,
 				41278D581AA12D110073F9FE /* MOSClearCarryFlagOperation.m in Sources */,
 				419695671A9FA46800787278 /* main.m in Sources */,
 				41278D6D1AA133290073F9FE /* MOSCPU.m in Sources */,
@@ -336,6 +343,7 @@
 				41278D621AA12E460073F9FE /* MOSSetCarryFlagOperation.m in Sources */,
 				41278D841AA147540073F9FE /* MOSRegisterValues.m in Sources */,
 				41278D551AA12C850073F9FE /* MOSOperationTests.m in Sources */,
+				41C8D37E1AA8375800DAC0F3 /* MOSTransferXToStackPointerOperation.m in Sources */,
 				41278DA71AA5BBA00073F9FE /* MOSUtils.m in Sources */,
 				41278D9F1AA405420073F9FE /* MOSCompareOperationTests.m in Sources */,
 				41278D6E1AA133290073F9FE /* MOSCPU.m in Sources */,

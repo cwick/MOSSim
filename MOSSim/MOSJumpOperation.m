@@ -4,20 +4,15 @@
 
 @implementation MOSJumpOperation
 
+- (instancetype)initWithInstruction:(MOSInstruction *)instruction {
+    return [self initWithAbsoluteAddress:instruction.absoluteAddress];
+}
+
 - (instancetype)initWithAbsoluteAddress:(MOSAbsoluteAddress)address {
     self = [super init];
     if (self) {
         _absoluteAddress = address;
     }
-    return self;
-}
-
-- (instancetype)initWithInstruction:(MOSInstruction *)instruction {
-    self = [super init];
-    if (self) {
-        _absoluteAddress = instruction.absoluteAddress;
-    }
-    
     return self;
 }
 

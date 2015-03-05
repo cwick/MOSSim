@@ -1,6 +1,7 @@
 #import "MOSJumpToSubroutineOperation.h"
 #import "MOSCPU.h"
 #import "MOSUtils.h"
+#import "MOSInstructionDecoder.h"
 
 @interface MOSJumpToSubroutineOperation ()
 
@@ -9,6 +10,10 @@
 @end
 
 @implementation MOSJumpToSubroutineOperation
+
+- (instancetype)initWithInstruction:(MOSInstruction *)instruction {
+    return [self initWithAbsoluteAddress:instruction.absoluteAddress];
+}
 
 - (instancetype)initWithAbsoluteAddress:(MOSAbsoluteAddress)address {
     self = [super init];

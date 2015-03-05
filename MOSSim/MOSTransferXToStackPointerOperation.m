@@ -1,15 +1,14 @@
-#import "MOSClearCarryFlagOperation.h"
+#import "MOSTransferXToStackPointerOperation.h"
 #import "MOSCPU.h"
-#import "MOSStatusRegister.h"
 
-@implementation MOSClearCarryFlagOperation
+@implementation MOSTransferXToStackPointerOperation
 
 - (instancetype)initWithInstruction:(MOSInstruction *)instruction {
     return [super init];
 }
 
 - (void)execute:(MOSCPU *)cpu {
-    cpu.statusRegister.carryFlag = NO;
+    cpu.stackPointer = cpu.registerValues.x;
 }
 
 @end

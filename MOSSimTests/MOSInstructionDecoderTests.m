@@ -24,7 +24,8 @@
                                @0xD8: @[@(MOSOPCodeCLD), @"ClearDecimalMode"],
                                @0xE8: @[@(MOSOPCodeINX), @"IncrementRegister"],
                                @0x60: @[@(MOSOPCodeRTS), @"ReturnFromSubroutine"],
-                               @0x00: @[@(MOSOPCodeBRK), @"ForceBreak"] };
+                               @0x00: @[@(MOSOPCodeBRK), @"ForceBreak"],
+                               @0x9A: @[@(MOSOPCodeTXS), @"TransferXToStackPointer"] };
     
     for (NSNumber *opcode in expected.allKeys) {
         self.dataStream.data = @[@(opcode.unsignedCharValue)];

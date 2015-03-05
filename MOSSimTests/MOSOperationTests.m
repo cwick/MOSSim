@@ -8,6 +8,7 @@
 #import "MOSLoadRegisterOperation.h"
 #import "MOSReturnFromSubroutineOperation.h"
 #import "MOSJumpToSubroutineOperation.h"
+#import "MOSTransferXToStackPointerOperation.h"
 
 @interface MOSOperationTests : XCTestCase
 
@@ -48,6 +49,14 @@
     
     XCTAssertEqual(self.cpu.registerValues.x, 0x55);
     
+}
+
+- (void)testTransferXToStackPointer {
+    MOSOperation *op = [MOSTransferXToStackPointerOperation new];
+    self.cpu.registerValues.x = 123;
+    [op execute:self.cpu];
+    
+    XCTAssertEqual(self.cpu.stackPointer, 123);
 }
 
 - (void)testReturnFromSubroutine {

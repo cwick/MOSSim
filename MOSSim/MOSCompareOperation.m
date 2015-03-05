@@ -6,17 +6,15 @@
 @implementation MOSCompareOperation
 
 - (instancetype)initWithInstruction:(MOSInstruction *)instruction {
-    self = [super init];
-    if (self) {
-        _value = instruction.immediateValue;
-    }
-    return self;
+    return [self initWithImmediateValue:instruction.immediateValue];
 }
 
 - (instancetype)initWithImmediateValue:(MOSImmediateValue)value {
-    MOSInstruction *i = [MOSInstruction new];
-    i.immediateValue = value;
-    return [self initWithInstruction:i];
+    self = [super init];
+    if (self) {
+        _value = value;
+    }
+    return self;
 }
 
 - (void)execute:(MOSCPU *)cpu {

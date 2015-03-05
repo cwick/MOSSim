@@ -76,12 +76,32 @@
         MOSOPCodeLDXImmediate, 0x00, // Load 0x00 into X
         MOSOPCodeINX,                // Increment X
         MOSOPCodeCPXImmediate, 16, // Compare X to 16
-        MOSOPCodeBNE, -5,          // Jump -2 if Not Equal
+        MOSOPCodeBNE, -5,          // Jump -5 if Not Equal
         MOSOPCodeBRK,                // return
         );
     
     [self.cpu run];
     XCTAssertEqual(self.cpu.registerValues.x, 16);
+}
+
+- (void)testSubroutine {
+    LOAD_PROGRAM(
+        // Initialize
+        MOSOPCodeLDXImmediate, 0xFF,
+        MOSOPCodeTXS,
+        MOSOPCodeJMP, 0x09, 0x00,
+                 
+        // Subroutine
+        MOSOPCodeLDXImmediate, 0xBE,
+        MOSOPCodeRTS,
+                 
+        // Main
+        MOSOPCodeJSR, 0x06, 0x00,
+        MOSOPCodeBRK,
+        );
+    
+    [self.cpu run];
+    XCTAssertEqual(self.cpu.registerValues.x, 0xBE);
 }
 
 - (void)loadProgram:(const MOSWord *)programData size:(NSUInteger)length {
