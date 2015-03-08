@@ -71,7 +71,9 @@
         OPCODE(CPXImmediate, Compare, Immediate, NO);
             
         OPCODE(JSR, JumpToSubroutine, Absolute, NO);
-            
+
+        OPCODE(LDAImmediate, LoadAccumulator, Immediate, NO);
+
         default:
             [NSException raise:@"Unknown opcode" format:@"%ld", opcode];
             break;

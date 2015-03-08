@@ -217,4 +217,14 @@
     XCTAssertEqual(instruction.absoluteAddress, 0x1234);
 }
 
+- (void)testLDAImmediate {
+    // [OPCODE, VALUE]
+    self.dataStream.data = @[@0x85, @0x34];
+
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeLDAImmediate);
+    XCTAssertEqual(instruction.operationName, @"LoadAccumulator");
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeImmediate);
+    XCTAssertEqual(instruction.immediateValue, 0x34);
+}
 @end

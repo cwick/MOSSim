@@ -1,5 +1,4 @@
 #import "MOSCPU.h"
-#import "MOSStatusRegister.h"
 #import "MOSInstructionDecoder.h"
 #import "MOSOperation.h"
 #import "MOSUtils.h"
@@ -37,7 +36,6 @@ static const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
     MOSOperation *operation = [MOSOperation operationFromInstruction:instruction];
     
     [operation execute:self];
-    NSLog(@"%@", self);
 }
 
 - (MOSWord)nextWord {

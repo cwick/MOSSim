@@ -49,6 +49,9 @@
 		41C8D37E1AA8375800DAC0F3 /* MOSTransferXToStackPointerOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C8D37C1AA8375000DAC0F3 /* MOSTransferXToStackPointerOperation.m */; };
 		41FE82D61AA69EC500CA4BE4 /* MOSForceBreakOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FE82D51AA69EC500CA4BE4 /* MOSForceBreakOperation.m */; };
 		41FE82D71AA69EC500CA4BE4 /* MOSForceBreakOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FE82D51AA69EC500CA4BE4 /* MOSForceBreakOperation.m */; };
+		5AAC502CCC38FB549F4052EB /* MOSLoadAccumulatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5BF3BD51D05EF294EEE8 /* MOSLoadAccumulatorTests.m */; };
+		5AAC543573764D44D45F4F97 /* MOSLoadAccumulatorOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC53B6610C080B44E2E1AE /* MOSLoadAccumulatorOperation.m */; };
+		5AAC57F837295349C993E9D7 /* MOSLoadAccumulatorOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC53B6610C080B44E2E1AE /* MOSLoadAccumulatorOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -111,6 +114,9 @@
 		41C8D37C1AA8375000DAC0F3 /* MOSTransferXToStackPointerOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSTransferXToStackPointerOperation.m; sourceTree = "<group>"; };
 		41FE82D41AA69EC500CA4BE4 /* MOSForceBreakOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSForceBreakOperation.h; sourceTree = "<group>"; };
 		41FE82D51AA69EC500CA4BE4 /* MOSForceBreakOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSForceBreakOperation.m; sourceTree = "<group>"; };
+		5AAC53B6610C080B44E2E1AE /* MOSLoadAccumulatorOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSLoadAccumulatorOperation.m; sourceTree = "<group>"; };
+		5AAC57545815DDE81AC96914 /* MOSLoadAccumulatorOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSLoadAccumulatorOperation.h; sourceTree = "<group>"; };
+		5AAC5BF3BD51D05EF294EEE8 /* MOSLoadAccumulatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSLoadAccumulatorTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +162,8 @@
 				41FE82D51AA69EC500CA4BE4 /* MOSForceBreakOperation.m */,
 				41C8D37B1AA8375000DAC0F3 /* MOSTransferXToStackPointerOperation.h */,
 				41C8D37C1AA8375000DAC0F3 /* MOSTransferXToStackPointerOperation.m */,
+				5AAC57545815DDE81AC96914 /* MOSLoadAccumulatorOperation.h */,
+				5AAC53B6610C080B44E2E1AE /* MOSLoadAccumulatorOperation.m */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -210,6 +218,7 @@
 				41278D981AA3F7BF0073F9FE /* MOSBranchNotZeroTests.m */,
 				419695751A9FA55E00787278 /* Supporting Files */,
 				41278D9E1AA405420073F9FE /* MOSCompareOperationTests.m */,
+				5AAC5BF3BD51D05EF294EEE8 /* MOSLoadAccumulatorTests.m */,
 			);
 			path = MOSSimTests;
 			sourceTree = "<group>";
@@ -329,6 +338,7 @@
 				41278D611AA12E460073F9FE /* MOSSetCarryFlagOperation.m in Sources */,
 				41278D831AA147540073F9FE /* MOSRegisterValues.m in Sources */,
 				41278D451A9FE57C0073F9FE /* MOSInstructionDecoder.m in Sources */,
+				5AAC543573764D44D45F4F97 /* MOSLoadAccumulatorOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +370,8 @@
 				41278D661AA12F140073F9FE /* MOSStatusRegister.m in Sources */,
 				41278D7D1AA13E460073F9FE /* MOSLoadRegisterOperation.m in Sources */,
 				41278D461A9FE5F40073F9FE /* MOSInstructionDecoder.m in Sources */,
+				5AAC502CCC38FB549F4052EB /* MOSLoadAccumulatorTests.m in Sources */,
+				5AAC57F837295349C993E9D7 /* MOSLoadAccumulatorOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
