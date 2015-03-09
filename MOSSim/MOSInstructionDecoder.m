@@ -66,7 +66,8 @@
             
         OPCODE(LDXImmediate, LoadRegister, Immediate);
         OPCODE(INX, IncrementRegister, Implied);
-            
+        OPCODE(DEY, DecrementRegister, Implied);
+
         OPCODE(CPXImmediate, Compare, Immediate);
             
         OPCODE(JSR, JumpToSubroutine, Absolute);

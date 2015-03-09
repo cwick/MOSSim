@@ -23,6 +23,7 @@
                                @0x38: @[@(MOSOPCodeSEC), @"SetCarryFlag"],
                                @0xD8: @[@(MOSOPCodeCLD), @"ClearDecimalMode"],
                                @0xE8: @[@(MOSOPCodeINX), @"IncrementRegister"],
+                               @0xE8: @[@(MOSOPCodeDEY), @"DecrementRegister"],
                                @0x60: @[@(MOSOPCodeRTS), @"ReturnFromSubroutine"],
                                @0x00: @[@(MOSOPCodeBRK), @"ForceBreak"],
                                @0x9A: @[@(MOSOPCodeTXS), @"TransferXToStackPointer"] };
