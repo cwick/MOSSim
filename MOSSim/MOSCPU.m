@@ -55,8 +55,12 @@ static const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
             @"X\t0x%X\t%d", self.programCounter, self.programCounter, self.registerValues.x, self.registerValues.x];
 }
 
-- (MOSWord)readWord:(MOSAbsoluteAddress)address {
+- (MOSWord)readWordFromAddress:(MOSAbsoluteAddress)address {
     return ((MOSWord *)self.addressSpace.bytes)[address];
+}
+
+- (void)writeWord:(MOSWord)value toAddress:(MOSAbsoluteAddress)address {
+    ((MOSWord *)self.addressSpace.bytes)[address] = value;
 }
 
 - (void)pushStack:(MOSWord)value {

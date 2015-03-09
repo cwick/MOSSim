@@ -20,7 +20,7 @@
 }
 
 - (void)testMemoryIsZeroedOut {
-    XCTAssertEqual([self.cpu readWord:123], 0);
+    XCTAssertEqual([self.cpu readWordFromAddress:123], 0);
 }
 
 - (void)testProgramCounterIsIncrementedByOne {
@@ -49,7 +49,7 @@
     [self.cpu pushStack:0xBE];
     
     MOSAbsoluteAddress expectedAddress = MOSAbsoluteAddressMake(0x01, 0xFF);
-    XCTAssertEqual([self.cpu readWord:expectedAddress], 0xBE);
+    XCTAssertEqual([self.cpu readWordFromAddress:expectedAddress], 0xBE);
 }
 
 - (void)testPopStack {

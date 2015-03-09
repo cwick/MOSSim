@@ -15,7 +15,8 @@
 - (void)step;
 - (void)run;
 
-- (MOSWord)readWord:(MOSAbsoluteAddress)address;
+- (MOSWord)readWordFromAddress:(MOSAbsoluteAddress)address;
+- (void)writeWord:(MOSWord)value toAddress:(MOSAbsoluteAddress)address;
 
 - (void)pushStack:(MOSWord)value;
 - (MOSWord)popStack;

@@ -73,6 +73,7 @@
         OPCODE(JSR, JumpToSubroutine, Absolute, NO);
 
         OPCODE(LDAImmediate, LoadAccumulator, Immediate, NO);
+        OPCODE(LDAZeroPage, LoadAccumulator, ZeroPage, NO);
 
         default:
             [NSException raise:@"Unknown opcode" format:@"%ld", opcode];

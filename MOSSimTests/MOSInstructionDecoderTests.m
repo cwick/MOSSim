@@ -92,7 +92,7 @@
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeRelative);
 }
 
-- (void)testIncrementMemoryByOneZeroPage {
+- (void)testINCZeroPage {
     // [OPCODE, OPERAND]
     self.dataStream.data = @[@0xE6, @0xDE];
     
@@ -103,7 +103,7 @@
     XCTAssertEqual(instruction.pageOffset, 0xDE);
 }
 
-- (void)testIncrementMemoryByOneZeroPageIndexed {
+- (void)testINCZeroPageIndexed {
     // [OPCODE, OPERAND]
     self.dataStream.data = @[@0xF6, @0x00];
     
@@ -115,7 +115,7 @@
     XCTAssertEqual(instruction.pageOffset, 0x00);
 }
 
-- (void)testIncrementMemoryByOneAbsolute {
+- (void)testINCAbsolute {
     // [OPCODE, LOW ADDRESS, HIGH ADDRESS]
     self.dataStream.data = @[@0xEE, @0x78, @0x56];
     
@@ -126,7 +126,7 @@
     XCTAssertEqual(instruction.absoluteAddress, 0x5678);
 }
 
-- (void)testIncrementMemoryByOneAbsoluteIndexed {
+- (void)testINCAbsoluteIndexed {
     // [OPCODE, LOW ADDRESS, HIGH ADDRESS]
     self.dataStream.data = @[@0xFE, @0xFF, @0xFF];
     
@@ -219,7 +219,7 @@
 
 - (void)testLDAImmediate {
     // [OPCODE, VALUE]
-    self.dataStream.data = @[@0x85, @0x34];
+    self.dataStream.data = @[@0xA9, @0x34];
 
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeLDAImmediate);
@@ -227,4 +227,16 @@
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeImmediate);
     XCTAssertEqual(instruction.immediateValue, 0x34);
 }
+
+- (void)testLDAZeroPage {
+    // [OPCODE, VALUE]
+    self.dataStream.data = @[@0xA5, @0x22];
+
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeLDAZeroPage);
+    XCTAssertEqual(instruction.operationName, @"LoadAccumulator");
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
+    XCTAssertEqual(instruction.pageOffset, 0x22);
+}
+
 @end
