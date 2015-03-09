@@ -11,17 +11,15 @@
 @implementation MOSBranchOnResultNotZeroOperation
 
 - (instancetype)initWithInstruction:(MOSInstruction* )instruction {
-    self = [super init];
-    if (self) {
-        _offset = instruction.relativeAddress;
-    }
-    return self;
+    return [self initWithRelativeAddress:instruction.relativeAddress];
 }
 
 - (instancetype)initWithRelativeAddress:(MOSRelativeAddress)address {
-    MOSInstruction *i = [MOSInstruction new];
-    i.relativeAddress = address;
-    return [self initWithInstruction:i];
+    self = [super init];
+    if (self) {
+        _offset = address;
+    }
+    return self;
 }
 
 - (void)execute:(MOSCPU *)cpu {
