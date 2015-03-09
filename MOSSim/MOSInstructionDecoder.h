@@ -8,7 +8,6 @@
 @property(nonatomic) MOSAbsoluteAddress absoluteAddress;
 @property(nonatomic) MOSRelativeAddress relativeAddress;
 @property(nonatomic) MOSAddressingMode addressingMode;
-@property(nonatomic) BOOL isAddressingModeIndexed;
 @property(nonatomic) MOSPageOffset pageOffset;
 @property(nonatomic) MOSImmediateValue immediateValue;
 

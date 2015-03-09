@@ -18,9 +18,10 @@ typedef NS_ENUM(NSInteger, MOSAddressingMode) {
     MOSAddressingModeImplied,
     MOSAddressingModeImmediate,
     MOSAddressingModeZeroPage,
+    MOSAddressingModeZeroPageX,
     MOSAddressingModeAbsolute,
+    MOSAddressingModeAbsoluteX,
     MOSAddressingModeRelative,
-    MOSAddressingModeIndexed,
 };
 
 typedef NS_ENUM(NSInteger, MOSOPCode) {

@@ -110,8 +110,7 @@
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeINCZeroPageIndexed);
     XCTAssertEqual(instruction.operationName, @"IncrementByOne");
-    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
-    XCTAssertEqual(instruction.isAddressingModeIndexed, YES);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPageX);
     XCTAssertEqual(instruction.pageOffset, 0x00);
 }
 
@@ -133,8 +132,7 @@
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeINCAbsoluteIndexed);
     XCTAssertEqual(instruction.operationName, @"IncrementByOne");
-    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsolute);
-    XCTAssertEqual(instruction.isAddressingModeIndexed, YES);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsoluteX);
     XCTAssertEqual(instruction.absoluteAddress, 0xFFFF);
 }
 
@@ -167,8 +165,7 @@
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeANDZeroPageIndexed);
     XCTAssertEqual(instruction.operationName, @"AND");
-    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
-    XCTAssertEqual(instruction.isAddressingModeIndexed, YES);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPageX);
     XCTAssertEqual(instruction.pageOffset, 0xFF);
 }
 
@@ -180,7 +177,6 @@
     XCTAssertEqual(instruction.opcode, MOSOPCodeANDAbsolute);
     XCTAssertEqual(instruction.operationName, @"AND");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsolute);
-    XCTAssertEqual(instruction.isAddressingModeIndexed, NO);
     XCTAssertEqual(instruction.absoluteAddress, 0x2345);
 }
 
@@ -229,7 +225,7 @@
 }
 
 - (void)testLDAZeroPage {
-    // [OPCODE, VALUE]
+    // [OPCODE, PAGE OFFSET]
     self.dataStream.data = @[@0xA5, @0x22];
 
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];

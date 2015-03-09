@@ -32,52 +32,50 @@
     return instruction;
 }
 
-#define OPCODE(_opcode, _name, _addressingMode, _isAddressingModeIndexed) \
+#define OPCODE(_opcode, _name, _addressingMode) \
     case MOSOPCode##_opcode: \
         instruction.opcode = MOSOPCode##_opcode; \
         instruction.operationName = @#_name; \
         instruction.addressingMode = MOSAddressingMode##_addressingMode; \
-        instruction.isAddressingModeIndexed = _isAddressingModeIndexed; \
         break
 
 - (void)decodeOPCode:(MOSOPCode)opcode intoInstruction:(MOSInstruction *)instruction {
     switch (opcode) {
-        // name, operation, addressingMode, isAddressingModeIndexed
-        OPCODE(CLC, ClearCarryFlag, Implied, NO);
-        OPCODE(SEC, SetCarryFlag, Implied, NO);
-        OPCODE(CLD, ClearDecimalMode, Implied, NO);
-        OPCODE(RTS, ReturnFromSubroutine, Implied, NO);
-        OPCODE(BRK, ForceBreak, Implied, NO);
-        OPCODE(JMP, Jump, Absolute, NO);
-        OPCODE(BCC, BranchOnCarryClear, Relative, NO);
-        OPCODE(BCS, BranchOnCarrySet, Relative, NO);
-        OPCODE(BEQ, BranchOnResultZero, Relative, NO);
-        OPCODE(BNE, BranchOnResultNotZero, Relative, NO);
-        OPCODE(TXS, TransferXToStackPointer, Implied, NO);
+        // name, operation, addressingMode
+        OPCODE(CLC, ClearCarryFlag, Implied);
+        OPCODE(SEC, SetCarryFlag, Implied);
+        OPCODE(CLD, ClearDecimalMode, Implied);
+        OPCODE(RTS, ReturnFromSubroutine, Implied);
+        OPCODE(BRK, ForceBreak, Implied);
+        OPCODE(JMP, Jump, Absolute);
+        OPCODE(BCC, BranchOnCarryClear, Relative);
+        OPCODE(BCS, BranchOnCarrySet, Relative);
+        OPCODE(BEQ, BranchOnResultZero, Relative);
+        OPCODE(BNE, BranchOnResultNotZero, Relative);
+        OPCODE(TXS, TransferXToStackPointer, Implied);
             
-        OPCODE(INCAbsolute, IncrementByOne, Absolute, NO);
-        OPCODE(INCAbsoluteIndexed, IncrementByOne, Absolute, YES);
-        OPCODE(INCZeroPage, IncrementByOne, ZeroPage, NO);
-        OPCODE(INCZeroPageIndexed, IncrementByOne, ZeroPage, YES);
+        OPCODE(INCAbsolute, IncrementByOne, Absolute);
+        OPCODE(INCAbsoluteIndexed, IncrementByOne, AbsoluteX);
+        OPCODE(INCZeroPage, IncrementByOne, ZeroPage);
+        OPCODE(INCZeroPageIndexed, IncrementByOne, ZeroPageX);
             
-        OPCODE(ANDImmediate, AND, Immediate, NO);
-        OPCODE(ANDZeroPage, AND, ZeroPage, NO);
-        OPCODE(ANDZeroPageIndexed, AND, ZeroPage, YES);
-        OPCODE(ANDAbsolute, AND, Absolute, NO);
+        OPCODE(ANDImmediate, AND, Immediate);
+        OPCODE(ANDZeroPage, AND, ZeroPage);
+        OPCODE(ANDZeroPageIndexed, AND, ZeroPageX);
+        OPCODE(ANDAbsolute, AND, Absolute);
             
-        OPCODE(LDXImmediate, LoadRegister, Immediate, NO);
-        OPCODE(INX, IncrementRegister, Implied, NO);
+        OPCODE(LDXImmediate, LoadRegister, Immediate);
+        OPCODE(INX, IncrementRegister, Implied);
             
-        OPCODE(CPXImmediate, Compare, Immediate, NO);
+        OPCODE(CPXImmediate, Compare, Immediate);
             
-        OPCODE(JSR, JumpToSubroutine, Absolute, NO);
+        OPCODE(JSR, JumpToSubroutine, Absolute);
 
-        OPCODE(LDAImmediate, LoadAccumulator, Immediate, NO);
-        OPCODE(LDAZeroPage, LoadAccumulator, ZeroPage, NO);
+        OPCODE(LDAImmediate, LoadAccumulator, Immediate);
+        OPCODE(LDAZeroPage, LoadAccumulator, ZeroPage);
 
         default:
             [NSException raise:@"Unknown opcode" format:@"%ld", opcode];
-            break;
     }
 }
 
@@ -87,9 +85,11 @@
             instruction.relativeAddress = [self decodeRelativeAddress];
             break;
         case MOSAddressingModeAbsolute:
+        case MOSAddressingModeAbsoluteX:
             instruction.absoluteAddress = [self decodeAbsoluteAddress];
             break;
         case MOSAddressingModeZeroPage:
+        case MOSAddressingModeZeroPageX:
             instruction.pageOffset = [self decodePageOffset];
             break;
         case MOSAddressingModeImmediate:
