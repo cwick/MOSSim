@@ -2,7 +2,7 @@
 
 static const int BITS_PER_BYTE = 8;
 
-MOSAbsoluteAddress MOSAbsoluteAddressMake(MOSWord high, MOSWord low) {
+MOSAbsoluteAddress MOSAbsoluteAddressMake(MOSWord low, MOSWord high) {
     return (high << BITS_PER_BYTE) | low;
 }
 

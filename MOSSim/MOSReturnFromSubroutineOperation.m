@@ -12,7 +12,7 @@
 - (void)execute:(MOSCPU *)cpu {
     MOSWord returnAddressLow = [cpu popStack];
     MOSWord returnAddressHigh = [cpu popStack];
-    MOSAbsoluteAddress returnAddress = MOSAbsoluteAddressMake(returnAddressHigh, returnAddressLow);
+    MOSAbsoluteAddress returnAddress = MOSAbsoluteAddressMake(returnAddressLow, returnAddressHigh);
     
     cpu.programCounter = returnAddress + 1;
 }

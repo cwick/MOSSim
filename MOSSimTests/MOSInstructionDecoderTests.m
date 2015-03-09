@@ -235,4 +235,15 @@
     XCTAssertEqual(instruction.pageOffset, 0x22);
 }
 
+- (void)testLDAIndirectIndexed {
+    // [OPCODE, PAGE OFFSET]
+    self.dataStream.data = @[@0xB1, @0x05];
+
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeLDAIndirectIndexed);
+    XCTAssertEqual(instruction.operationName, @"LoadAccumulator");
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeIndirectIndexed);
+    XCTAssertEqual(instruction.pageOffset, 0x05);
+}
+
 @end

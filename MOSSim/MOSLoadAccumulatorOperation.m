@@ -11,21 +11,11 @@
 
 @implementation MOSLoadAccumulatorOperation
 
-- (instancetype)initWithImmediateValue:(MOSImmediateValue)value {
+- (instancetype)initWithOperand:(MOSWord)operand addressingMode:(MOSAddressingMode)mode {
     self = [super init];
     if (self) {
-        _operand = value;
-        _addressingMode = MOSAddressingModeImmediate;
-    }
-
-    return self;
-}
-
-- (instancetype)initWithPageOffset:(MOSPageOffset)offset {
-    self = [super init];
-    if (self) {
-        _operand = offset;
-        _addressingMode = MOSAddressingModeZeroPage;
+        _operand = operand;
+        _addressingMode = mode;
     }
 
     return self;
@@ -43,6 +33,15 @@
         case MOSAddressingModeZeroPage:
             cpu.registerValues.a = [cpu readWordFromAddress:self.operand];
             break;
+        case MOSAddressingModeIndirectIndexed: {
+            MOSWord addressLow = [cpu readWordFromAddress:self.operand];
+            MOSWord addressHigh = [cpu readWordFromAddress:self.operand + 1];
+            MOSAbsoluteAddress address = MOSAbsoluteAddressMake(addressLow, addressHigh);
+            address += cpu.registerValues.y;
+
+            cpu.registerValues.a = [cpu readWordFromAddress:address];
+            break;
+        }
     }
 
     cpu.statusRegister.zeroFlag = (cpu.registerValues.a == 0);

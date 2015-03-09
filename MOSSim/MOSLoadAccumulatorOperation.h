@@ -3,7 +3,6 @@
 
 @interface MOSLoadAccumulatorOperation : MOSOperation
 
-- (instancetype)initWithImmediateValue:(MOSImmediateValue)value;
-- (instancetype)initWithPageOffset:(MOSPageOffset)offset;
+- (instancetype)initWithOperand:(MOSWord)operand addressingMode:(MOSAddressingMode)mode;
 
 @end

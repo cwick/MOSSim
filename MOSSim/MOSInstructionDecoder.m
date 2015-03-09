@@ -73,6 +73,7 @@
 
         OPCODE(LDAImmediate, LoadAccumulator, Immediate);
         OPCODE(LDAZeroPage, LoadAccumulator, ZeroPage);
+        OPCODE(LDAIndirectIndexed, LoadAccumulator, IndirectIndexed);
 
         default:
             [NSException raise:@"Unknown opcode" format:@"%ld", opcode];
@@ -90,6 +91,7 @@
             break;
         case MOSAddressingModeZeroPage:
         case MOSAddressingModeZeroPageX:
+        case MOSAddressingModeIndirectIndexed:
             instruction.pageOffset = [self decodePageOffset];
             break;
         case MOSAddressingModeImmediate:
@@ -115,7 +117,7 @@
     MOSWord addressLow = [self.dataStream nextWord];
     MOSWord addressHigh = [self.dataStream nextWord];
     
-    return MOSAbsoluteAddressMake(addressHigh, addressLow);
+    return MOSAbsoluteAddressMake(addressLow, addressHigh);
 }
 
 @end

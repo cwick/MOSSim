@@ -74,7 +74,7 @@ static const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
 }
 
 - (MOSAbsoluteAddress)createStackAddress:(MOSWord)stackPointer {
-    return MOSAbsoluteAddressMake(0x01, stackPointer);
+    return MOSAbsoluteAddressMake(stackPointer, 0x01);
 }
 
 @end

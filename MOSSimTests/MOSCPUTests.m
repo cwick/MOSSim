@@ -48,7 +48,7 @@
     self.cpu.stackPointer = 0xFF;
     [self.cpu pushStack:0xBE];
     
-    MOSAbsoluteAddress expectedAddress = MOSAbsoluteAddressMake(0x01, 0xFF);
+    MOSAbsoluteAddress expectedAddress = MOSAbsoluteAddressMake(0xFF, 0x01);
     XCTAssertEqual([self.cpu readWordFromAddress:expectedAddress], 0xBE);
 }
 

@@ -1,6 +1,6 @@
 #import "MOSTypes.h"
 
-MOSAbsoluteAddress MOSAbsoluteAddressMake(MOSWord high, MOSWord low);
+MOSAbsoluteAddress MOSAbsoluteAddressMake(MOSWord low, MOSWord high);
 MOSWord MOSAddressHigh(MOSAbsoluteAddress address);
 MOSWord MOSAddressLow(MOSAbsoluteAddress address);
 

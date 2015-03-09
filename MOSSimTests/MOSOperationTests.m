@@ -87,7 +87,7 @@
     MOSWord returnAddressLow = [self.cpu popStack];
     MOSWord returnAddressHigh = [self.cpu popStack];
     
-    MOSAbsoluteAddress returnAddress =  MOSAbsoluteAddressMake(returnAddressHigh, returnAddressLow);
+    MOSAbsoluteAddress returnAddress = MOSAbsoluteAddressMake(returnAddressLow, returnAddressHigh);
     XCTAssertEqual(returnAddress, 0x0002);
 }
 
