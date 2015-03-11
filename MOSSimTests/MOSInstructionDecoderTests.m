@@ -187,7 +187,18 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeLDXImmediate);
-    XCTAssertEqual(instruction.operationName, @"LoadRegister");
+    XCTAssertEqual(instruction.operationName, @"LoadRegisterX");
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeImmediate);
+    XCTAssertEqual(instruction.immediateValue, 0x12);
+}
+
+- (void)testLDYImmediate {
+    // [OPCODE, OPERAND]
+    self.dataStream.data = @[@0xA0, @0x12];
+
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeLDYImmediate);
+    XCTAssertEqual(instruction.operationName, @"LoadRegisterY");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeImmediate);
     XCTAssertEqual(instruction.immediateValue, 0x12);
 }

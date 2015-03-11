@@ -2,23 +2,23 @@
 #import "MOSCPU.h"
 #import "MOSTypes.h"
 #import "MOSInstructionDecoder.h"
+#import "MOSUtils.h"
 
 @implementation MOSLoadRegisterOperation
 
-- (instancetype)initWithInstruction:(MOSInstruction* )instruction {
-    return [self initWithImmediateValue:instruction.immediateValue];
-}
-
-- (instancetype)initWithImmediateValue:(MOSImmediateValue)value {
+- (instancetype)initWithImmediateValue:(MOSImmediateValue)value register:(NSString *)reg{
     self = [super init];
     if (self) {
         _value = value;
+        _registerToLoad = reg;
     }
     return self;
 }
 
 - (void)execute:(MOSCPU *)cpu {
-    cpu.registerValues.x = self.value;
+    [cpu.registerValues setValue:@(self.value) forKey:self.registerToLoad];
+    cpu.statusRegister.zeroFlag = (self.value == 0);
+    cpu.statusRegister.negativeFlag = MOSTest7thBit(self.value);
 }
 
 @end

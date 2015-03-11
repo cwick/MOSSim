@@ -64,7 +64,8 @@
         OPCODE(ANDZeroPageIndexed, AND, ZeroPageX);
         OPCODE(ANDAbsolute, AND, Absolute);
             
-        OPCODE(LDXImmediate, LoadRegister, Immediate);
+        OPCODE(LDXImmediate, LoadRegisterX, Immediate);
+        OPCODE(LDYImmediate, LoadRegisterY, Immediate);
         OPCODE(INX, IncrementRegister, Implied);
         OPCODE(DEY, DecrementRegister, Implied);
 

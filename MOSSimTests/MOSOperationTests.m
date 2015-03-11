@@ -5,7 +5,6 @@
 #import "MOSClearCarryFlagOperation.h"
 #import "MOSSetCarryFlagOperation.h"
 #import "MOSJumpOperation.h"
-#import "MOSLoadRegisterOperation.h"
 #import "MOSReturnFromSubroutineOperation.h"
 #import "MOSJumpToSubroutineOperation.h"
 #import "MOSTransferXToStackPointerOperation.h"
@@ -41,14 +40,6 @@
     [op execute:self.cpu];
     
     XCTAssertEqual(self.cpu.programCounter, 0x1234);
-}
-
-- (void)testLoadRegister {
-    MOSOperation *op = [[MOSLoadRegisterOperation alloc] initWithImmediateValue:0x55];
-    [op execute:self.cpu];
-    
-    XCTAssertEqual(self.cpu.registerValues.x, 0x55);
-    
 }
 
 - (void)testTransferXToStackPointer {
