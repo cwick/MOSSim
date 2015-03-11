@@ -69,6 +69,8 @@
         OPCODE(INX, IncrementRegister, Implied);
         OPCODE(DEY, DecrementRegister, Implied);
 
+        OPCODE(STXZeroPage, StoreRegisterX, ZeroPage);
+
         OPCODE(CPXImmediate, Compare, Immediate);
             
         OPCODE(JSR, JumpToSubroutine, Absolute);

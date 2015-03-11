@@ -258,4 +258,14 @@
     XCTAssertEqual(instruction.pageOffset, 0x05);
 }
 
+- (void)testSTXZeroPage {
+    // [OPCODE, PAGE OFFSET]
+    self.dataStream.data = @[@0x86, @0x05];
+
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeSTXZeroPage);
+    XCTAssertEqual(instruction.operationName, @"StoreRegisterX");
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
+    XCTAssertEqual(instruction.pageOffset, 0x05);
+}
 @end
