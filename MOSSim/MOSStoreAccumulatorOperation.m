@@ -1,34 +1,18 @@
 #import "MOSStoreAccumulatorOperation.h"
 #import "MOSCPU.h"
 #import "MOSUtils.h"
-
-@interface MOSStoreAccumulatorOperation()
-
-@property(nonatomic) MOSWord operand;
-@property(nonatomic) MOSAddressingMode addressingMode;
-
-@end
+#import "MOSInstructionDecoder.h"
 
 @implementation MOSStoreAccumulatorOperation
 
-- (instancetype)initWithOperand:(MOSWord)operand addressingMode:(MOSAddressingMode)mode {
-    self = [super init];
-    if (self) {
-        _operand = operand;
-        _addressingMode = mode;
-    }
-
-    return self;
-}
-
 - (void)execute:(MOSCPU *)cpu {
-    switch (self.addressingMode) {
+    switch (self.instruction.addressingMode) {
         case MOSAddressingModeZeroPage:
-            [cpu writeWord:cpu.registerValues.a toAddress:self.operand];
+            [cpu writeWord:cpu.registerValues.a toAddress:self.instruction.pageOffset];
             break;
         case MOSAddressingModeIndirectIndexed: {
-            MOSWord addressLow = [cpu readWordFromAddress:self.operand];
-            MOSWord addressHigh = [cpu readWordFromAddress:self.operand + 1];
+            MOSWord addressLow = [cpu readWordFromAddress:self.instruction.pageOffset];
+            MOSWord addressHigh = [cpu readWordFromAddress:self.instruction.pageOffset + (MOSWord)1];
             MOSAbsoluteAddress address = MOSAbsoluteAddressMake(addressLow, addressHigh);
             address += cpu.registerValues.y;
 

@@ -2,6 +2,7 @@
 #import "MOSStoreAccumulatorOperation.h"
 #import "MOSCPU.h"
 #import "MOSOperation.h"
+#import "MOSInstructionDecoder.h"
 
 @interface MOSStoreAccumulatorTests : XCTestCase
 
@@ -15,8 +16,14 @@
     self.cpu = [MOSCPU new];
 }
 
+- (MOSOperation *)createOperationWithOperand:(MOSOperand)operand addressingMode:(MOSAddressingMode)mode {
+    MOSInstruction *instruction = [[MOSInstruction alloc] initWithOperand:operand addressingMode:mode];
+    MOSOperation *operation = [[MOSStoreAccumulatorOperation alloc] initWithInstruction:instruction];
+    return operation;
+}
+
 - (void)testStoreZeroPage {
-    MOSOperation *op = [[MOSStoreAccumulatorOperation alloc] initWithOperand:0x10 addressingMode:MOSAddressingModeZeroPage];
+    MOSOperation *op = [self createOperationWithOperand:0x10 addressingMode:MOSAddressingModeZeroPage];
     self.cpu.registerValues.a = 0x12;
     [op execute:self.cpu];
 
@@ -24,7 +31,7 @@
 }
 
 - (void)testStoreIndirectIndexed {
-    MOSOperation *op = [[MOSStoreAccumulatorOperation alloc] initWithOperand:0x10 addressingMode:MOSAddressingModeIndirectIndexed];
+    MOSOperation *op = [self createOperationWithOperand:0x10 addressingMode:MOSAddressingModeIndirectIndexed];
     [self.cpu writeWord:0xEF toAddress:0x10];
     [self.cpu writeWord:0xBE toAddress:0x11];
     self.cpu.registerValues.y = 0x05;

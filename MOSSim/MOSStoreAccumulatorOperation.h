@@ -3,6 +3,4 @@
 
 @interface MOSStoreAccumulatorOperation : MOSOperation
 
-- (instancetype)initWithOperand:(MOSWord)operand addressingMode:(MOSAddressingMode)mode;
-
 @end
