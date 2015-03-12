@@ -1,6 +1,6 @@
 #import "MOSOperation.h"
 #import "MOSTypes.h"
 
-@interface MOSForceBreakOperation : NSObject
+@interface MOSForceBreakOperation : MOSOperation
 
 @end

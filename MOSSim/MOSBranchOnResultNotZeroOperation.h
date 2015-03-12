@@ -5,6 +5,4 @@
 
 @interface MOSBranchOnResultNotZeroOperation : MOSOperation
 
-- (instancetype)initWithRelativeAddress:(MOSRelativeAddress)address;
-
 @end

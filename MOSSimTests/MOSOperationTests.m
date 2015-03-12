@@ -8,6 +8,7 @@
 #import "MOSReturnFromSubroutineOperation.h"
 #import "MOSJumpToSubroutineOperation.h"
 #import "MOSTransferXToStackPointerOperation.h"
+#import "MOSInstructionDecoder.h"
 
 @interface MOSOperationTests : XCTestCase
 
@@ -36,7 +37,8 @@
 }
 
 - (void)testJump {
-    MOSOperation *op = [[MOSJumpOperation alloc] initWithAbsoluteAddress:0x1234];
+    MOSInstruction *instruction = [[MOSInstruction alloc] initWithOperand:0x1234 addressingMode:MOSAddressingModeAbsolute];
+    MOSOperation *op = [[MOSJumpOperation alloc] initWithInstruction:instruction];
     [op execute:self.cpu];
     
     XCTAssertEqual(self.cpu.programCounter, 0x1234);
@@ -66,8 +68,9 @@
 }
 
 - (void)testJumpToSubroutineOperation {
-    MOSOperation *op = [[MOSJumpToSubroutineOperation alloc] initWithAbsoluteAddress:0x1234];
-    
+    MOSInstruction *instruction = [[MOSInstruction alloc] initWithOperand:0x1234 addressingMode:MOSAddressingModeAbsolute];
+    MOSOperation *op = [[MOSJumpToSubroutineOperation alloc] initWithInstruction:instruction];
+
     self.cpu.programCounter = 3;
     self.cpu.stackPointer = 2;
     

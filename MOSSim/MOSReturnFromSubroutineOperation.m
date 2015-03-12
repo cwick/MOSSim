@@ -5,16 +5,12 @@
 
 @implementation MOSReturnFromSubroutineOperation
 
-- (instancetype)initWithInstruction:(MOSInstruction* )instruction {
-    return [super init];
-}
-
 - (void)execute:(MOSCPU *)cpu {
     MOSWord returnAddressLow = [cpu popStack];
     MOSWord returnAddressHigh = [cpu popStack];
     MOSAbsoluteAddress returnAddress = MOSAbsoluteAddressMake(returnAddressLow, returnAddressHigh);
     
-    cpu.programCounter = returnAddress + 1;
+    cpu.programCounter = returnAddress + (MOSWord)1;
 }
 
 @end

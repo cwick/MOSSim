@@ -5,10 +5,6 @@
 
 @implementation MOSIncrementRegisterOperation
 
-- (instancetype)initWithInstruction:(MOSInstruction* )instruction {
-    return [super init];
-}
-
 - (void)execute:(MOSCPU *)cpu {
     cpu.registerValues.x += 1;
     cpu.statusRegister.zeroFlag = (cpu.registerValues.x == 0);

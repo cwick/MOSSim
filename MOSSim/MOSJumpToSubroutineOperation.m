@@ -3,26 +3,7 @@
 #import "MOSUtils.h"
 #import "MOSInstructionDecoder.h"
 
-@interface MOSJumpToSubroutineOperation ()
-
-@property(nonatomic) MOSAbsoluteAddress address;
-
-@end
-
 @implementation MOSJumpToSubroutineOperation
-
-- (instancetype)initWithInstruction:(MOSInstruction *)instruction {
-    return [self initWithAbsoluteAddress:instruction.absoluteAddress];
-}
-
-- (instancetype)initWithAbsoluteAddress:(MOSAbsoluteAddress)address {
-    self = [super init];
-    if (self) {
-        _address = address;
-    }
-    
-    return self;
-}
 
 - (void)execute:(MOSCPU *)cpu {
     MOSAbsoluteAddress returnAddress = cpu.programCounter - 1;
@@ -30,7 +11,7 @@
     [cpu pushStack:MOSAddressHigh(returnAddress)];
     [cpu pushStack:MOSAddressLow(returnAddress)];
     
-    cpu.programCounter = self.address;
+    cpu.programCounter = self.instruction.absoluteAddress;
 }
 
 @end

@@ -2,6 +2,7 @@
 #import "MOSLoadAccumulatorOperation.h"
 #import "MOSCPU.h"
 #import "MOSOperation.h"
+#import "MOSInstructionDecoder.h"
 
 @interface MOSLoadAccumulatorTests : XCTestCase
 
@@ -15,8 +16,14 @@
     self.cpu = [MOSCPU new];
 }
 
+- (MOSOperation *)createOperationWithOperand:(MOSOperand)operand addressingMode:(MOSAddressingMode)mode {
+    MOSInstruction *instruction = [[MOSInstruction alloc] initWithOperand:operand addressingMode:mode];
+    MOSOperation *operation = [[MOSLoadAccumulatorOperation alloc] initWithInstruction:instruction];
+    return operation;
+}
+
 - (void)testLoadImmediate {
-    MOSOperation *op = [[MOSLoadAccumulatorOperation alloc] initWithOperand:123 addressingMode:MOSAddressingModeImmediate];
+    MOSOperation *op = [self createOperationWithOperand:123 addressingMode:MOSAddressingModeImmediate];
     [op execute:self.cpu];
     XCTAssertEqual(self.cpu.registerValues.a, 123);
     XCTAssertEqual(self.cpu.statusRegister.zeroFlag, NO);
@@ -24,7 +31,7 @@
 }
 
 - (void)testLoadImmediateZero {
-    MOSOperation *op = [[MOSLoadAccumulatorOperation alloc] initWithOperand:0 addressingMode:MOSAddressingModeImmediate];
+    MOSOperation *op = [self createOperationWithOperand:0 addressingMode:MOSAddressingModeImmediate];
     [op execute:self.cpu];
     XCTAssertEqual(self.cpu.registerValues.a, 0);
     XCTAssertEqual(self.cpu.statusRegister.zeroFlag, YES);
@@ -32,7 +39,7 @@
 }
 
 - (void)testLoadImmediateNegative {
-    MOSOperation *op = [[MOSLoadAccumulatorOperation alloc] initWithOperand:-12 addressingMode:MOSAddressingModeImmediate];
+    MOSOperation *op = [self createOperationWithOperand:-12 addressingMode:MOSAddressingModeImmediate];
     [op execute:self.cpu];
     XCTAssertEqual((MOSSignedRegisterValue)self.cpu.registerValues.a, -12);
     XCTAssertEqual(self.cpu.statusRegister.zeroFlag, NO);
@@ -40,7 +47,7 @@
 }
 
 - (void)testLoadZeroPage {
-    MOSOperation *op = [[MOSLoadAccumulatorOperation alloc] initWithOperand:0x10 addressingMode:MOSAddressingModeZeroPage];
+    MOSOperation *op = [self createOperationWithOperand:0x10 addressingMode:MOSAddressingModeZeroPage];
     [self.cpu writeWord:0xFF toAddress:0x10];
     [op execute:self.cpu];
 
@@ -50,7 +57,7 @@
 }
 
 - (void)testLoadIndirectIndexed {
-    MOSOperation *op = [[MOSLoadAccumulatorOperation alloc] initWithOperand:0x10 addressingMode:MOSAddressingModeIndirectIndexed];
+    MOSOperation *op = [self createOperationWithOperand:0x10 addressingMode:MOSAddressingModeIndirectIndexed];
     [self.cpu writeWord:0xEF toAddress:0x10];
     [self.cpu writeWord:0xBE toAddress:0x11];
     [self.cpu writeWord:0xDF toAddress:0xBEEF+0x05];

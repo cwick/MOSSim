@@ -3,6 +3,4 @@
 
 @interface MOSJumpToSubroutineOperation : MOSOperation
 
-- (instancetype)initWithAbsoluteAddress:(MOSAbsoluteAddress)address;
-
 @end

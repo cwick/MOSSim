@@ -4,11 +4,7 @@
 @implementation MOSLoadRegisterYOperation
 
 - (instancetype)initWithInstruction:(MOSInstruction* )instruction {
-    return [self initWithImmediateValue:instruction.immediateValue];
-}
-
-- (instancetype)initWithImmediateValue:(MOSImmediateValue)value {
-    self = [super initWithImmediateValue:value register:@"y"];
+    self = [super initWithInstruction:instruction register:@"y"];
     return self;
 }
 

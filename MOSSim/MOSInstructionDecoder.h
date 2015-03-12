@@ -3,6 +3,8 @@
 
 @interface MOSInstruction : NSObject
 
+- (instancetype)initWithOperand:(MOSOperand)operand addressingMode:(MOSAddressingMode)mode;
+
 @property(nonatomic) MOSOPCode opcode;
 @property(nonatomic) NSString *operationName;
 @property(nonatomic) MOSAbsoluteAddress absoluteAddress;

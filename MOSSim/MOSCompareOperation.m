@@ -5,22 +5,11 @@
 
 @implementation MOSCompareOperation
 
-- (instancetype)initWithInstruction:(MOSInstruction *)instruction {
-    return [self initWithImmediateValue:instruction.immediateValue];
-}
-
-- (instancetype)initWithImmediateValue:(MOSImmediateValue)value {
-    self = [super init];
-    if (self) {
-        _value = value;
-    }
-    return self;
-}
-
 - (void)execute:(MOSCPU *)cpu {
-    cpu.statusRegister.zeroFlag = (self.value == cpu.registerValues.x);
-    cpu.statusRegister.carryFlag = (cpu.registerValues.x >= self.value);
-    cpu.statusRegister.negativeFlag = MOSTest7thBit(cpu.registerValues.x - self.value);
+    MOSImmediateValue value = self.instruction.immediateValue;
+    cpu.statusRegister.zeroFlag = (value == cpu.registerValues.x);
+    cpu.statusRegister.carryFlag = (cpu.registerValues.x >= value);
+    cpu.statusRegister.negativeFlag = MOSTest7thBit(cpu.registerValues.x - value);
 }
 
 @end

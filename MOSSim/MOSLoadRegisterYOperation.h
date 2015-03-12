@@ -4,6 +4,4 @@
 
 @interface MOSLoadRegisterYOperation : MOSLoadRegisterOperation
 
-- (instancetype)initWithImmediateValue:(MOSImmediateValue)value;
-
 @end

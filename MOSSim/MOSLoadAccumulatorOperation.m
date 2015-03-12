@@ -1,41 +1,21 @@
 #import "MOSLoadAccumulatorOperation.h"
 #import "MOSCPU.h"
 #import "MOSUtils.h"
-
-@interface MOSLoadAccumulatorOperation()
-
-@property(nonatomic) MOSWord operand;
-@property(nonatomic) MOSAddressingMode addressingMode;
-
-@end
+#import "MOSInstructionDecoder.h"
 
 @implementation MOSLoadAccumulatorOperation
 
-- (instancetype)initWithOperand:(MOSWord)operand addressingMode:(MOSAddressingMode)mode {
-    self = [super init];
-    if (self) {
-        _operand = operand;
-        _addressingMode = mode;
-    }
-
-    return self;
-}
-
-//- (instancetype)initWithInstruction:(MOSInstruction *)instruction {
-//    return [super init];
-//}
-//
 - (void)execute:(MOSCPU *)cpu {
-    switch (self.addressingMode) {
+    switch (self.instruction.addressingMode) {
         case MOSAddressingModeImmediate:
-            cpu.registerValues.a = self.operand;
+            cpu.registerValues.a = self.instruction.immediateValue;
             break;
         case MOSAddressingModeZeroPage:
-            cpu.registerValues.a = [cpu readWordFromAddress:self.operand];
+            cpu.registerValues.a = [cpu readWordFromAddress:self.instruction.pageOffset];
             break;
         case MOSAddressingModeIndirectIndexed: {
-            MOSWord addressLow = [cpu readWordFromAddress:self.operand];
-            MOSWord addressHigh = [cpu readWordFromAddress:self.operand + 1];
+            MOSWord addressLow = [cpu readWordFromAddress:self.instruction.pageOffset];
+            MOSWord addressHigh = [cpu readWordFromAddress:self.instruction.pageOffset + (MOSWord)1];
             MOSAbsoluteAddress address = MOSAbsoluteAddressMake(addressLow, addressHigh);
             address += cpu.registerValues.y;
 

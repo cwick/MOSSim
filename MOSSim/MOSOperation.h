@@ -7,6 +7,10 @@
 
 + (MOSOperation *)operationFromInstruction:(MOSInstruction *)instruction;
 
+- (instancetype)initWithInstruction:(MOSInstruction *)instruction;
+
 - (void)execute:(MOSCPU *)cpu;
+
+@property(nonatomic, readonly) MOSInstruction *instruction;
 
 @end

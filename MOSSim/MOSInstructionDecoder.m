@@ -9,6 +9,33 @@
 
 @implementation MOSInstruction
 
+- (instancetype)initWithOperand:(MOSOperand)operand addressingMode:(MOSAddressingMode)mode {
+    self = [super init];
+    if (self) {
+        switch(mode) {
+            case MOSAddressingModeRelative:
+                _relativeAddress = (MOSRelativeAddress)operand;
+                break;
+            case MOSAddressingModeAbsolute:
+                _absoluteAddress = operand;
+                break;
+            case MOSAddressingModeImmediate:
+                _immediateValue = (MOSImmediateValue)operand;
+                break;
+            case MOSAddressingModeIndirectIndexed:
+            case MOSAddressingModeZeroPage:
+                _pageOffset = (MOSPageOffset)operand;
+                break;
+            default:
+                [NSException raise:@"Unknown addressing mode" format:@""];
+        }
+
+        _addressingMode = mode;
+    }
+
+    return self;
+}
+
 @end
 
 @implementation MOSInstructionDecoder

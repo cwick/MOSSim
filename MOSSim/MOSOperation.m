@@ -12,6 +12,14 @@
     return [[klass alloc] initWithInstruction:instruction];
 }
 
+- (instancetype)initWithInstruction:(MOSInstruction *)instruction {
+    self = [super init];
+    if (self) {
+        _instruction = instruction;
+    }
+    return self;
+}
+
 - (void)execute:(MOSCPU *)cpu {
     
 }

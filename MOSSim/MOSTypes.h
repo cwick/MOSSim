@@ -7,6 +7,7 @@ typedef uint8_t  MOSRegisterValue;
 typedef int8_t   MOSSignedRegisterValue;
 typedef uint8_t  MOSPageOffset;
 typedef MOSWord  MOSImmediateValue;
+typedef uint16_t MOSOperand;
 
 @protocol MOSDataStream <NSObject>
 

@@ -3,8 +3,8 @@
 
 @interface MOSLoadRegisterOperation : MOSOperation
 
-- (instancetype)initWithImmediateValue:(MOSImmediateValue)value register:(NSString *)reg;
-@property(nonatomic, readonly) MOSImmediateValue value;
+- (instancetype)initWithInstruction:(MOSInstruction *)instruction register:(NSString *)reg;
+
 @property(nonatomic, readonly) NSString *registerToLoad;
 
 @end
