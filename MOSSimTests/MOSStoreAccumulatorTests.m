@@ -1,5 +1,5 @@
 #import <XCTest/XCTest.h>
-#import "MOSStoreAccumulatorOperation.h"
+#import "MOSStoreRegisterAOperation.h"
 #import "MOSCPU.h"
 #import "MOSOperation.h"
 #import "MOSInstructionDecoder.h"
@@ -18,7 +18,7 @@
 
 - (MOSOperation *)createOperationWithOperand:(MOSOperand)operand addressingMode:(MOSAddressingMode)mode {
     MOSInstruction *instruction = [[MOSInstruction alloc] initWithOperand:operand addressingMode:mode];
-    MOSOperation *operation = [[MOSStoreAccumulatorOperation alloc] initWithInstruction:instruction];
+    MOSOperation *operation = [[MOSStoreRegisterAOperation alloc] initWithInstruction:instruction];
     return operation;
 }
 

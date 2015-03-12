@@ -1,13 +1,13 @@
-#import "MOSStoreAccumulatorOperation.h"
+#import "MOSStoreRegisterXOperation.h"
 #import "MOSCPU.h"
 #import "MOSUtils.h"
 #import "MOSInstructionDecoder.h"
 
-@implementation MOSStoreAccumulatorOperation
+@implementation MOSStoreRegisterXOperation
 
 - (void)execute:(MOSCPU *)cpu {
     MOSAbsoluteAddress address = [self.instruction resolveAddress:cpu];
-    [cpu writeWord:cpu.registerValues.a toAddress:address];
+    [cpu writeWord:cpu.registerValues.x toAddress:address];
 }
 
 @end

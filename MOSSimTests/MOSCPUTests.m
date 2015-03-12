@@ -104,26 +104,30 @@
     XCTAssertEqual(self.cpu.registerValues.x, 0xBE);
 }
 
-//- (void)testClearMemory {
-//    const MOSWord CLEAR_PATTERN = 0xFF;
-//    const MOSWord SIZE = 0xDE;
-//    const MOSAbsoluteAddress ADDRESS = 0xBEEF;
-//
-//    LOAD_PROGRAM(
-//        MOSOPCodeLDAImmediate, CLEAR_PATTERN,
-//        MOSOPCodeLDYImmediate, SIZE,
-//        MOSOPCodeLDXImmediate, MOSAddressLow(ADDRESS),
-//        MOSOPCodeSTXZeroPage,  0x00,
-//        MOSOPCodeLDXImmediate, MOSAddressHigh(ADDRESS),
-//        MOSOPCodeSTXZeroPage,  0x01,
-//        MOSOPCodeDEY,
-//        MOSOPCodeSTAIndirectIndexed, 0x00,
-//        MOSOPCodeBNE, -5,
-//        MOSOPCodeBRK,
-//    );
-//
-//    [self.cpu run];
-//}
+- (void)testClearMemory {
+    const MOSWord CLEAR_PATTERN = 0xFF;
+    const MOSWord SIZE = 0xDE;
+    const MOSAbsoluteAddress ADDRESS = 0xBEEF;
+
+    LOAD_PROGRAM(
+        MOSOPCodeLDAImmediate, CLEAR_PATTERN,
+        MOSOPCodeLDYImmediate, SIZE,
+        MOSOPCodeLDXImmediate, MOSAddressLow(ADDRESS),
+        MOSOPCodeSTXZeroPage,  0x00,
+        MOSOPCodeLDXImmediate, MOSAddressHigh(ADDRESS),
+        MOSOPCodeSTXZeroPage,  0x01,
+        MOSOPCodeDEY,
+        MOSOPCodeSTAIndirectIndexed, 0x00,
+        MOSOPCodeBNE, -5,
+        MOSOPCodeBRK,
+    );
+
+    [self.cpu run];
+
+    for (MOSWord i=0 ; i<SIZE ; i++) {
+        XCTAssertEqual([self.cpu readWordFromAddress:ADDRESS+i], CLEAR_PATTERN);
+    }
+}
 
 - (void)loadProgram:(const MOSWord *)programData size:(NSUInteger)length {
     NSData *program = [NSData dataWithBytes:programData length:length];

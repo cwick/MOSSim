@@ -275,7 +275,7 @@
 
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeSTAZeroPage);
-    XCTAssertEqual(instruction.operationName, @"StoreAccumulator");
+    XCTAssertEqual(instruction.operationName, @"StoreRegisterA");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
     XCTAssertEqual(instruction.pageOffset, 0x22);
 }
@@ -286,7 +286,7 @@
 
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeSTAIndirectIndexed);
-    XCTAssertEqual(instruction.operationName, @"StoreAccumulator");
+    XCTAssertEqual(instruction.operationName, @"StoreRegisterA");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeIndirectIndexed);
     XCTAssertEqual(instruction.pageOffset, 0x55);
 }

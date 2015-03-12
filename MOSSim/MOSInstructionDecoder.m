@@ -2,12 +2,6 @@
 #import "MOSUtils.h"
 #import "MOSCPU.h"
 
-@interface MOSInstructionDecoder ()
-
-@property(nonatomic) id<MOSDataStream> dataStream;
-
-@end
-
 @implementation MOSInstruction
 
 - (instancetype)initWithOperand:(MOSOperand)operand addressingMode:(MOSAddressingMode)mode {
@@ -54,6 +48,12 @@
 
     return 0;
 }
+
+@end
+
+@interface MOSInstructionDecoder ()
+
+@property(nonatomic) id<MOSDataStream> dataStream;
 
 @end
 
@@ -125,8 +125,8 @@
         OPCODE(LDAZeroPage, LoadAccumulator, ZeroPage);
         OPCODE(LDAIndirectIndexed, LoadAccumulator, IndirectIndexed);
 
-        OPCODE(STAZeroPage, StoreAccumulator, ZeroPage);
-        OPCODE(STAIndirectIndexed, StoreAccumulator, IndirectIndexed);
+        OPCODE(STAZeroPage, StoreRegisterA, ZeroPage);
+        OPCODE(STAIndirectIndexed, StoreRegisterA, IndirectIndexed);
 
         default:
             [NSException raise:@"Unknown opcode" format:@"%ld", opcode];
