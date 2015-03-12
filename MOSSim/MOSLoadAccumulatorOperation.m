@@ -6,13 +6,15 @@
 @implementation MOSLoadAccumulatorOperation
 
 - (void)execute:(MOSCPU *)cpu {
-    MOSOperand operand = [self.instruction resolveOperand:cpu];
+    MOSRegisterValue value;
     if (self.instruction.addressingMode == MOSAddressingModeImmediate) {
-        cpu.registerValues.a = (MOSRegisterValue)operand;
+        value = self.instruction.immediateValue;
     } else {
-        cpu.registerValues.a = [cpu readWordFromAddress:(MOSAbsoluteAddress) operand];
+        MOSAbsoluteAddress address = [self.instruction resolveAddress:cpu];
+        value = [cpu readWordFromAddress:address];
     }
 
+    cpu.registerValues.a = value;
     cpu.statusRegister.zeroFlag = (cpu.registerValues.a == 0);
     cpu.statusRegister.negativeFlag = MOSTest7thBit(cpu.registerValues.a);
 }

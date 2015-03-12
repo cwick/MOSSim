@@ -6,8 +6,8 @@
 @implementation MOSStoreAccumulatorOperation
 
 - (void)execute:(MOSCPU *)cpu {
-    MOSOperand operand = [self.instruction resolveOperand:cpu];
-    [cpu writeWord:cpu.registerValues.a toAddress:(MOSAbsoluteAddress)operand];
+    MOSAbsoluteAddress address = [self.instruction resolveAddress:cpu];
+    [cpu writeWord:cpu.registerValues.a toAddress:address];
 }
 
 @end

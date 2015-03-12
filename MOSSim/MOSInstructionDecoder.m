@@ -37,10 +37,8 @@
     return self;
 }
 
-- (MOSOperand)resolveOperand:(MOSCPU *)cpu {
+- (MOSAbsoluteAddress)resolveAddress:(MOSCPU *)cpu {
     switch (self.addressingMode) {
-        case MOSAddressingModeImmediate:
-            return self.immediateValue;
         case MOSAddressingModeZeroPage:
             return self.pageOffset;
         case MOSAddressingModeIndirectIndexed: {
@@ -50,7 +48,7 @@
             address += cpu.registerValues.y;
             return address;
         default:
-            [NSException raise:@"Unknown addressing mode" format:@""];
+            [NSException raise:@"Invalid addressing mode" format:@""];
         }
     }
 

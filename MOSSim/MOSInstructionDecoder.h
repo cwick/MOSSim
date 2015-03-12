@@ -7,7 +7,7 @@
 
 - (instancetype)initWithOperand:(MOSOperand)operand addressingMode:(MOSAddressingMode)mode;
 
-- (MOSOperand)resolveOperand:(MOSCPU *)cpu;
+- (MOSAbsoluteAddress)resolveAddress:(MOSCPU *)cpu;
 
 @property(nonatomic) MOSOPCode opcode;
 @property(nonatomic) NSString *operationName;
