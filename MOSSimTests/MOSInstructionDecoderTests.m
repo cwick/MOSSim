@@ -268,4 +268,27 @@
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
     XCTAssertEqual(instruction.pageOffset, 0x05);
 }
+
+- (void)testSTAZeroPage {
+    // [OPCODE, PAGE OFFSET]
+    self.dataStream.data = @[@0x85, @0x22];
+
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeSTAZeroPage);
+    XCTAssertEqual(instruction.operationName, @"StoreAccumulator");
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
+    XCTAssertEqual(instruction.pageOffset, 0x22);
+}
+
+- (void)testSTAIndirectIndexed {
+    // [OPCODE, PAGE OFFSET]
+    self.dataStream.data = @[@0x91, @0x55];
+
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeSTAIndirectIndexed);
+    XCTAssertEqual(instruction.operationName, @"StoreAccumulator");
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeIndirectIndexed);
+    XCTAssertEqual(instruction.pageOffset, 0x55);
+}
+
 @end

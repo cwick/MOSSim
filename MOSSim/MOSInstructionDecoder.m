@@ -79,6 +79,9 @@
         OPCODE(LDAZeroPage, LoadAccumulator, ZeroPage);
         OPCODE(LDAIndirectIndexed, LoadAccumulator, IndirectIndexed);
 
+        OPCODE(STAZeroPage, StoreAccumulator, ZeroPage);
+        OPCODE(STAIndirectIndexed, StoreAccumulator, IndirectIndexed);
+
         default:
             [NSException raise:@"Unknown opcode" format:@"%ld", opcode];
     }
