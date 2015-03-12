@@ -1,9 +1,13 @@
 #import <Foundation/Foundation.h>
 #import "MOSTypes.h"
 
+@class MOSCPU;
+
 @interface MOSInstruction : NSObject
 
 - (instancetype)initWithOperand:(MOSOperand)operand addressingMode:(MOSAddressingMode)mode;
+
+- (MOSOperand)resolveOperand:(MOSCPU *)cpu;
 
 @property(nonatomic) MOSOPCode opcode;
 @property(nonatomic) NSString *operationName;

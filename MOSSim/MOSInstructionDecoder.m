@@ -1,5 +1,6 @@
 #import "MOSInstructionDecoder.h"
 #import "MOSUtils.h"
+#import "MOSCPU.h"
 
 @interface MOSInstructionDecoder ()
 
@@ -34,6 +35,26 @@
     }
 
     return self;
+}
+
+- (MOSOperand)resolveOperand:(MOSCPU *)cpu {
+    switch (self.addressingMode) {
+        case MOSAddressingModeImmediate:
+            return self.immediateValue;
+        case MOSAddressingModeZeroPage:
+            return self.pageOffset;
+        case MOSAddressingModeIndirectIndexed: {
+            MOSWord addressLow = [cpu readWordFromAddress:self.pageOffset];
+            MOSWord addressHigh = [cpu readWordFromAddress:self.pageOffset + (MOSWord)1];
+            MOSAbsoluteAddress address = MOSAbsoluteAddressMake(addressLow, addressHigh);
+            address += cpu.registerValues.y;
+            return address;
+        default:
+            [NSException raise:@"Unknown addressing mode" format:@""];
+        }
+    }
+
+    return 0;
 }
 
 @end
