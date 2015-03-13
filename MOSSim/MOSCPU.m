@@ -39,8 +39,7 @@ static const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
 }
 
 - (MOSWord)nextWord {
-    const MOSWord *programData = self.addressSpace.bytes;
-    return programData[self.programCounter++];
+    return [self readWordFromAddress:self.programCounter++];
 }
 
 - (void)run {
