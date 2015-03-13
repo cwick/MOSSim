@@ -65,15 +65,16 @@ static const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
 
 - (void)pushStack:(MOSWord)value {
     MOSAbsoluteAddress address = [self createStackAddress:self.stackPointer--];
-    ((MOSWord *)self.addressSpace.mutableBytes)[address] = value;
+    [self writeWord:value toAddress:address];
 }
 
 - (MOSWord)popStack {
     MOSAbsoluteAddress address = [self createStackAddress:++self.stackPointer];
-    return ((MOSWord *)self.addressSpace.bytes)[address];
+    return [self readWordFromAddress:address];
 }
 
 - (MOSAbsoluteAddress)createStackAddress:(MOSWord)stackPointer {
+    // The stack starts on page 0x01
     return MOSAbsoluteAddressMake(stackPointer, 0x01);
 }
 
