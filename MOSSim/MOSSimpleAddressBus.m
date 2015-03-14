@@ -1,6 +1,5 @@
 #import "MOSSimpleAddressBus.h"
-
-static const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
+#import "MOSCPU.h"
 
 @interface MOSSimpleAddressBus()
 

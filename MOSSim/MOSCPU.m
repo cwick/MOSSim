@@ -4,6 +4,8 @@
 #import "MOSUtils.h"
 #import "MOSSimpleAddressBus.h"
 
+const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
+
 @interface MOSCPU () <MOSDataStream>
 
 @property(nonatomic) id<MOSAddressBus> addressBus;

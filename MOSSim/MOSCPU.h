@@ -3,6 +3,8 @@
 #import "MOSRegisterValues.h"
 #import "MOSStatusRegister.h"
 
+extern const int MOS_ADDRESS_SPACE_SIZE;
+
 @interface MOSCPU : NSObject
 
 @property(nonatomic, readonly) MOSStatusRegister *statusRegister;
