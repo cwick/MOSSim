@@ -6,6 +6,7 @@
 
 @interface MOSCPU () <MOSDataStream>
 
+@property(nonatomic) id<MOSAddressBus> addressBus;
 @property(nonatomic) MOSInstructionDecoder *decoder;
 
 @end
@@ -45,6 +46,10 @@
     return [NSString stringWithFormat:
             @"\nPC\t0x%X\t%d\n"
             @"X\t0x%X\t%d", self.programCounter, self.programCounter, self.registerValues.x, self.registerValues.x];
+}
+
+- (void)loadBinaryImage:(NSData *)data {
+    [self.addressBus loadBinaryImage:data];
 }
 
 - (MOSWord)readWordFromAddress:(MOSAbsoluteAddress)address {

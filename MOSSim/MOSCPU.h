@@ -2,7 +2,6 @@
 #import "MOSTypes.h"
 #import "MOSRegisterValues.h"
 #import "MOSStatusRegister.h"
-#import "MOSAddressBus.h"
 
 @interface MOSCPU : NSObject
 
@@ -11,7 +10,6 @@
 @property(nonatomic) MOSWord stackPointer;
 @property(nonatomic, readonly) MOSRegisterValues *registerValues;
 @property(nonatomic) BOOL isHalted;
-@property(nonatomic, readonly) id<MOSAddressBus> addressBus;
 
 - (void)step;
 - (void)run;
@@ -21,5 +19,7 @@
 
 - (void)pushStack:(MOSWord)value;
 - (MOSWord)popStack;
+
+- (void)loadBinaryImage:(NSData *)data;
 
 @end
