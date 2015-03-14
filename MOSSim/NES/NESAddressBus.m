@@ -20,35 +20,20 @@ const int NES_RAM_SIZE = 0x800;
 }
 
 - (MOSWord)readWordFromAddress:(MOSAbsoluteAddress)address {
-    if (address >= NES_RAM_SIZE*3) {
-        address -= NES_RAM_SIZE;
-    }
+    MOSAbsoluteAddress decodedAddress = [self decodeAddress:address];
 
-    if (address >= NES_RAM_SIZE*2) {
-        address -= NES_RAM_SIZE;
-    }
-
-    if (address >= NES_RAM_SIZE) {
-        address -= NES_RAM_SIZE;
-    }
-
-    return [self.memory readWordFromAddress:address];
+    return [self.memory readWordFromAddress:decodedAddress];
 }
 
 - (void)writeWord:(MOSWord)value toAddress:(MOSAbsoluteAddress)address {
-    if (address >= NES_RAM_SIZE*3) {
-        address -= NES_RAM_SIZE;
-    }
+    MOSAbsoluteAddress decodedAddress = [self decodeAddress:address];
 
-    if (address >= NES_RAM_SIZE*2) {
-        address -= NES_RAM_SIZE;
-    }
-
-    if (address >= NES_RAM_SIZE) {
-        address -= NES_RAM_SIZE;
-    }
-
-    [self.memory writeWord:value toAddress:address];
+    [self.memory writeWord:value toAddress:decodedAddress];
 }
+
+- (MOSAbsoluteAddress)decodeAddress:(MOSAbsoluteAddress)address {
+    return address &= NES_RAM_SIZE - 1;
+}
+
 
 @end
