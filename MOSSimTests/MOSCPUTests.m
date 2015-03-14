@@ -131,7 +131,7 @@
 
 - (void)loadProgram:(const MOSWord *)programData size:(NSUInteger)length {
     NSData *program = [NSData dataWithBytes:programData length:length];
-    [self.cpu loadProgram:program];
+    [self.cpu.addressBus loadBinaryImage:program];
 }
 
 @end
