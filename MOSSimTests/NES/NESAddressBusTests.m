@@ -1,10 +1,9 @@
 #import <XCTest/XCTest.h>
 
-#import "NESAddressBus.h"
+#import "NESAddressSpace.h"
 #import "MOSCPU.h"
-#import "NESCartridge.h"
 
-@interface NESFakeCartridge : NESCartridge
+@interface NESFakeCartridge : NSObject<MOSDevice>
 
 @property(nonatomic) int readCount;
 @property(nonatomic) int writeCount;
@@ -26,24 +25,24 @@
 
 @interface NESAddressBusTests : XCTestCase
 
-@property(nonatomic) NESAddressBus *bus;
+@property(nonatomic) NESAddressSpace *nes;
 
 @end
 
 @implementation NESAddressBusTests
 
 - (void)setUp {
-    self.bus = [NESAddressBus new];
+    self.nes = [NESAddressSpace new];
 }
 
 - (void)testReturnsZeroByDefault {
     for (int i=0 ; i<MOS_ADDRESS_SPACE_SIZE ; i++) {
-        XCTAssertEqual([self.bus readWordFromAddress:i], 0);
+        XCTAssertEqual([self.nes readWordFromAddress:i], 0);
     }
 }
 
 - (void)testCanWriteValuesToRAM {
-    NESAddressBus *bus = [NESAddressBus new];
+    NESAddressSpace *bus = [NESAddressSpace new];
     const int PATTERN = 0xBE;
 
     for (int i=NES_RAM_START ; i <= NES_RAM_END ; i++) {
@@ -83,10 +82,10 @@
 - (void)testCanReadFromCartridge {
     NESFakeCartridge *fakeCartridge = [NESFakeCartridge new];
 
-    self.bus.cartridge = fakeCartridge;
+    self.nes.cartridge = fakeCartridge;
 
     for (int i=NES_CARTRIDGE_START ; i <= NES_CARTRIDGE_END ; i++) {
-        [self.bus readWordFromAddress:i];
+        [self.nes readWordFromAddress:i];
     }
 
     XCTAssertEqual(fakeCartridge.readCount, NES_CARTRIDGE_SIZE);
@@ -96,10 +95,10 @@
     const int PATTERN = 0xEB;
     NESFakeCartridge *fakeCartridge = [NESFakeCartridge new];
 
-    self.bus.cartridge = fakeCartridge;
+    self.nes.cartridge = fakeCartridge;
 
     for (int i=NES_CARTRIDGE_START ; i <= NES_CARTRIDGE_END ; i++) {
-        [self.bus writeWord:PATTERN toAddress:i];
+        [self.nes writeWord:PATTERN toAddress:i];
     }
 
     XCTAssertEqual(fakeCartridge.writeCount, NES_CARTRIDGE_SIZE);
@@ -107,25 +106,25 @@
 
 - (void)assertAllRAMSegmentsMatchPattern:(int const)pattern {
     for (int i=0x0 ; i < NES_RAM_SIZE ; i++) {
-        XCTAssertEqual([self.bus readWordFromAddress:i], pattern);
+        XCTAssertEqual([self.nes readWordFromAddress:i], pattern);
     }
 
     for (int i=NES_RAM_SIZE ; i < NES_RAM_SIZE*2 ; i++) {
-        XCTAssertEqual([self.bus readWordFromAddress:i], pattern);
+        XCTAssertEqual([self.nes readWordFromAddress:i], pattern);
     }
 
     for (int i=NES_RAM_SIZE*2 ; i < NES_RAM_SIZE*3 ; i++) {
-        XCTAssertEqual([self.bus readWordFromAddress:i], pattern);
+        XCTAssertEqual([self.nes readWordFromAddress:i], pattern);
     }
 
     for (int i=NES_RAM_SIZE*3 ; i < NES_RAM_SIZE*4 ; i++) {
-        XCTAssertEqual([self.bus readWordFromAddress:i], pattern);
+        XCTAssertEqual([self.nes readWordFromAddress:i], pattern);
     }
 }
 
 - (void)writePattern:(const int) pattern toRAMSegment:(const int)segment {
     for (int i=NES_RAM_SIZE*segment ; i < NES_RAM_SIZE * (segment +1); i++) {
-        [self.bus writeWord:pattern toAddress:i];
+        [self.nes writeWord:pattern toAddress:i];
     }
 }
 

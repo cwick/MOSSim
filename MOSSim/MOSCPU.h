@@ -2,10 +2,11 @@
 #import "MOSTypes.h"
 #import "MOSRegisterValues.h"
 #import "MOSStatusRegister.h"
+#import "MOSDevice.h"
 
 extern const int MOS_ADDRESS_SPACE_SIZE;
 
-@interface MOSCPU : NSObject
+@interface MOSCPU : NSObject<MOSDevice>
 
 @property(nonatomic, readonly) MOSStatusRegister *statusRegister;
 @property(nonatomic) MOSAbsoluteAddress programCounter;
@@ -15,9 +16,6 @@ extern const int MOS_ADDRESS_SPACE_SIZE;
 
 - (void)step;
 - (void)run;
-
-- (MOSWord)readWordFromAddress:(MOSAbsoluteAddress)address;
-- (void)writeWord:(MOSWord)value toAddress:(MOSAbsoluteAddress)address;
 
 - (void)pushStack:(MOSWord)value;
 - (MOSWord)popStack;

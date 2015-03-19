@@ -1,6 +1,6 @@
-#import "MOSTypes.h"
+#include "MOSTypes.h"
 
-@interface NESCartridge : NSObject
+@protocol MOSDevice <NSObject>
 
 - (MOSWord)readWordFromAddress:(MOSAbsoluteAddress)address;
 - (void)writeWord:(MOSWord)value toAddress:(MOSAbsoluteAddress)address;

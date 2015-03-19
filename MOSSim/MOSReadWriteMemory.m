@@ -1,13 +1,13 @@
-#import "MOSSimpleAddressBus.h"
+#import "MOSReadWriteMemory.h"
 #import "MOSCPU.h"
 
-@interface MOSSimpleAddressBus()
+@interface MOSReadWriteMemory ()
 
 @property(nonatomic) NSMutableData *data;
 
 @end
 
-@implementation MOSSimpleAddressBus {
+@implementation MOSReadWriteMemory {
 
 }
 

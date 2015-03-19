@@ -1,6 +1,5 @@
-#import "NESAddressBus.h"
-#import "MOSSimpleAddressBus.h"
-#import "NESCartridge.h"
+#import "NESAddressSpace.h"
+#import "MOSReadWriteMemory.h"
 
 const int NES_RAM_START = 0x0;
 const int NES_RAM_END = 0x7FF;
@@ -9,18 +8,18 @@ const int NES_CARTRIDGE_START = 0x4020;
 const int NES_CARTRIDGE_END = 0xFFFF;
 const int NES_CARTRIDGE_SIZE = NES_CARTRIDGE_END - NES_CARTRIDGE_START + 1;
 
-@interface NESAddressBus ()
+@interface NESAddressSpace ()
 
-@property(nonatomic) MOSSimpleAddressBus *memory;
+@property(nonatomic) MOSReadWriteMemory *memory;
 
 @end
 
-@implementation NESAddressBus
+@implementation NESAddressSpace
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _memory = [MOSSimpleAddressBus new];
+        _memory = [MOSReadWriteMemory new];
     }
     return self;
 }

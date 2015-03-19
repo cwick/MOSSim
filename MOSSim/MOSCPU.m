@@ -2,13 +2,13 @@
 #import "MOSInstructionDecoder.h"
 #import "MOSOperation.h"
 #import "MOSUtils.h"
-#import "MOSSimpleAddressBus.h"
+#import "MOSReadWriteMemory.h"
 
 const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
 
 @interface MOSCPU () <MOSDataStream>
 
-@property(nonatomic) id<MOSAddressBus> addressBus;
+@property(nonatomic) id<MOSAddressBus> memory;
 @property(nonatomic) MOSInstructionDecoder *decoder;
 
 @end
@@ -18,7 +18,7 @@ const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _addressBus = [MOSSimpleAddressBus new];
+        _memory = [MOSReadWriteMemory new];
         _statusRegister = [MOSStatusRegister new];
         _registerValues = [MOSRegisterValues new];
         _decoder = [[MOSInstructionDecoder alloc] initWithDataStream:self];
@@ -51,20 +51,20 @@ const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
 }
 
 - (void)loadBinaryImage:(NSData *)data {
-    [self.addressBus loadBinaryImage:data];
+    [self.memory loadBinaryImage:data];
 }
 
 - (MOSWord)readWordFromAddress:(MOSAbsoluteAddress)address {
-    return [self.addressBus readWordFromAddress:address];
+    return [self.memory readWordFromAddress:address];
 }
 
 - (void)writeWord:(MOSWord)value toAddress:(MOSAbsoluteAddress)address {
-    [self.addressBus writeWord:value toAddress:address];
+    [self.memory writeWord:value toAddress:address];
 }
 
 - (void)pushStack:(MOSWord)value {
     MOSAbsoluteAddress address = [self createStackAddress:self.stackPointer--];
-    [self.addressBus writeWord:value toAddress:address];
+    [self.memory writeWord:value toAddress:address];
 }
 
 - (MOSWord)popStack {
