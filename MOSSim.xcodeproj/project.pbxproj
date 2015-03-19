@@ -56,10 +56,12 @@
 		5AAC52ED3EE0942DDCBAAE3F /* MOSLoadRegisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC597108666D00F556E478 /* MOSLoadRegisterTests.m */; };
 		5AAC543573764D44D45F4F97 /* MOSLoadAccumulatorOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC53B6610C080B44E2E1AE /* MOSLoadAccumulatorOperation.m */; };
 		5AAC54C2D717F89A8F8E3849 /* MOSSimpleAddressBus.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5E288BD6FD8A304DEBF0 /* MOSSimpleAddressBus.m */; };
+		5AAC54FFECD6BB5FC3A23E9A /* NESCartridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC549202FD78BDF80F19D9 /* NESCartridge.m */; };
 		5AAC55A292D26B484599252C /* MOSLoadRegisterYOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC56C481CC2F05FED12268 /* MOSLoadRegisterYOperation.m */; };
 		5AAC57440C9A202FFF35877C /* MOSDecrementRegisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC52FEE450481F2ED65114 /* MOSDecrementRegisterTests.m */; };
 		5AAC57D8673460712B979AF0 /* MOSStoreRegisterAOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5910CE04412BCBDDF5FC /* MOSStoreRegisterAOperation.m */; };
 		5AAC57F837295349C993E9D7 /* MOSLoadAccumulatorOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC53B6610C080B44E2E1AE /* MOSLoadAccumulatorOperation.m */; };
+		5AAC58576BE5C2A5EBA83F05 /* NESCartridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC549202FD78BDF80F19D9 /* NESCartridge.m */; };
 		5AAC5869FEB10C1AAE8812A7 /* NESAddressBusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC59C51379C3D442209232 /* NESAddressBusTests.m */; };
 		5AAC589DE3B9E21B732FD29A /* MOSStoreRegisterXOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC55FC8D7380D69B260400 /* MOSStoreRegisterXOperation.m */; };
 		5AAC59459550154D8AED0366 /* MOSStoreRegisterAOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5910CE04412BCBDDF5FC /* MOSStoreRegisterAOperation.m */; };
@@ -139,6 +141,8 @@
 		5AAC537846216497E63BBC99 /* MOSStoreRegisterAOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSStoreRegisterAOperation.h; sourceTree = "<group>"; };
 		5AAC53B6610C080B44E2E1AE /* MOSLoadAccumulatorOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSLoadAccumulatorOperation.m; sourceTree = "<group>"; };
 		5AAC5406C6F2701F192A0B3E /* MOSAddressBus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSAddressBus.h; sourceTree = "<group>"; };
+		5AAC5435E1D942EFE8804E2C /* NESCartridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NESCartridge.h; sourceTree = "<group>"; };
+		5AAC549202FD78BDF80F19D9 /* NESCartridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NESCartridge.m; sourceTree = "<group>"; };
 		5AAC55FC8D7380D69B260400 /* MOSStoreRegisterXOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSStoreRegisterXOperation.m; sourceTree = "<group>"; };
 		5AAC56C481CC2F05FED12268 /* MOSLoadRegisterYOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSLoadRegisterYOperation.m; sourceTree = "<group>"; };
 		5AAC56EBB4A837C3B66BD02D /* NESAddressBus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NESAddressBus.h; sourceTree = "<group>"; };
@@ -296,6 +300,8 @@
 			children = (
 				5AAC51A263226170F3BA3D1C /* NESAddressBus.m */,
 				5AAC56EBB4A837C3B66BD02D /* NESAddressBus.h */,
+				5AAC549202FD78BDF80F19D9 /* NESCartridge.m */,
+				5AAC5435E1D942EFE8804E2C /* NESCartridge.h */,
 			);
 			path = NES;
 			sourceTree = "<group>";
@@ -421,6 +427,7 @@
 				5AAC589DE3B9E21B732FD29A /* MOSStoreRegisterXOperation.m in Sources */,
 				5AAC54C2D717F89A8F8E3849 /* MOSSimpleAddressBus.m in Sources */,
 				5AAC5A9468947B23D58D70C8 /* NESAddressBus.m in Sources */,
+				5AAC54FFECD6BB5FC3A23E9A /* NESCartridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +473,7 @@
 				5AAC5FB78675B5D45AF03F09 /* MOSSimpleAddressBus.m in Sources */,
 				5AAC5869FEB10C1AAE8812A7 /* NESAddressBusTests.m in Sources */,
 				5AAC52CF78A20A47F2F4BC38 /* NESAddressBus.m in Sources */,
+				5AAC58576BE5C2A5EBA83F05 /* NESCartridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

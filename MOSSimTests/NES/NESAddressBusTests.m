@@ -2,6 +2,27 @@
 
 #import "NESAddressBus.h"
 #import "MOSCPU.h"
+#import "NESCartridge.h"
+
+@interface NESFakeCartridge : NESCartridge
+
+@property(nonatomic) int readCount;
+@property(nonatomic) int writeCount;
+
+@end
+
+@implementation NESFakeCartridge
+
+- (MOSWord)readWordFromAddress:(MOSAbsoluteAddress)address {
+    self.readCount++;
+    return 0;
+}
+
+- (void)writeWord:(MOSWord)value toAddress:(MOSAbsoluteAddress)address {
+    self.writeCount++;
+}
+
+@end
 
 @interface NESAddressBusTests : XCTestCase
 
@@ -25,7 +46,7 @@
     NESAddressBus *bus = [NESAddressBus new];
     const int PATTERN = 0xBE;
 
-    for (int i=0x0 ; i < NES_RAM_SIZE ; i++) {
+    for (int i=NES_RAM_START ; i <= NES_RAM_END ; i++) {
         [bus writeWord:PATTERN toAddress:i];
         XCTAssertEqual([bus readWordFromAddress:i], PATTERN);
     }
@@ -57,6 +78,31 @@
 
     [self writePattern:PATTERN toRAMSegment:3];
     [self assertAllRAMSegmentsMatchPattern:PATTERN];
+}
+
+- (void)testCanReadFromCartridge {
+    NESFakeCartridge *fakeCartridge = [NESFakeCartridge new];
+
+    self.bus.cartridge = fakeCartridge;
+
+    for (int i=NES_CARTRIDGE_START ; i <= NES_CARTRIDGE_END ; i++) {
+        [self.bus readWordFromAddress:i];
+    }
+
+    XCTAssertEqual(fakeCartridge.readCount, NES_CARTRIDGE_SIZE);
+}
+
+- (void)testCanWriteToCartridge {
+    const int PATTERN = 0xEB;
+    NESFakeCartridge *fakeCartridge = [NESFakeCartridge new];
+
+    self.bus.cartridge = fakeCartridge;
+
+    for (int i=NES_CARTRIDGE_START ; i <= NES_CARTRIDGE_END ; i++) {
+        [self.bus writeWord:PATTERN toAddress:i];
+    }
+
+    XCTAssertEqual(fakeCartridge.writeCount, NES_CARTRIDGE_SIZE);
 }
 
 - (void)assertAllRAMSegmentsMatchPattern:(int const)pattern {
