@@ -1,10 +1,13 @@
 //
-// Created by Carmen Wick on 3/19/15.
 // Copyright (c) 2015 Carmen Wick. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
+#import "MOSTypes.h"
 
 @interface NESFile : NSObject
+
+@property(nonatomic) MOSWord prgRomSize;
+@property(nonatomic) MOSWord chrRomSize;
+@property(nonatomic) int mapper;
+
 @end
