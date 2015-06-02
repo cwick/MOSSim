@@ -7,6 +7,7 @@
 @interface NESFile : NSObject
 
 @property(nonatomic) MOSWord prgRomSize;
+@property(nonatomic) MOSWord prgRamSize;
 @property(nonatomic) MOSWord chrRomSize;
 @property(nonatomic) int mapper;
 

@@ -52,6 +52,7 @@
 		5AAC502CCC38FB549F4052EB /* MOSLoadAccumulatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5BF3BD51D05EF294EEE8 /* MOSLoadAccumulatorTests.m */; };
 		5AAC504CFC6DE4DA3D825FB9 /* NESFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC50F603904533E685B96A /* NESFile.m */; };
 		5AAC50C626AB49EEE07C3A2E /* NESFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC50F603904533E685B96A /* NESFile.m */; };
+		5AAC50FC8312B9B5E3AF7753 /* NESBasicProgramTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5E9B1BFBCA9C13591299 /* NESBasicProgramTest.m */; };
 		5AAC51A777D38B2B675C6A6C /* MOSDecrementRegisterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC50F5DEA40DFDFC4E3E6D /* MOSDecrementRegisterOperation.m */; };
 		5AAC52CF78A20A47F2F4BC38 /* NESAddressSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC51A263226170F3BA3D1C /* NESAddressSpace.m */; };
 		5AAC52E5EB9610DB64B106F5 /* MOSLoadRegisterYOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC56C481CC2F05FED12268 /* MOSLoadRegisterYOperation.m */; };
@@ -60,6 +61,7 @@
 		5AAC543573764D44D45F4F97 /* MOSLoadAccumulatorOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC53B6610C080B44E2E1AE /* MOSLoadAccumulatorOperation.m */; };
 		5AAC54C2D717F89A8F8E3849 /* MOSReadWriteMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5E288BD6FD8A304DEBF0 /* MOSReadWriteMemory.m */; };
 		5AAC55A292D26B484599252C /* MOSLoadRegisterYOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC56C481CC2F05FED12268 /* MOSLoadRegisterYOperation.m */; };
+		5AAC5642326B0FD14F50A1A5 /* NESTestFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC591EB4C60DA219B3F7EF /* NESTestFile.m */; };
 		5AAC57440C9A202FFF35877C /* MOSDecrementRegisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC52FEE450481F2ED65114 /* MOSDecrementRegisterTests.m */; };
 		5AAC57D8673460712B979AF0 /* MOSStoreRegisterAOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5910CE04412BCBDDF5FC /* MOSStoreRegisterAOperation.m */; };
 		5AAC57F837295349C993E9D7 /* MOSLoadAccumulatorOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC53B6610C080B44E2E1AE /* MOSLoadAccumulatorOperation.m */; };
@@ -155,6 +157,7 @@
 		5AAC5896D5BF1DA78AC4E788 /* NESFileParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NESFileParser.h; sourceTree = "<group>"; };
 		5AAC589F1BE6891CAE50358E /* MOSReadWriteMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSReadWriteMemory.h; sourceTree = "<group>"; };
 		5AAC5910CE04412BCBDDF5FC /* MOSStoreRegisterAOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSStoreRegisterAOperation.m; sourceTree = "<group>"; };
+		5AAC591EB4C60DA219B3F7EF /* NESTestFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NESTestFile.m; sourceTree = "<group>"; };
 		5AAC597108666D00F556E478 /* MOSLoadRegisterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSLoadRegisterTests.m; sourceTree = "<group>"; };
 		5AAC59C51379C3D442209232 /* NESAddressBusTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NESAddressBusTests.m; sourceTree = "<group>"; };
 		5AAC5A11A33A7D7433F1E53F /* MOSLoadRegisterOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSLoadRegisterOperation.h; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 		5AAC5D24C1FD55014E548FE5 /* MOSStoreXTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSStoreXTests.m; sourceTree = "<group>"; };
 		5AAC5DBEC2E7640930DB4B6A /* NESFileParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NESFileParserTests.m; sourceTree = "<group>"; };
 		5AAC5E288BD6FD8A304DEBF0 /* MOSReadWriteMemory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSReadWriteMemory.m; sourceTree = "<group>"; };
+		5AAC5E43AF6237D2A9884B3B /* NESTestFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NESTestFile.h; sourceTree = "<group>"; };
+		5AAC5E9B1BFBCA9C13591299 /* NESBasicProgramTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NESBasicProgramTest.m; sourceTree = "<group>"; };
 		5AAC5F96974C7C9BFA41C8B5 /* MOSStoreRegisterXOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSStoreRegisterXOperation.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -321,8 +326,19 @@
 			children = (
 				5AAC59C51379C3D442209232 /* NESAddressBusTests.m */,
 				5AAC5DBEC2E7640930DB4B6A /* NESFileParserTests.m */,
+				5AAC5D7F8E717687B9D04E2B /* Test Files */,
+				5AAC5E9B1BFBCA9C13591299 /* NESBasicProgramTest.m */,
 			);
 			path = NES;
+			sourceTree = "<group>";
+		};
+		5AAC5D7F8E717687B9D04E2B /* Test Files */ = {
+			isa = PBXGroup;
+			children = (
+				5AAC5E43AF6237D2A9884B3B /* NESTestFile.h */,
+				5AAC591EB4C60DA219B3F7EF /* NESTestFile.m */,
+			);
+			path = "Test Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -488,6 +504,8 @@
 				5AAC5B363C747CEE1CB3D8AD /* NESFileParser.m in Sources */,
 				5AAC50C626AB49EEE07C3A2E /* NESFile.m in Sources */,
 				5AAC52EB085A7B2D5D5FFF92 /* NESFileParserTests.m in Sources */,
+				5AAC5642326B0FD14F50A1A5 /* NESTestFile.m in Sources */,
+				5AAC50FC8312B9B5E3AF7753 /* NESBasicProgramTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

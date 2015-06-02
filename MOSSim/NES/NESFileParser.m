@@ -14,6 +14,7 @@ typedef struct {
     uint8_t chrRomSize; // In 8KB units
     uint8_t flags6;
     uint8_t flags7;
+    uint8_t prgRamSize; // In 8KB units
 } NESHeader;
 
 @implementation NESFileParser {
@@ -29,11 +30,23 @@ typedef struct {
         return nil;
     }
 
+    if ([self isPlayChoiceEnabled:header]) {
+        *error = [NSError errorWithDomain:@"NESFileParsingError"
+                                     code:0
+                                 userInfo:@{NSLocalizedDescriptionKey: @"PlayChoice ROMs are not supported"}];
+        return nil;
+    }
+
     file.prgRomSize = header->prgRomSize;
+    file.prgRamSize = header->prgRamSize;
     file.chrRomSize = header->chrRomSize;
     file.mapper = [self parseMapperNumber:header];
 
     return file;
+}
+
+- (BOOL)isPlayChoiceEnabled:(NESHeader *)header {
+    return (header->flags7 & 0b0000010) != 0;
 }
 
 - (int)parseMapperNumber:(NESHeader *)header {
