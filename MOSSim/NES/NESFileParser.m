@@ -15,6 +15,9 @@ typedef struct {
     uint8_t flags6;
     uint8_t flags7;
     uint8_t prgRamSize; // In 8KB units
+    uint8_t flags9;
+    uint8_t flags10;
+    uint8_t zeroFilled[5];
 } NESHeader;
 
 @implementation NESFileParser {
@@ -37,12 +40,24 @@ typedef struct {
         return nil;
     }
 
-    file.prgRomSize = header->prgRomSize;
+    if ([self isTrainerPresent:header]) {
+        *error = [NSError errorWithDomain:@"NESFileParsingError"
+                                     code:0
+                                 userInfo:@{NSLocalizedDescriptionKey: @"Trainers are not supported"}];
+        return nil;
+    }
+
     file.prgRamSize = header->prgRamSize;
     file.chrRomSize = header->chrRomSize;
     file.mapper = [self parseMapperNumber:header];
 
+    file.prgRomData = [NSData dataWithBytes:header+1 length:MIN(header->prgRomSize * 16384, data.length - 16)];
+
     return file;
+}
+
+- (BOOL)isTrainerPresent:(NESHeader *)header {
+    return (header->flags6 & 0b0000100) != 0;
 }
 
 - (BOOL)isPlayChoiceEnabled:(NESHeader *)header {

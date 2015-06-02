@@ -24,7 +24,16 @@
         // Flags 7
         0xA0,
         // Size of PRG RAM in 8 KB units
-        0x8
+        0x8,
+        // Flags 9
+        0xFF,
+        // Flags 10
+        0xFF,
+        // Zero filled
+        0x00, 0x00, 0x00, 0x00, 0x00,
+
+        // PRG ROM data
+        0x01, 0x02, 0x03
     };
 
     NSError *error;
@@ -46,10 +55,6 @@
     XCTAssertEqualObjects(error.domain, @"NESFileParsingError");
 }
 
-- (void)testParseHeader_PRG_ROM_Size {
-    XCTAssertEqual(self.nesFile.prgRomSize, 9);
-}
-
 - (void)testParseHeader_CHR_ROM_Size {
     XCTAssertEqual(self.nesFile.chrRomSize, 2);
 }
@@ -58,11 +63,30 @@
     XCTAssertEqual(self.nesFile.prgRamSize, 8);
 }
 
+- (void)testParse_PRG_ROM_Data {
+    char expectedDataBytes[] = { 0x01, 0x02, 0x03 };
+    NSData *expectedData = [NSData dataWithBytes:expectedDataBytes length:sizeof(expectedDataBytes)];
+
+    XCTAssertEqual([self.nesFile.prgRomData length], 3);
+    XCTAssertEqualObjects(self.nesFile.prgRomData, expectedData);
+}
+
 - (void)testPlayChoice10NotSupported {
     NESFileParser *parser = [NESFileParser new];
     NSError *error;
 
     ((MOSWord*)self.nesFileData.mutableBytes)[7] = (MOSWord)0b0000010;
+
+    [parser parseFile:self.nesFileData error:&error];
+
+    XCTAssertEqualObjects(error.domain, @"NESFileParsingError");
+}
+
+- (void)testTrainerNotSupporter {
+    NESFileParser *parser = [NESFileParser new];
+    NSError *error;
+
+    ((MOSWord*)self.nesFileData.mutableBytes)[6] = (MOSWord)0b0000100;
 
     [parser parseFile:self.nesFileData error:&error];
 
