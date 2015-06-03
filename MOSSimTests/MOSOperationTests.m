@@ -10,6 +10,7 @@
 #import "MOSTransferXToStackPointerOperation.h"
 #import "MOSInstructionDecoder.h"
 #import "MOSSetInterruptDisableOperation.h"
+#import "MOSClearDecimalModeOperation.h"
 
 @interface MOSOperationTests : XCTestCase
 
@@ -91,5 +92,12 @@
     [op execute:self.cpu];
 
     XCTAssertTrue(self.cpu.statusRegister.interruptDisable);
+}
+
+- (void)testClearDecimalMode {
+    MOSOperation *op = [MOSClearDecimalModeOperation new];
+    [op execute:self.cpu];
+
+    XCTAssertFalse(self.cpu.statusRegister.decimalMode);
 }
 @end

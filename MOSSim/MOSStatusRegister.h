@@ -6,5 +6,6 @@
 @property(nonatomic) BOOL zeroFlag;
 @property(nonatomic) BOOL negativeFlag;
 @property(nonatomic) BOOL interruptDisable;
+@property(nonatomic) BOOL decimalMode;
 
 @end
