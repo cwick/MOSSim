@@ -122,7 +122,7 @@
     }
 }
 
-- (void)writePattern:(const int) pattern toRAMSegment:(const int)segment {
+- (void)writePattern:(const MOSWord) pattern toRAMSegment:(const int)segment {
     for (int i=NES_RAM_SIZE*segment ; i < NES_RAM_SIZE * (segment +1); i++) {
         [self.nes writeWord:pattern toAddress:i];
     }
