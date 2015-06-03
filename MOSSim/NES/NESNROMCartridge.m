@@ -9,6 +9,14 @@ static const int BANK0_START = 0x8000;
 static const int BANK1_START = 0xC000;
 
 @implementation NESNROMCartridge
+
++ (NESNROMCartridge *)cartridgeWithRomBank0:(NSData *)bank0 andRomBank1:(NSData *)bank1 {
+    NESNROMCartridge *cartridge = [NESNROMCartridge new];
+    cartridge.romBank0 = bank0;
+    cartridge.romBank1 = bank1;
+    return cartridge;
+}
+
 - (MOSWord)readWordFromAddress:(MOSAbsoluteAddress)address {
     NSData *romBank0 = self.romBank0;
     NSData *romBank1 = self.romBank1;

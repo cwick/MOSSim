@@ -62,7 +62,7 @@ typedef struct {
         NSData *data = [NSData dataWithBytes:romStart + (i*0x4000) length:0x4000];
         [prgRomData addObject:data];
     }
-    
+
     return prgRomData;
 }
 

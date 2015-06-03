@@ -2,35 +2,41 @@
 #import "NESTestFile.h"
 #import <XCTest/XCTest.h>
 #import "NESFileParser.h"
+#import "NESNROMCartridge.h"
+#import "NESAddressSpace.h"
+#import "MOSCPU.h"
 
 @interface NESBasicProgramTest : XCTestCase
 
-@property(nonatomic, strong) NSData *nesFileData;
-@property(nonatomic, strong) NESFileParser *parser;
-@property(nonatomic, strong) NESFile *nesFile;
 @end
 
 @implementation NESBasicProgramTest
 
 - (void)setUp {
     NSError *error;
-    self.nesFileData = [NSData dataWithBytes:NESTestFile length:NESTestFileLength];
-    self.parser = [NESFileParser new];
-    self.nesFile = [self.parser parseFile:self.nesFileData error:&error];
-
-    XCTAssertNil(error);
-}
-
-- (void)testStuff {
+    NSData *nesFileData = [NSData dataWithBytes:NESTestFile length:NESTestFileLength];
     NESFileParser *parser = [NESFileParser new];
-    NSError *error;
+    NESFile *nesFile = [parser parseFile:nesFileData error:&error];
 
-    NESFile *file = [parser parseFile:self.nesFileData error:&error];
     XCTAssertNil(error);
+    XCTAssertEqual(nesFile.prgRomData.count, 2);
+    XCTAssertEqual(nesFile.chrRomSize, 1);
+    XCTAssertEqual(nesFile.mapper, 0);
 
-    NSLog(@"%d", file.prgRomData.count);
-    NSLog(@"%d", file.chrRomSize);
-    NSLog(@"%d", file.mapper);
+    id rom0, rom1;
+    if (nesFile.prgRomData.count > 0) {
+        rom0 = nesFile.prgRomData[0];
+    }
+    if (nesFile.prgRomData.count > 1) {
+        rom1 = nesFile.prgRomData[1];
+    }
+
+    NESNROMCartridge *cartridge = [NESNROMCartridge cartridgeWithRomBank0:rom0 andRomBank1:rom1];
+    NESAddressSpace *nes = [NESAddressSpace new];
+    nes.cartridge = cartridge;
+
+    MOSCPU *cpu = [MOSCPU new];
+
 }
 
 @end
