@@ -151,7 +151,6 @@
 		5AAC537846216497E63BBC99 /* MOSStoreRegisterAOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSStoreRegisterAOperation.h; sourceTree = "<group>"; };
 		5AAC53AFB2EB5F3AAB3D50D4 /* NESNROMCartridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NESNROMCartridge.m; path = MOSSim/NES/NESNROMCartridge.m; sourceTree = SOURCE_ROOT; };
 		5AAC53B6610C080B44E2E1AE /* MOSLoadAccumulatorOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSLoadAccumulatorOperation.m; sourceTree = "<group>"; };
-		5AAC5406C6F2701F192A0B3E /* MOSAddressBus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSAddressBus.h; sourceTree = "<group>"; };
 		5AAC55147A5FF325CCBE851F /* NESFileParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NESFileParser.m; sourceTree = "<group>"; };
 		5AAC55FC8D7380D69B260400 /* MOSStoreRegisterXOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSStoreRegisterXOperation.m; sourceTree = "<group>"; };
 		5AAC56C481CC2F05FED12268 /* MOSLoadRegisterYOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSLoadRegisterYOperation.m; sourceTree = "<group>"; };
@@ -275,7 +274,6 @@
 				41278DA41AA5BB320073F9FE /* MOSUtils.h */,
 				41278DA51AA5BBA00073F9FE /* MOSUtils.m */,
 				41278D5A1AA12D160073F9FE /* Operations */,
-				5AAC5406C6F2701F192A0B3E /* MOSAddressBus.h */,
 				5AAC5E288BD6FD8A304DEBF0 /* MOSReadWriteMemory.m */,
 				5AAC589F1BE6891CAE50358E /* MOSReadWriteMemory.h */,
 				5AAC57A0166F260E0B5D1361 /* NES */,

@@ -2,11 +2,12 @@
 
 #import "MOSCPU.h"
 #import "MOSUtils.h"
+#import "MOSReadWriteMemory.h"
 
 @interface MOSCPUTests : XCTestCase
 
 @property(nonatomic) MOSCPU *cpu;
-@property(nonatomic) NSData *programData;
+@property(nonatomic) MOSReadWriteMemory *memory;
 
 @end
 
@@ -17,6 +18,8 @@
 
 - (void)setUp {
     self.cpu = [MOSCPU new];
+    self.memory = [MOSReadWriteMemory new];
+    self.cpu.memory = self.memory;
 }
 
 - (void)testMemoryIsZeroedOut {
@@ -131,7 +134,7 @@
 
 - (void)loadProgram:(const MOSWord *)programData size:(NSUInteger)length {
     NSData *program = [NSData dataWithBytes:programData length:length];
-    [self.cpu loadBinaryImage:program];
+    [self.memory loadBinaryImage:program];
 }
 
 @end

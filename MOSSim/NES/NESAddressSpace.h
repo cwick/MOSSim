@@ -1,4 +1,4 @@
-#import "MOSAddressBus.h"
+#import "MOSDevice.h"
 
 extern const int NES_RAM_START;
 extern const int NES_RAM_END;

@@ -4,11 +4,10 @@
 #import "MOSUtils.h"
 #import "MOSReadWriteMemory.h"
 
-const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
+const NSUInteger MOS_ADDRESS_SPACE_SIZE = 1 << 16;
 
 @interface MOSCPU () <MOSDataStream>
 
-@property(nonatomic) id<MOSAddressBus> memory;
 @property(nonatomic) MOSInstructionDecoder *decoder;
 
 @end
@@ -18,10 +17,10 @@ const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _memory = [MOSReadWriteMemory new];
         _statusRegister = [MOSStatusRegister new];
         _registerValues = [MOSRegisterValues new];
         _decoder = [[MOSInstructionDecoder alloc] initWithDataStream:self];
+        _memory = [MOSReadWriteMemory new];
     }
     
     return self;
@@ -48,10 +47,6 @@ const int MOS_ADDRESS_SPACE_SIZE = 1 << 16;
     return [NSString stringWithFormat:
             @"\nPC\t0x%X\t%d\n"
             @"X\t0x%X\t%d", self.programCounter, self.programCounter, self.registerValues.x, self.registerValues.x];
-}
-
-- (void)loadBinaryImage:(NSData *)data {
-    [self.memory loadBinaryImage:data];
 }
 
 - (MOSWord)readWordFromAddress:(MOSAbsoluteAddress)address {

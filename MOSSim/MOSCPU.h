@@ -4,7 +4,7 @@
 #import "MOSStatusRegister.h"
 #import "MOSDevice.h"
 
-extern const int MOS_ADDRESS_SPACE_SIZE;
+extern const NSUInteger MOS_ADDRESS_SPACE_SIZE;
 
 @interface MOSCPU : NSObject<MOSDevice>
 
@@ -13,13 +13,12 @@ extern const int MOS_ADDRESS_SPACE_SIZE;
 @property(nonatomic) MOSWord stackPointer;
 @property(nonatomic, readonly) MOSRegisterValues *registerValues;
 @property(nonatomic) BOOL isHalted;
+@property(nonatomic) id<MOSDevice> memory;
 
 - (void)step;
 - (void)run;
 
 - (void)pushStack:(MOSWord)value;
 - (MOSWord)popStack;
-
-- (void)loadBinaryImage:(NSData *)data;
 
 @end

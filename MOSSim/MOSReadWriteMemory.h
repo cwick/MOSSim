@@ -1,4 +1,7 @@
-#import "MOSAddressBus.h"
+#import "MOSDevice.h"
 
-@interface MOSReadWriteMemory : NSObject<MOSAddressBus>
+@interface MOSReadWriteMemory : NSObject<MOSDevice>
+
+- (void)loadBinaryImage:(NSData *)data;
+
 @end
