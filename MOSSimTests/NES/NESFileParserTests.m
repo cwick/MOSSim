@@ -12,11 +12,11 @@
 @implementation NESFileParserTests
 
 - (void)setUp {
-    const MOSWord nesFileData[] = {
+    const MOSWord nesFileData[16 + 16384*2] = {
         // NES
         0x4E, 0x45, 0x53, 0x1A,
         // PRG ROM Size
-        0x9,
+        0x2,
         // CHR ROM Size
         0x2,
         // Flags 6
@@ -33,7 +33,7 @@
         0x00, 0x00, 0x00, 0x00, 0x00,
 
         // PRG ROM data
-        0x01, 0x02, 0x03
+        0x00, 0x01, 0x02
     };
 
     NSError *error;
@@ -64,11 +64,14 @@
 }
 
 - (void)testParse_PRG_ROM_Data {
-    char expectedDataBytes[] = { 0x01, 0x02, 0x03 };
-    NSData *expectedData = [NSData dataWithBytes:expectedDataBytes length:sizeof(expectedDataBytes)];
+    XCTAssertEqual([self.nesFile.prgRomData count], 2);
+    XCTAssertEqual([self.nesFile.prgRomData[0] length], 0x4000);
+    XCTAssertEqual([self.nesFile.prgRomData[1] length], 0x4000);
 
-    XCTAssertEqual([self.nesFile.prgRomData length], 3);
-    XCTAssertEqualObjects(self.nesFile.prgRomData, expectedData);
+    MOSWord *rom0 = [self.nesFile.prgRomData[0] bytes];
+    XCTAssertEqual(rom0[0], 0x00);
+    XCTAssertEqual(rom0[1], 0x01);
+    XCTAssertEqual(rom0[2], 0x02);
 }
 
 - (void)testPlayChoice10NotSupported {

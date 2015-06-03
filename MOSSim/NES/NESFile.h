@@ -9,6 +9,6 @@
 @property(nonatomic) MOSWord prgRamSize;
 @property(nonatomic) MOSWord chrRomSize;
 @property(nonatomic) int mapper;
-@property(nonatomic) NSData *prgRomData;
+@property(nonatomic) NSArray *prgRomData;
 
 @end

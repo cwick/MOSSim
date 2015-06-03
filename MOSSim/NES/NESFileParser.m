@@ -50,10 +50,20 @@ typedef struct {
     file.prgRamSize = header->prgRamSize;
     file.chrRomSize = header->chrRomSize;
     file.mapper = [self parseMapperNumber:header];
-
-    file.prgRomData = [NSData dataWithBytes:header+1 length:MIN(header->prgRomSize * 16384, data.length - 16)];
+    file.prgRomData = [self parsePrgRomData:header+1 segments:header->prgRomSize];
 
     return file;
+}
+
+- (NSMutableArray *)parsePrgRomData:(void *)romStart segments:(uint8_t)romSegments{
+    NSMutableArray *prgRomData = [NSMutableArray new];
+
+    for (int i=0 ; i<romSegments ; i++) {
+        NSData *data = [NSData dataWithBytes:romStart + (i*0x4000) length:0x4000];
+        [prgRomData addObject:data];
+    }
+    
+    return prgRomData;
 }
 
 - (BOOL)isTrainerPresent:(NESHeader *)header {

@@ -1,2 +1,2 @@
 extern const unsigned char NESTestFile[];
-extern const int NESTestFileLength;
+extern const NSUInteger NESTestFileLength;

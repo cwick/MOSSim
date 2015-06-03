@@ -28,7 +28,7 @@
     NESFile *file = [parser parseFile:self.nesFileData error:&error];
     XCTAssertNil(error);
 
-    NSLog(@"%d", file.prgRomData.length);
+    NSLog(@"%d", file.prgRomData.count);
     NSLog(@"%d", file.chrRomSize);
     NSLog(@"%d", file.mapper);
 }
