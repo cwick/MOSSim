@@ -5,9 +5,12 @@
 #import "NESNROMCartridge.h"
 #import "NESAddressSpace.h"
 #import "MOSCPU.h"
+#import "MOSUtils.h"
 
 @interface NESBasicProgramTest : XCTestCase
 
+@property(nonatomic) NESAddressSpace *addressSpace;
+@property(nonatomic) NESNROMCartridge *cartridge;
 @end
 
 @implementation NESBasicProgramTest
@@ -31,12 +34,18 @@
         rom1 = nesFile.prgRomData[1];
     }
 
-    NESNROMCartridge *cartridge = [NESNROMCartridge cartridgeWithRomBank0:rom0 andRomBank1:rom1];
-    NESAddressSpace *nesAddressSpace = [NESAddressSpace new];
-    nesAddressSpace.cartridge = cartridge;
+    self.cartridge = [NESNROMCartridge cartridgeWithRomBank0:rom0 andRomBank1:rom1];
+    self.addressSpace = [NESAddressSpace new];
+    self.addressSpace.cartridge = self.cartridge;
 
+}
+
+- (void)testCanRunProgram {
     MOSCPU *cpu = [MOSCPU new];
-    cpu.dataBus = nesAddressSpace;
+    cpu.dataBus = self.addressSpace;
+    cpu.programCounter = MOSAbsoluteAddressMake([self.cartridge readWordFromAddress:0xFFFC], [self.cartridge readWordFromAddress:0xFFFD]);
+    [cpu step];
+
 }
 
 @end

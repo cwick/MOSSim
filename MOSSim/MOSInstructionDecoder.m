@@ -129,7 +129,7 @@
         OPCODE(STAIndirectIndexed, StoreRegisterA, IndirectIndexed);
 
         default:
-            [NSException raise:@"Unknown opcode" format:@"%ld", opcode];
+            [NSException raise:@"Unknown opcode" format:@"0x%x", opcode];
     }
 }
 
