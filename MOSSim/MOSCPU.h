@@ -13,7 +13,7 @@ extern const NSUInteger MOS_ADDRESS_SPACE_SIZE;
 @property(nonatomic) MOSWord stackPointer;
 @property(nonatomic, readonly) MOSRegisterValues *registerValues;
 @property(nonatomic) BOOL isHalted;
-@property(nonatomic) id<MOSDevice> memory;
+@property(nonatomic) id<MOSDevice> dataBus;
 
 - (void)step;
 - (void)run;

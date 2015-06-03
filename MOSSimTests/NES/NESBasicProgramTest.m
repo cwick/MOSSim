@@ -32,11 +32,11 @@
     }
 
     NESNROMCartridge *cartridge = [NESNROMCartridge cartridgeWithRomBank0:rom0 andRomBank1:rom1];
-    NESAddressSpace *nes = [NESAddressSpace new];
-    nes.cartridge = cartridge;
+    NESAddressSpace *nesAddressSpace = [NESAddressSpace new];
+    nesAddressSpace.cartridge = cartridge;
 
     MOSCPU *cpu = [MOSCPU new];
-
+    cpu.dataBus = nesAddressSpace;
 }
 
 @end

@@ -19,7 +19,7 @@
 - (void)setUp {
     self.cpu = [MOSCPU new];
     self.memory = [MOSReadWriteMemory new];
-    self.cpu.memory = self.memory;
+    self.cpu.dataBus = self.memory;
 }
 
 - (void)testMemoryIsZeroedOut {

@@ -20,7 +20,7 @@ const NSUInteger MOS_ADDRESS_SPACE_SIZE = 1 << 16;
         _statusRegister = [MOSStatusRegister new];
         _registerValues = [MOSRegisterValues new];
         _decoder = [[MOSInstructionDecoder alloc] initWithDataStream:self];
-        _memory = [MOSReadWriteMemory new];
+        _dataBus = [MOSReadWriteMemory new];
     }
     
     return self;
@@ -50,16 +50,16 @@ const NSUInteger MOS_ADDRESS_SPACE_SIZE = 1 << 16;
 }
 
 - (MOSWord)readWordFromAddress:(MOSAbsoluteAddress)address {
-    return [self.memory readWordFromAddress:address];
+    return [self.dataBus readWordFromAddress:address];
 }
 
 - (void)writeWord:(MOSWord)value toAddress:(MOSAbsoluteAddress)address {
-    [self.memory writeWord:value toAddress:address];
+    [self.dataBus writeWord:value toAddress:address];
 }
 
 - (void)pushStack:(MOSWord)value {
     MOSAbsoluteAddress address = [self createStackAddress:self.stackPointer--];
-    [self.memory writeWord:value toAddress:address];
+    [self.dataBus writeWord:value toAddress:address];
 }
 
 - (MOSWord)popStack {
