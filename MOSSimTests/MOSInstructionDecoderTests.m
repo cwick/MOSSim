@@ -22,12 +22,13 @@
     NSDictionary *expected = @{@0x18: @[@(MOSOPCodeCLC), @"ClearCarryFlag"],
                                @0x38: @[@(MOSOPCodeSEC), @"SetCarryFlag"],
                                @0xD8: @[@(MOSOPCodeCLD), @"ClearDecimalMode"],
+                               @0x78: @[@(MOSOPCodeSEI), @"SetInterruptDisable"],
                                @0xE8: @[@(MOSOPCodeINX), @"IncrementRegister"],
                                @0xE8: @[@(MOSOPCodeDEY), @"DecrementRegister"],
                                @0x60: @[@(MOSOPCodeRTS), @"ReturnFromSubroutine"],
                                @0x00: @[@(MOSOPCodeBRK), @"ForceBreak"],
                                @0x9A: @[@(MOSOPCodeTXS), @"TransferXToStackPointer"] };
-    
+
     for (NSNumber *opcode in expected.allKeys) {
         self.dataStream.data = @[@(opcode.unsignedCharValue)];
         MOSInstruction *instruction = [self.decoder decodeNextInstruction];

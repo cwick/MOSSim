@@ -21,7 +21,7 @@
 }
 
 - (void)execute:(MOSCPU *)cpu {
-    
+    [self doesNotRecognizeSelector:_cmd];
 }
 
 @end

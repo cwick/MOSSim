@@ -91,6 +91,7 @@
         OPCODE(CLC, ClearCarryFlag, Implied);
         OPCODE(SEC, SetCarryFlag, Implied);
         OPCODE(CLD, ClearDecimalMode, Implied);
+        OPCODE(SEI, SetInterruptDisable, Implied);
         OPCODE(RTS, ReturnFromSubroutine, Implied);
         OPCODE(BRK, ForceBreak, Implied);
         OPCODE(JMP, Jump, Absolute);

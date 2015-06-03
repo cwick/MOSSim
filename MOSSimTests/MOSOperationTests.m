@@ -9,6 +9,7 @@
 #import "MOSJumpToSubroutineOperation.h"
 #import "MOSTransferXToStackPointerOperation.h"
 #import "MOSInstructionDecoder.h"
+#import "MOSSetInterruptDisableOperation.h"
 
 @interface MOSOperationTests : XCTestCase
 
@@ -85,4 +86,10 @@
     XCTAssertEqual(returnAddress, 0x0002);
 }
 
+- (void)testSetInterruptDisable {
+    MOSOperation *op = [MOSSetInterruptDisableOperation new];
+    [op execute:self.cpu];
+
+    XCTAssertTrue(self.cpu.statusRegister.interruptDisable);
+}
 @end

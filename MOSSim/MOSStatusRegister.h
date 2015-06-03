@@ -5,5 +5,6 @@
 @property(nonatomic) BOOL carryFlag;
 @property(nonatomic) BOOL zeroFlag;
 @property(nonatomic) BOOL negativeFlag;
+@property(nonatomic) BOOL interruptDisable;
 
 @end
