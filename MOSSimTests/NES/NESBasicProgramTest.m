@@ -45,9 +45,7 @@
     cpu.dataBus = self.addressSpace;
     cpu.programCounter = MOSAbsoluteAddressMake([self.cartridge readWordFromAddress:0xFFFC], [self.cartridge readWordFromAddress:0xFFFD]);
 
-    for (int i=0 ; i<10 ; i++) {
-        [cpu step];
-    }
+    [cpu run];
 }
 
 @end
