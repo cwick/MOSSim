@@ -68,7 +68,7 @@
     XCTAssertEqual([self.nesFile.prgRomData[0] length], 0x4000);
     XCTAssertEqual([self.nesFile.prgRomData[1] length], 0x4000);
 
-    MOSWord *rom0 = [self.nesFile.prgRomData[0] bytes];
+    const MOSWord *rom0 = [self.nesFile.prgRomData[0] bytes];
     XCTAssertEqual(rom0[0], 0x00);
     XCTAssertEqual(rom0[1], 0x01);
     XCTAssertEqual(rom0[2], 0x02);

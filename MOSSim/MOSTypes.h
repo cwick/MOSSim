@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, MOSAddressingMode) {
     MOSAddressingModeZeroPage,
     MOSAddressingModeZeroPageX,
     MOSAddressingModeAbsolute,
-    MOSAddressingModeAbsoluteX,
+    MOSAddressingModeAbsoluteIndexedX,
     MOSAddressingModeRelative,
     MOSAddressingModeIndirectIndexed,
 };
@@ -67,6 +67,7 @@ typedef NS_ENUM(NSInteger, MOSOPCode) {
 
     MOSOPCodeSTAZeroPage = 0x85,
     MOSOPCodeSTAIndirectIndexed = 0x91,
+    MOSOPCodeSTAAbsoluteIndexedX = 0x9D,
 
     MOSOPCodeJSR = 0x20
 };

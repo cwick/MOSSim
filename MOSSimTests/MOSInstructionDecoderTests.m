@@ -127,14 +127,14 @@
     XCTAssertEqual(instruction.absoluteAddress, 0x5678);
 }
 
-- (void)testINCAbsoluteIndexed {
+- (void)testINCAbsoluteIndexedX {
     // [OPCODE, LOW ADDRESS, HIGH ADDRESS]
     self.dataStream.data = @[@0xFE, @0xFF, @0xFF];
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeINCAbsoluteIndexed);
     XCTAssertEqual(instruction.operationName, @"IncrementByOne");
-    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsoluteX);
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsoluteIndexedX);
     XCTAssertEqual(instruction.absoluteAddress, 0xFFFF);
 }
 
@@ -276,7 +276,7 @@
 
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeSTAZeroPage);
-    XCTAssertEqual(instruction.operationName, @"StoreRegisterA");
+    XCTAssertEqual(instruction.operationName, @"StoreAccumulator");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
     XCTAssertEqual(instruction.pageOffset, 0x22);
 }
@@ -287,9 +287,20 @@
 
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeSTAIndirectIndexed);
-    XCTAssertEqual(instruction.operationName, @"StoreRegisterA");
+    XCTAssertEqual(instruction.operationName, @"StoreAccumulator");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeIndirectIndexed);
     XCTAssertEqual(instruction.pageOffset, 0x55);
+}
+
+- (void)testSTAAbsoluteIndexedX {
+    // [OPCODE, LOW ADDRESS, HIGH ADDRESS]
+    self.dataStream.data = @[@0x9D, @0xF9, @0xF5];
+
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeSTAAbsoluteIndexedX);
+    XCTAssertEqual(instruction.operationName, @"StoreAccumulator");
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsoluteIndexedX);
+    XCTAssertEqual(instruction.absoluteAddress, 0xF5F9);
 }
 
 @end

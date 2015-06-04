@@ -12,6 +12,7 @@
                 _relativeAddress = (MOSRelativeAddress)operand;
                 break;
             case MOSAddressingModeAbsolute:
+            case MOSAddressingModeAbsoluteIndexedX:
                 _absoluteAddress = operand;
                 break;
             case MOSAddressingModeImmediate:
@@ -22,7 +23,7 @@
                 _pageOffset = (MOSPageOffset)operand;
                 break;
             default:
-                [NSException raise:@"Unknown addressing mode" format:@""];
+                [NSException raise:@"Invalid addressing mode" format:@"%lld", (long long int) mode];
         }
 
         _addressingMode = mode;
@@ -41,8 +42,10 @@
             MOSAbsoluteAddress address = MOSAbsoluteAddressMake(addressLow, addressHigh);
             address += cpu.registerValues.y;
             return address;
+        case MOSAddressingModeAbsoluteIndexedX:
+            return self.absoluteAddress + cpu.registerValues.x;
         default:
-            [NSException raise:@"Invalid addressing mode" format:@""];
+            [NSException raise:@"Invalid addressing mode" format:@"%lld", (long long int) self.addressingMode];
         }
     }
 
@@ -102,7 +105,7 @@
         OPCODE(TXS, TransferXToStackPointer, Implied);
             
         OPCODE(INCAbsolute, IncrementByOne, Absolute);
-        OPCODE(INCAbsoluteIndexed, IncrementByOne, AbsoluteX);
+        OPCODE(INCAbsoluteIndexed, IncrementByOne, AbsoluteIndexedX);
         OPCODE(INCZeroPage, IncrementByOne, ZeroPage);
         OPCODE(INCZeroPageIndexed, IncrementByOne, ZeroPageX);
             
@@ -126,8 +129,9 @@
         OPCODE(LDAZeroPage, LoadAccumulator, ZeroPage);
         OPCODE(LDAIndirectIndexed, LoadAccumulator, IndirectIndexed);
 
-        OPCODE(STAZeroPage, StoreRegisterA, ZeroPage);
-        OPCODE(STAIndirectIndexed, StoreRegisterA, IndirectIndexed);
+        OPCODE(STAZeroPage, StoreAccumulator, ZeroPage);
+        OPCODE(STAIndirectIndexed, StoreAccumulator, IndirectIndexed);
+        OPCODE(STAAbsoluteIndexedX, StoreAccumulator, AbsoluteIndexedX);
 
         default:
             [NSException raise:@"Unknown opcode" format:@"0x%x", opcode];
@@ -140,7 +144,7 @@
             instruction.relativeAddress = [self decodeRelativeAddress];
             break;
         case MOSAddressingModeAbsolute:
-        case MOSAddressingModeAbsoluteX:
+        case MOSAddressingModeAbsoluteIndexedX:
             instruction.absoluteAddress = [self decodeAbsoluteAddress];
             break;
         case MOSAddressingModeZeroPage:
