@@ -11,6 +11,7 @@
 #import "MOSInstructionDecoder.h"
 #import "MOSSetInterruptDisableOperation.h"
 #import "MOSClearDecimalModeOperation.h"
+#import "MOSTransferAccumulatorToYOperation.h"
 
 @interface MOSOperationTests : XCTestCase
 
@@ -52,6 +53,14 @@
     [op execute:self.cpu];
     
     XCTAssertEqual(self.cpu.stackPointer, 123);
+}
+
+- (void)testTransferAccumulatorToY {
+    MOSOperation *op = [MOSTransferAccumulatorToYOperation new];
+    self.cpu.registerValues.a = 128;
+    [op execute:self.cpu];
+
+    XCTAssertEqual(self.cpu.registerValues.y, 128);
 }
 
 - (void)testReturnFromSubroutine {

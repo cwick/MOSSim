@@ -103,7 +103,8 @@
         OPCODE(BEQ, BranchOnResultZero, Relative);
         OPCODE(BNE, BranchOnResultNotZero, Relative);
         OPCODE(TXS, TransferXToStackPointer, Implied);
-            
+        OPCODE(TAY, TransferAccumulatorToY, Implied);
+
         OPCODE(INCAbsolute, IncrementByOne, Absolute);
         OPCODE(INCAbsoluteIndexed, IncrementByOne, AbsoluteIndexedX);
         OPCODE(INCZeroPage, IncrementByOne, ZeroPage);

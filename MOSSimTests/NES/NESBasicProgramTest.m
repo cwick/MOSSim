@@ -16,6 +16,7 @@
 @implementation NESBasicProgramTest
 
 - (void)setUp {
+    // TODO: put all this setup into a NESEmulator class
     NSError *error;
     NSData *nesFileData = [NSData dataWithBytes:NESTestFile length:NESTestFileLength];
     NESFileParser *parser = [NESFileParser new];

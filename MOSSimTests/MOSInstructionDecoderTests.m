@@ -27,7 +27,8 @@
                                @0xE8: @[@(MOSOPCodeDEY), @"DecrementRegister"],
                                @0x60: @[@(MOSOPCodeRTS), @"ReturnFromSubroutine"],
                                @0x00: @[@(MOSOPCodeBRK), @"ForceBreak"],
-                               @0x9A: @[@(MOSOPCodeTXS), @"TransferXToStackPointer"] };
+                               @0x9A: @[@(MOSOPCodeTXS), @"TransferXToStackPointer"],
+                               @0xA8: @[@(MOSOPCodeTAY), @"TransferAccumulatorToY"] };
 
     for (NSNumber *opcode in expected.allKeys) {
         self.dataStream.data = @[@(opcode.unsignedCharValue)];
