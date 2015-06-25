@@ -211,7 +211,18 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeCPXImmediate);
-    XCTAssertEqual(instruction.operationName, @"Compare");
+    XCTAssertEqual(instruction.operationName, @"CompareX");
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeImmediate);
+    XCTAssertEqual(instruction.immediateValue, 0x99);
+}
+
+- (void)testCPYImmediate {
+    // [OPCODE, OPERAND]
+    self.dataStream.data = @[@0xC0, @0x99];
+
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeCPYImmediate);
+    XCTAssertEqual(instruction.operationName, @"CompareY");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeImmediate);
     XCTAssertEqual(instruction.immediateValue, 0x99);
 }

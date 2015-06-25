@@ -5,9 +5,8 @@
 
 @implementation MOSStoreRegisterXOperation
 
-- (void)execute:(MOSCPU *)cpu {
-    MOSAbsoluteAddress address = [self.instruction resolveAddress:cpu];
-    [cpu writeWord:cpu.registerValues.x toAddress:address];
+- (instancetype)initWithInstruction:(MOSInstruction *)instruction {
+    return self = [super initWithInstruction:instruction register:@"x"];
 }
 
 @end

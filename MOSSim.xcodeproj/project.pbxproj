@@ -54,7 +54,10 @@
 		5AAC50C626AB49EEE07C3A2E /* NESFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC50F603904533E685B96A /* NESFile.m */; };
 		5AAC50FC8312B9B5E3AF7753 /* NESBasicProgramTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5E9B1BFBCA9C13591299 /* NESBasicProgramTest.m */; };
 		5AAC514A5979EF176C86DE1A /* MOSTransferAccumulatorToYOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC59E3E260B7723F3BABD2 /* MOSTransferAccumulatorToYOperation.m */; };
+		5AAC516E8E31451678E1D803 /* MOSStoreRegisterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC50F91A2EDAB86FC39CF1 /* MOSStoreRegisterOperation.m */; };
 		5AAC51A777D38B2B675C6A6C /* MOSDecrementRegisterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC50F5DEA40DFDFC4E3E6D /* MOSDecrementRegisterOperation.m */; };
+		5AAC51E4AC1B1B79A0ABF63A /* MOSCompareYOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC51BAD3C41ACAF6448223 /* MOSCompareYOperation.m */; };
+		5AAC5212223D300463179170 /* MOSCompareXOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5D01E5DEC948F3F6EC37 /* MOSCompareXOperation.m */; };
 		5AAC52CF78A20A47F2F4BC38 /* NESAddressSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC51A263226170F3BA3D1C /* NESAddressSpace.m */; };
 		5AAC52E5EB9610DB64B106F5 /* MOSLoadRegisterYOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC56C481CC2F05FED12268 /* MOSLoadRegisterYOperation.m */; };
 		5AAC52EB085A7B2D5D5FFF92 /* NESFileParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5DBEC2E7640930DB4B6A /* NESFileParserTests.m */; };
@@ -63,9 +66,11 @@
 		5AAC540462D8155EA04A2E5B /* MOSClearDecimalModeOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5EE8913E5CD87DE6BBB5 /* MOSClearDecimalModeOperation.m */; };
 		5AAC5422993538484DDD3F74 /* MOSBranchZeroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5A47315D5F43176DE500 /* MOSBranchZeroTests.m */; };
 		5AAC543573764D44D45F4F97 /* MOSLoadAccumulatorOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC53B6610C080B44E2E1AE /* MOSLoadAccumulatorOperation.m */; };
+		5AAC54469464D5F13C78FD85 /* MOSStoreRegisterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC50F91A2EDAB86FC39CF1 /* MOSStoreRegisterOperation.m */; };
 		5AAC54C2D717F89A8F8E3849 /* MOSReadWriteMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5E288BD6FD8A304DEBF0 /* MOSReadWriteMemory.m */; };
 		5AAC54C6D7475C6D0C0018BA /* NESNROMCartridgeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC587B2D6495151FCFBB93 /* NESNROMCartridgeTest.m */; };
 		5AAC55A292D26B484599252C /* MOSLoadRegisterYOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC56C481CC2F05FED12268 /* MOSLoadRegisterYOperation.m */; };
+		5AAC562F566B072A5D4D2060 /* MOSCompareYOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC51BAD3C41ACAF6448223 /* MOSCompareYOperation.m */; };
 		5AAC5642326B0FD14F50A1A5 /* NESTestFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC591EB4C60DA219B3F7EF /* NESTestFile.m */; };
 		5AAC56A4AB3F8BCE1D6B333A /* MOSTransferAccumulatorToYOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC59E3E260B7723F3BABD2 /* MOSTransferAccumulatorToYOperation.m */; };
 		5AAC57440C9A202FFF35877C /* MOSDecrementRegisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC52FEE450481F2ED65114 /* MOSDecrementRegisterTests.m */; };
@@ -86,6 +91,7 @@
 		5AAC5B2DE6E03D2479857A2B /* MOSSetInterruptDisableOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5A8E00F96401D3A5023C /* MOSSetInterruptDisableOperation.m */; };
 		5AAC5B363C747CEE1CB3D8AD /* NESFileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC55147A5FF325CCBE851F /* NESFileParser.m */; };
 		5AAC5BC3532C8391C6157E1F /* MOSBranchOnResultZeroOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5ADE88D0B565422B3CED /* MOSBranchOnResultZeroOperation.m */; };
+		5AAC5BED4EDBA83A00385EBC /* MOSCompareXOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5D01E5DEC948F3F6EC37 /* MOSCompareXOperation.m */; };
 		5AAC5CAE047DA5F42B17E7D3 /* MOSClearDecimalModeOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5EE8913E5CD87DE6BBB5 /* MOSClearDecimalModeOperation.m */; };
 		5AAC5F66CB3A4EEDE4199098 /* MOSBranchOnResultZeroOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5ADE88D0B565422B3CED /* MOSBranchOnResultZeroOperation.m */; };
 		5AAC5F9C8B7B4149D4356C78 /* MOSLoadRegisterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC5AB614CD5473D1B92170 /* MOSLoadRegisterOperation.m */; };
@@ -154,8 +160,11 @@
 		41FE82D51AA69EC500CA4BE4 /* MOSForceBreakOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSForceBreakOperation.m; sourceTree = "<group>"; };
 		5AAC50F5DEA40DFDFC4E3E6D /* MOSDecrementRegisterOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSDecrementRegisterOperation.m; sourceTree = "<group>"; };
 		5AAC50F603904533E685B96A /* NESFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NESFile.m; sourceTree = "<group>"; };
+		5AAC50F91A2EDAB86FC39CF1 /* MOSStoreRegisterOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSStoreRegisterOperation.m; sourceTree = "<group>"; };
 		5AAC50F9BAEF2560C8763100 /* NESFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NESFile.h; sourceTree = "<group>"; };
 		5AAC51A263226170F3BA3D1C /* NESAddressSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NESAddressSpace.m; sourceTree = "<group>"; };
+		5AAC51BAD3C41ACAF6448223 /* MOSCompareYOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSCompareYOperation.m; sourceTree = "<group>"; };
+		5AAC52113DB2E7435D71945F /* MOSStoreRegisterOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSStoreRegisterOperation.h; sourceTree = "<group>"; };
 		5AAC52FEE450481F2ED65114 /* MOSDecrementRegisterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSDecrementRegisterTests.m; sourceTree = "<group>"; };
 		5AAC537846216497E63BBC99 /* MOSStoreAccumulatorOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSStoreAccumulatorOperation.h; sourceTree = "<group>"; };
 		5AAC53AFB2EB5F3AAB3D50D4 /* NESNROMCartridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NESNROMCartridge.m; path = MOSSim/NES/NESNROMCartridge.m; sourceTree = SOURCE_ROOT; };
@@ -164,6 +173,7 @@
 		5AAC55147A5FF325CCBE851F /* NESFileParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NESFileParser.m; sourceTree = "<group>"; };
 		5AAC55FC8D7380D69B260400 /* MOSStoreRegisterXOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSStoreRegisterXOperation.m; sourceTree = "<group>"; };
 		5AAC56C481CC2F05FED12268 /* MOSLoadRegisterYOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSLoadRegisterYOperation.m; sourceTree = "<group>"; };
+		5AAC56CAD614EF1B43E291B8 /* MOSCompareYOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSCompareYOperation.h; sourceTree = "<group>"; };
 		5AAC56EBB4A837C3B66BD02D /* NESAddressSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NESAddressSpace.h; sourceTree = "<group>"; };
 		5AAC56F66A9D974BBC0907B4 /* MOSClearDecimalModeOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSClearDecimalModeOperation.h; sourceTree = "<group>"; };
 		5AAC57545815DDE81AC96914 /* MOSLoadAccumulatorOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSLoadAccumulatorOperation.h; sourceTree = "<group>"; };
@@ -186,6 +196,7 @@
 		5AAC5B51644CB3F2ECA0D712 /* MOSDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSDevice.h; sourceTree = "<group>"; };
 		5AAC5BF3BD51D05EF294EEE8 /* MOSLoadAccumulatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSLoadAccumulatorTests.m; sourceTree = "<group>"; };
 		5AAC5CE6B57D09EF3DEE15C1 /* MOSDecrementRegisterOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSDecrementRegisterOperation.h; sourceTree = "<group>"; };
+		5AAC5D01E5DEC948F3F6EC37 /* MOSCompareXOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSCompareXOperation.m; sourceTree = "<group>"; };
 		5AAC5D24C1FD55014E548FE5 /* MOSStoreXTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSStoreXTests.m; sourceTree = "<group>"; };
 		5AAC5DBEC2E7640930DB4B6A /* NESFileParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NESFileParserTests.m; sourceTree = "<group>"; };
 		5AAC5E288BD6FD8A304DEBF0 /* MOSReadWriteMemory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSReadWriteMemory.m; sourceTree = "<group>"; };
@@ -193,6 +204,7 @@
 		5AAC5E9B1BFBCA9C13591299 /* NESBasicProgramTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NESBasicProgramTest.m; sourceTree = "<group>"; };
 		5AAC5ECF5A8CEF5A79DEB1E9 /* MOSBranchOnResultZeroOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSBranchOnResultZeroOperation.h; sourceTree = "<group>"; };
 		5AAC5EE8913E5CD87DE6BBB5 /* MOSClearDecimalModeOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSClearDecimalModeOperation.m; sourceTree = "<group>"; };
+		5AAC5F963380600A961F39C9 /* MOSCompareXOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSCompareXOperation.h; sourceTree = "<group>"; };
 		5AAC5F96974C7C9BFA41C8B5 /* MOSStoreRegisterXOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSStoreRegisterXOperation.h; sourceTree = "<group>"; };
 		5AAC5FCC990589CCB09E1C9F /* NESNROMCartridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NESNROMCartridge.h; path = MOSSim/NES/NESNROMCartridge.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -260,6 +272,12 @@
 				5AAC5A24A6C8FB5CCBA2C49B /* MOSTransferAccumulatorToYOperation.h */,
 				5AAC5ECF5A8CEF5A79DEB1E9 /* MOSBranchOnResultZeroOperation.h */,
 				5AAC5ADE88D0B565422B3CED /* MOSBranchOnResultZeroOperation.m */,
+				5AAC5D01E5DEC948F3F6EC37 /* MOSCompareXOperation.m */,
+				5AAC5F963380600A961F39C9 /* MOSCompareXOperation.h */,
+				5AAC56CAD614EF1B43E291B8 /* MOSCompareYOperation.h */,
+				5AAC51BAD3C41ACAF6448223 /* MOSCompareYOperation.m */,
+				5AAC52113DB2E7435D71945F /* MOSStoreRegisterOperation.h */,
+				5AAC50F91A2EDAB86FC39CF1 /* MOSStoreRegisterOperation.m */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -495,6 +513,9 @@
 				5AAC5B2DE6E03D2479857A2B /* MOSSetInterruptDisableOperation.m in Sources */,
 				5AAC514A5979EF176C86DE1A /* MOSTransferAccumulatorToYOperation.m in Sources */,
 				5AAC5BC3532C8391C6157E1F /* MOSBranchOnResultZeroOperation.m in Sources */,
+				5AAC5BED4EDBA83A00385EBC /* MOSCompareXOperation.m in Sources */,
+				5AAC51E4AC1B1B79A0ABF63A /* MOSCompareYOperation.m in Sources */,
+				5AAC54469464D5F13C78FD85 /* MOSStoreRegisterOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +573,9 @@
 				5AAC56A4AB3F8BCE1D6B333A /* MOSTransferAccumulatorToYOperation.m in Sources */,
 				5AAC5422993538484DDD3F74 /* MOSBranchZeroTests.m in Sources */,
 				5AAC5F66CB3A4EEDE4199098 /* MOSBranchOnResultZeroOperation.m in Sources */,
+				5AAC5212223D300463179170 /* MOSCompareXOperation.m in Sources */,
+				5AAC562F566B072A5D4D2060 /* MOSCompareYOperation.m in Sources */,
+				5AAC516E8E31451678E1D803 /* MOSStoreRegisterOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

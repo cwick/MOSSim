@@ -44,6 +44,7 @@
 - (void)testCanRunProgram {
     MOSCPU *cpu = [MOSCPU new];
     cpu.dataBus = self.addressSpace;
+    // TODO: initialize program counter in NESEmulator class
     cpu.programCounter = MOSAbsoluteAddressMake([self.cartridge readWordFromAddress:0xFFFC], [self.cartridge readWordFromAddress:0xFFFD]);
 
     [cpu run];

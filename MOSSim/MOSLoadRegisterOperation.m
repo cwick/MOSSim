@@ -15,10 +15,17 @@
 }
 
 - (void)execute:(MOSCPU *)cpu {
-    MOSImmediateValue value = self.instruction.immediateValue;
+    MOSRegisterValue value;
+    if (self.instruction.addressingMode == MOSAddressingModeImmediate) {
+        value = self.instruction.immediateValue;
+    } else {
+        MOSAbsoluteAddress address = [self.instruction resolveAddress:cpu];
+        value = [cpu readWordFromAddress:address];
+    }
+
     [cpu.registerValues setValue:@(value) forKey:self.registerToLoad];
     cpu.statusRegister.zeroFlag = (value == 0);
-    cpu.statusRegister.negativeFlag = MOSTest7thBit(value);
+    cpu.statusRegister.negativeFlag = MOSTestHighBit(value);
 }
 
 @end

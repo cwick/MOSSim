@@ -122,8 +122,9 @@
 
         OPCODE(STXZeroPage, StoreRegisterX, ZeroPage);
 
-        OPCODE(CPXImmediate, Compare, Immediate);
-            
+        OPCODE(CPXImmediate, CompareX, Immediate);
+        OPCODE(CPYImmediate, CompareY, Immediate);
+
         OPCODE(JSR, JumpToSubroutine, Absolute);
 
         OPCODE(LDAImmediate, LoadAccumulator, Immediate);

@@ -8,7 +8,7 @@
 - (void)execute:(MOSCPU *)cpu {
     cpu.registerValues.y -= 1;
     cpu.statusRegister.zeroFlag = (cpu.registerValues.y == 0);
-    cpu.statusRegister.negativeFlag = MOSTest7thBit(cpu.registerValues.y);
+    cpu.statusRegister.negativeFlag = MOSTestHighBit(cpu.registerValues.y);
 }
 
 @end

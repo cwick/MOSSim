@@ -1,6 +1,5 @@
-#import "MOSOperation.h"
-#import "MOSTypes.h"
+#import "MOSStoreRegisterOperation.h"
 
-@interface MOSStoreRegisterXOperation : MOSOperation
+@interface MOSStoreRegisterXOperation : MOSStoreRegisterOperation
 
 @end

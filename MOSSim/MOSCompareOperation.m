@@ -5,11 +5,22 @@
 
 @implementation MOSCompareOperation
 
+- (id)initWithInstruction:(MOSInstruction *)instruction register:(NSString *)reg {
+    self = [super initWithInstruction:instruction];
+    if (self) {
+        _registerToCompare = reg;
+    }
+
+    return self;
+}
+
 - (void)execute:(MOSCPU *)cpu {
-    MOSImmediateValue value = self.instruction.immediateValue;
-    cpu.statusRegister.zeroFlag = (value == cpu.registerValues.x);
-    cpu.statusRegister.carryFlag = (cpu.registerValues.x >= value);
-    cpu.statusRegister.negativeFlag = MOSTest7thBit(cpu.registerValues.x - value);
+    MOSImmediateValue operand = self.instruction.immediateValue;
+    MOSRegisterValue registerValue = (MOSRegisterValue) [[cpu.registerValues valueForKey:self.registerToCompare] integerValue];
+
+    cpu.statusRegister.zeroFlag = (operand == registerValue);
+    cpu.statusRegister.carryFlag = (registerValue >= operand);
+    cpu.statusRegister.negativeFlag = MOSTestHighBit(registerValue - operand);
 }
 
 @end

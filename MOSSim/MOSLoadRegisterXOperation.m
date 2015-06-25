@@ -4,8 +4,7 @@
 @implementation MOSLoadRegisterXOperation
 
 - (instancetype)initWithInstruction:(MOSInstruction* )instruction {
-    self = [super initWithInstruction:instruction register:@"x"];
-    return self;
+    return self = [super initWithInstruction:instruction register:@"x"];
 }
 
 @end
