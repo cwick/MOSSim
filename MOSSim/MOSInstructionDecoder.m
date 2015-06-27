@@ -90,7 +90,7 @@
 
 - (void)decodeOPCode:(MOSOPCode)opcode intoInstruction:(MOSInstruction *)instruction {
     switch (opcode) {
-        // name, operationX, addressingMode
+        // name, operation, addressingMode
         OPCODE(CLC, ClearCarryFlag, Implied);
         OPCODE(SEC, SetCarryFlag, Implied);
         OPCODE(CLD, ClearDecimalMode, Implied);
@@ -105,10 +105,10 @@
         OPCODE(TXS, TransferXToStackPointer, Implied);
         OPCODE(TAY, TransferAccumulatorToY, Implied);
 
-        OPCODE(INCAbsolute, IncrementByOne, Absolute);
-        OPCODE(INCAbsoluteIndexed, IncrementByOne, AbsoluteIndexedX);
-        OPCODE(INCZeroPage, IncrementByOne, ZeroPage);
-        OPCODE(INCZeroPageIndexed, IncrementByOne, ZeroPageX);
+        OPCODE(INCAbsolute, IncrementMemoryByOne, Absolute);
+        OPCODE(INCAbsoluteIndexed, IncrementMemoryByOne, AbsoluteIndexedX);
+        OPCODE(INCZeroPage, IncrementMemoryByOne, ZeroPage);
+        OPCODE(INCZeroPageIndexed, IncrementMemoryByOne, ZeroPageX);
             
         OPCODE(ANDImmediate, AND, Immediate);
         OPCODE(ANDZeroPage, AND, ZeroPage);

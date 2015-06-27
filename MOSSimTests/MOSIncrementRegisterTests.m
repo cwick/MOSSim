@@ -17,8 +17,8 @@
 
 - (void)setUp {
     self.cpu = [MOSCPU new];
-    self.operationX = [[MOSIncrementRegisterXOperation alloc] initWithInstruction:nil];
-    self.operationY = [[MOSIncrementRegisterYOperation alloc] initWithInstruction:nil];
+    self.operationX = [MOSIncrementRegisterXOperation new];
+    self.operationY = [MOSIncrementRegisterYOperation new];
 }
 
 - (void)testIncrementX {

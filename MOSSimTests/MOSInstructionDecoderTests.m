@@ -102,7 +102,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeINCZeroPage);
-    XCTAssertEqual(instruction.operationName, @"IncrementByOne");
+    XCTAssertEqual(instruction.operationName, @"IncrementMemoryByOne");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
     XCTAssertEqual(instruction.pageOffset, 0xDE);
 }
@@ -113,7 +113,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeINCZeroPageIndexed);
-    XCTAssertEqual(instruction.operationName, @"IncrementByOne");
+    XCTAssertEqual(instruction.operationName, @"IncrementMemoryByOne");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPageX);
     XCTAssertEqual(instruction.pageOffset, 0x00);
 }
@@ -124,7 +124,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeINCAbsolute);
-    XCTAssertEqual(instruction.operationName, @"IncrementByOne");
+    XCTAssertEqual(instruction.operationName, @"IncrementMemoryByOne");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsolute);
     XCTAssertEqual(instruction.absoluteAddress, 0x5678);
 }
@@ -135,7 +135,7 @@
     
     MOSInstruction *instruction = [self.decoder decodeNextInstruction];
     XCTAssertEqual(instruction.opcode, MOSOPCodeINCAbsoluteIndexed);
-    XCTAssertEqual(instruction.operationName, @"IncrementByOne");
+    XCTAssertEqual(instruction.operationName, @"IncrementMemoryByOne");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsoluteIndexedX);
     XCTAssertEqual(instruction.absoluteAddress, 0xFFFF);
 }
