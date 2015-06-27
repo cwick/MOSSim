@@ -5,10 +5,24 @@
 
 @implementation MOSIncrementRegisterOperation
 
+
+- (id)initWithInstruction:(MOSInstruction *)instruction register:(NSString *)reg {
+    self = [super initWithInstruction:instruction];
+
+    if (self) {
+        self.registerToIncrement = reg;
+    }
+
+    return self;
+}
+
 - (void)execute:(MOSCPU *)cpu {
-    cpu.registerValues.x += 1;
-    cpu.statusRegister.zeroFlag = (cpu.registerValues.x == 0);
-    cpu.statusRegister.negativeFlag = MOSTestHighBit(cpu.registerValues.x);
+    MOSRegisterValue registerValue = (MOSRegisterValue) [[cpu.registerValues valueForKey:self.registerToIncrement] integerValue];
+    registerValue += 1;
+
+    [cpu.registerValues setValue:@(registerValue) forKey:self.registerToIncrement];
+    cpu.statusRegister.zeroFlag = (registerValue == 0);
+    cpu.statusRegister.negativeFlag = MOSTestHighBit(registerValue);
 }
 
 @end

@@ -7,7 +7,7 @@
 + (MOSOperation *)operationFromInstruction:(MOSInstruction *)instruction {
     Class klass = NSClassFromString([NSString stringWithFormat:@"MOS%@Operation", instruction.operationName]);
     if (!klass) {
-        [NSException raise:@"Unknown operation" format:@"%@", instruction.operationName];
+        [NSException raise:@"Unknown operationX" format:@"%@", instruction.operationName];
     }
     return [[klass alloc] initWithInstruction:instruction];
 }
