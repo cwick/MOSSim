@@ -105,10 +105,10 @@
         OPCODE(TXS, TransferXToStackPointer, Implied);
         OPCODE(TAY, TransferAccumulatorToY, Implied);
 
-        OPCODE(INCAbsolute, IncrementMemoryByOne, Absolute);
-        OPCODE(INCAbsoluteIndexed, IncrementMemoryByOne, AbsoluteIndexedX);
-        OPCODE(INCZeroPage, IncrementMemoryByOne, ZeroPage);
-        OPCODE(INCZeroPageIndexed, IncrementMemoryByOne, ZeroPageX);
+        OPCODE(INCAbsolute, IncrementMemory, Absolute);
+        OPCODE(INCAbsoluteIndexed, IncrementMemory, AbsoluteIndexedX);
+        OPCODE(INCZeroPage, IncrementMemory, ZeroPage);
+        OPCODE(INCZeroPageIndexed, IncrementMemory, ZeroPageX);
             
         OPCODE(ANDImmediate, AND, Immediate);
         OPCODE(ANDZeroPage, AND, ZeroPage);
