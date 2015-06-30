@@ -3,7 +3,7 @@
 #import "MOSCPU.h"
 #import "MOSLoadRegisterXOperation.h"
 #import "MOSLoadRegisterYOperation.h"
-#import "MOSInstructionDecoder.h"
+#import "MOSInstruction.h"
 
 @interface MOSLoadRegisterTests : XCTestCase
 

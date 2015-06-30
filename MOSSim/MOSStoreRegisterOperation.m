@@ -1,7 +1,6 @@
 #import "MOSStoreRegisterOperation.h"
 #import "MOSCPU.h"
-#import "MOSUtils.h"
-#import "MOSInstructionDecoder.h"
+#import "MOSInstruction.h"
 
 @implementation MOSStoreRegisterOperation
 

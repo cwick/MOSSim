@@ -1,3 +1,4 @@
+#import "MOSInstruction.h"
 #import <XCTest/XCTest.h>
 
 #import "MOSInstructionDecoder.h"
@@ -259,6 +260,17 @@
     XCTAssertEqual(instruction.operationName, @"LoadAccumulator");
     XCTAssertEqual(instruction.addressingMode, MOSAddressingModeZeroPage);
     XCTAssertEqual(instruction.pageOffset, 0x22);
+}
+
+- (void)testLDAAbsolute {
+    // [OPCODE, ADDRESS LOW, ADDRESS HIGH]
+    self.dataStream.data = @[@0xAD, @0x31, @0xA0];
+
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeLDAAbsolute);
+    XCTAssertEqual(instruction.operationName, @"LoadAccumulator");
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsolute);
+    XCTAssertEqual(instruction.absoluteAddress, 0xA031);
 }
 
 - (void)testLDAIndirectIndexed {

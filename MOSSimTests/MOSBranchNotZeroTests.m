@@ -1,7 +1,7 @@
 #import <XCTest/XCTest.h>
 #import "MOSBranchOnResultNotZeroOperation.h"
 #import "MOSCPU.h"
-#import "MOSInstructionDecoder.h"
+#import "MOSInstruction.h"
 
 @interface MOSBranchNotZeroTests : XCTestCase
 

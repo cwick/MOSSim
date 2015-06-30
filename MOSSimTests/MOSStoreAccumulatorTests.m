@@ -1,7 +1,7 @@
 #import <XCTest/XCTest.h>
 #import "MOSStoreAccumulatorOperation.h"
 #import "MOSCPU.h"
-#import "MOSInstructionDecoder.h"
+#import "MOSInstruction.h"
 
 @interface MOSStoreAccumulatorTests : XCTestCase
 

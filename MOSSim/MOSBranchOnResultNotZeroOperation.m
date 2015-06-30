@@ -1,6 +1,6 @@
 #import "MOSBranchOnResultNotZeroOperation.h"
 #import "MOSCPU.h"
-#import "MOSInstructionDecoder.h"
+#import "MOSInstruction.h"
 
 @implementation MOSBranchOnResultNotZeroOperation
 

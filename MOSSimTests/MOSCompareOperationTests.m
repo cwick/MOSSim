@@ -5,6 +5,7 @@
 #import "MOSInstructionDecoder.h"
 #import "MOSCompareYOperation.h"
 #import "MOSCompareXOperation.h"
+#import "MOSInstruction.h"
 
 @interface MOSCompareOperationTests : XCTestCase
 

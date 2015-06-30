@@ -2,7 +2,7 @@
 
 #import "MOSStoreRegisterXOperation.h"
 #import "MOSCPU.h"
-#import "MOSInstructionDecoder.h"
+#import "MOSInstruction.h"
 
 @interface MOSStoreXTests : XCTestCase
 

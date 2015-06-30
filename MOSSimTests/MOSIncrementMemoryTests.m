@@ -2,10 +2,8 @@
 
 #import "MOSCPU.h"
 #import "MOSIncrementRegisterOperation.h"
-#import "MOSIncrementRegisterXOperation.h"
-#import "MOSIncrementRegisterYOperation.h"
-#import "MOSInstructionDecoder.h"
 #import "MOSIncrementMemoryOperation.h"
+#import "MOSInstruction.h"
 
 @interface MOSIncrementMemoryTests : XCTestCase
 

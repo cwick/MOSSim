@@ -1,7 +1,6 @@
 #import "MOSCompareOperation.h"
 #import "MOSCPU.h"
-#import "MOSInstructionDecoder.h"
-#import "MOSUtils.h"
+#import "MOSInstruction.h"
 
 @implementation MOSCompareOperation
 

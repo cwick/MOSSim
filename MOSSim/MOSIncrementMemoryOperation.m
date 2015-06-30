@@ -2,6 +2,7 @@
 #import "MOSCPU.h"
 #import "MOSInstructionDecoder.h"
 #import "MOSUtils.h"
+#import "MOSInstruction.h"
 
 @implementation MOSIncrementMemoryOperation
 

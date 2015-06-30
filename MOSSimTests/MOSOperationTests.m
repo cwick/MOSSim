@@ -8,10 +8,10 @@
 #import "MOSReturnFromSubroutineOperation.h"
 #import "MOSJumpToSubroutineOperation.h"
 #import "MOSTransferXToStackPointerOperation.h"
-#import "MOSInstructionDecoder.h"
 #import "MOSSetInterruptDisableOperation.h"
 #import "MOSClearDecimalModeOperation.h"
 #import "MOSTransferAccumulatorToYOperation.h"
+#import "MOSInstruction.h"
 
 @interface MOSOperationTests : XCTestCase
 

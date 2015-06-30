@@ -1,8 +1,6 @@
 #import "MOSLoadRegisterOperation.h"
 #import "MOSCPU.h"
-#import "MOSTypes.h"
-#import "MOSInstructionDecoder.h"
-#import "MOSUtils.h"
+#import "MOSInstruction.h"
 
 @implementation MOSLoadRegisterOperation
 

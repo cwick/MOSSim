@@ -1,8 +1,7 @@
 #import <XCTest/XCTest.h>
 #import "MOSLoadAccumulatorOperation.h"
 #import "MOSCPU.h"
-#import "MOSOperation.h"
-#import "MOSInstructionDecoder.h"
+#import "MOSInstruction.h"
 
 @interface MOSLoadAccumulatorTests : XCTestCase
 
@@ -69,4 +68,13 @@
     XCTAssertEqual(self.cpu.statusRegister.negativeFlag, YES);
 }
 
+- (void)testLoadAbsolute {
+    MOSOperation *op = [self createOperationWithOperand:0x1234 addressingMode:MOSAddressingModeAbsolute];
+    [self.cpu writeWord:0x10 toAddress:0x1234];
+    [op execute:self.cpu];
+
+    XCTAssertEqual(self.cpu.registerValues.a, 0x10);
+    XCTAssertEqual(self.cpu.statusRegister.zeroFlag, NO);
+    XCTAssertEqual(self.cpu.statusRegister.negativeFlag, NO);
+}
 @end
