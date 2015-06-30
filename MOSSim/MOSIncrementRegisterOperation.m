@@ -18,11 +18,10 @@
 
 - (void)execute:(MOSCPU *)cpu {
     MOSRegisterValue registerValue = (MOSRegisterValue) [[cpu.registerValues valueForKey:self.registerToIncrement] integerValue];
-    registerValue += 1;
+    MOSRegisterValue incrementedRegisterValue = (registerValue + (MOSRegisterValue)1);
 
-    [cpu.registerValues setValue:@(registerValue) forKey:self.registerToIncrement];
-    cpu.statusRegister.zeroFlag = (registerValue == 0);
-    cpu.statusRegister.negativeFlag = MOSTestHighBit(registerValue);
+    [cpu.registerValues setValue:@(incrementedRegisterValue) forKey:self.registerToIncrement];
+    [cpu.statusRegister setZeroAndNegativeFlagsFromValue:incrementedRegisterValue];
 }
 
 @end

@@ -24,8 +24,7 @@
     }
 
     [cpu.registerValues setValue:@(value) forKey:self.registerToLoad];
-    cpu.statusRegister.zeroFlag = (value == 0);
-    cpu.statusRegister.negativeFlag = MOSTestHighBit(value);
+    [cpu.statusRegister setZeroAndNegativeFlagsFromValue:value];
 }
 
 @end

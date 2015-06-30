@@ -17,10 +17,10 @@
 - (void)execute:(MOSCPU *)cpu {
     MOSImmediateValue operand = self.instruction.immediateValue;
     MOSRegisterValue registerValue = (MOSRegisterValue) [[cpu.registerValues valueForKey:self.registerToCompare] integerValue];
+    MOSWord difference = registerValue - operand;
 
-    cpu.statusRegister.zeroFlag = (operand == registerValue);
+    [cpu.statusRegister setZeroAndNegativeFlagsFromValue:difference];
     cpu.statusRegister.carryFlag = (registerValue >= operand);
-    cpu.statusRegister.negativeFlag = MOSTestHighBit(registerValue - operand);
 }
 
 @end

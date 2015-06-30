@@ -9,10 +9,9 @@
     MOSAbsoluteAddress address = [self.instruction resolveAddress:cpu];
     MOSWord value = [cpu readWordFromAddress:address];
     MOSWord incrementedValue = (MOSWord) (value + 1);
-    [cpu writeWord:incrementedValue toAddress:address];
 
-    cpu.statusRegister.zeroFlag = (incrementedValue == 0);
-    cpu.statusRegister.negativeFlag = MOSTestHighBit(incrementedValue);
+    [cpu writeWord:incrementedValue toAddress:address];
+    [cpu.statusRegister setZeroAndNegativeFlagsFromValue:incrementedValue];
 }
 
 @end
