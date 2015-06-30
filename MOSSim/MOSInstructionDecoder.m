@@ -66,6 +66,7 @@
         OPCODE(ANDAbsolute, AND, Absolute);
             
         OPCODE(LDXImmediate, LoadRegisterX, Immediate);
+        OPCODE(LDXAbsolute, LoadRegisterX, Absolute);
         OPCODE(LDYImmediate, LoadRegisterY, Immediate);
         OPCODE(INX, IncrementRegisterX, Implied);
         OPCODE(INY, IncrementRegisterY, Implied);

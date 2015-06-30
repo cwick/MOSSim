@@ -196,6 +196,17 @@
     XCTAssertEqual(instruction.immediateValue, 0x12);
 }
 
+- (void)testLDXAbsolute {
+    // [OPCODE, LOW ADDRESS, HIGH ADDRESS]
+    self.dataStream.data = @[@0xAE, @0xBA, @0xAB];
+
+    MOSInstruction *instruction = [self.decoder decodeNextInstruction];
+    XCTAssertEqual(instruction.opcode, MOSOPCodeLDXAbsolute);
+    XCTAssertEqual(instruction.operationName, @"LoadRegisterX");
+    XCTAssertEqual(instruction.addressingMode, MOSAddressingModeAbsolute);
+    XCTAssertEqual(instruction.absoluteAddress, 0xABBA);
+}
+
 - (void)testLDYImmediate {
     // [OPCODE, OPERAND]
     self.dataStream.data = @[@0xA0, @0x12];

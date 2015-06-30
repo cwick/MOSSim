@@ -57,6 +57,7 @@ typedef NS_ENUM(NSInteger, MOSOPCode) {
     MOSOPCodeANDAbsolute = 0x2D,
     
     MOSOPCodeLDXImmediate = 0xA2,
+    MOSOPCodeLDXAbsolute = 0xAE,
     MOSOPCodeLDYImmediate = 0xA0,
 
     MOSOPCodeSTXZeroPage = 0x86,
